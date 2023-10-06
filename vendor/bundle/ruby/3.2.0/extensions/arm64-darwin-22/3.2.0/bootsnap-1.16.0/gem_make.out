@@ -1,0 +1,18 @@
+current directory: /Users/koki/git/Software_Engineering/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+/Users/koki/.rbenv/versions/3.2.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/koki/git/Software_Engineering/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20231006-1871-wmrvzp sitelibdir\=./.gem.20231006-1871-wmrvzp clean
+
+current directory: /Users/koki/git/Software_Engineering/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20231006-1871-wmrvzp sitelibdir\=./.gem.20231006-1871-wmrvzp
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/koki/git/Software_Engineering/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20231006-1871-wmrvzp sitelibdir\=./.gem.20231006-1871-wmrvzp install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20231006-1871-wmrvzp/bootsnap
+
+current directory: /Users/koki/git/Software_Engineering/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20231006-1871-wmrvzp sitelibdir\=./.gem.20231006-1871-wmrvzp clean
