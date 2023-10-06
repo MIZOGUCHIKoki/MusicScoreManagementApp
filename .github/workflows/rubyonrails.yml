@@ -9,7 +9,8 @@ on:
   push:
     branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]
+    types: opened
+  workflow_dispatch:
 jobs:
   test:
     runs-on: ubuntu-latest
