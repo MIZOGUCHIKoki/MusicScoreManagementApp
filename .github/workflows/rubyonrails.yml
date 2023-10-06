@@ -17,11 +17,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      # Add or replace dependency steps here
-      - name: Install Ruby and gems
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
         with:
-          bundler-cache: true
+          ruby-version: 3.2.2
+      - name: Install dependencies
+        run: |
+          bundle install --jobs 4
+          bundle lock --add-platform x86_64-linux
       # Add or replace test runners here
       - name: Run tests
         run: bin/rails test
@@ -31,9 +34,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Install Ruby and gems
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
         with:
-          bundler-cache: true
+          ruby-version: 3.2.2
+      - name: Install dependencies
+        run: |
+          bundle install --jobs 4
+          bundle lock --add-platform x86_64-linux
       - name: run Rubocop
         run: bin/bundle exec rubocop
