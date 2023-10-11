@@ -25,6 +25,10 @@ else
     exit 1
 fi
 
+echo '+ Install and Apply ruby 3.2.2'
+rbenv install 3.2.2
+rbenv local 3.2.2
+
 echo '+ bundle install'
 bundle install --path vendor/bundle
 if command -v bundle exec rails s &> /dev/null; then
