@@ -16,7 +16,7 @@ echo '+ Pass the path'
 echo "# For rbenv" >> ~/.bash_profile
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
 echo 'eval "$(~/.rbenv/bin/rbenv init -)"' >> ~/.bash_profile
-# source ~/.bashrc
+source ~/.bashrc
 
 if command -v which rbenv &> /dev/null; then
     echo '-> Installing has been success!'
