@@ -6,7 +6,7 @@ sudo apt-get update
 
 echo '+ Install packages needed'
 sudo apt install -y libssl-dev libreadline-dev zlib1g-dev libyaml-dev
-sudo apt install -y gcc g++ make
+sudo apt install -y gcc g++ make ruby-bundler
 
 echo '+ Install `rbenv`'
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
