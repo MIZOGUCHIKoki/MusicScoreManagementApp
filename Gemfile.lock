@@ -288,7 +288,7 @@ DEPENDENCIES
   jbuilder
   puma (~> 6.4)
   rails (= 7.1.1)
-  rubocop (= 1.56.4)
+  rubocop (= 1.57.0)
   rubocop-performance (= 1.19.1)
   rubocop-rails (= 2.21.2)
   rubocop-rspec (= 2.24.1)
