@@ -34,3 +34,10 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 vendor/*
+
+# Ignore some files for tex
+*.gz
+*.pdf
+
+# Ignore node_module
+node_modules/
