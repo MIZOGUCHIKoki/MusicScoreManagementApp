@@ -41,3 +41,7 @@ vendor/*
 
 # Ignore node_module
 node_modules/
+
+
+#ここから三上編集
+*.tmp
