@@ -1,4 +1,4 @@
-\LoadClass[twoside]{ltjsreport}
+\LoadClass[twoside,12pt]{ltjsreport}
 \ProvidesClass{systemProposal}[2023.06.23 K.MIZOGUCHI]
 \usepackage{silence}
 \WarningFilter{caption}{Unknown document}
@@ -9,25 +9,29 @@
 \usepackage{lastpage}
 \usepackage{xcolor}
 \usepackage{graphicx}
+\usepackage{tabularx}
 \hypersetup{
     colorlinks=true,
     citecolor=black,
     linkcolor=black,
     urlcolor=black
 }
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedright\arraybackslash}X}
+\newcolumntype{L}{>{\raggedleft\arraybackslash}X}
+\renewcommand{\chaptermark}[1]{\markboth{\prechaptername\ \thechapter\ \postchaptername\ \ #1}{}}
 \fancypagestyle{body}{
     \fancyhf{}
-    \fancyhead[RE]{\leftmark\hspace{.5cm}\raisebox{-1mm}{\color{gray}\rule{.5mm}{6mm}}\hspace{.5cm}\thepage\hspace{.5cm}}
-    \fancyhead[LO]{\hspace{.5cm}\thepage\hspace{.5cm}\raisebox{-1mm}{\color{gray}\rule{.5mm}{6mm}}\hspace{.5cm}\leftmark}
-    \pagenumbering{arabic}
+    \fancyhead[RO]{\leftmark\hspace{.5cm}\raisebox{-1mm}{\color{gray}\rule{.5mm}{6mm}}\hspace{.5cm}\thepage\hspace{.5cm}}
+    \fancyhead[LE]{\hspace{.5cm}\thepage\hspace{.5cm}\raisebox{-1mm}{\color{gray}\rule{.5mm}{6mm}}\hspace{.5cm}\leftmark}
+    \fancyfoot[C]{システム提案書}
+    \renewcommand{\thepage}{\arabic{page}}
 }
 
 \fancypagestyle{mytoc}{
     \fancyhf{}
-    \fancyhead[RE]{目次\hspace{.5cm}\raisebox{-1mm}{\color{gray}\rule{.5mm}{6mm}}\hspace{.5cm}\thepage\hspace{.5cm}}
-    \fancyhead[LO]{\hspace{.5cm}\thepage\hspace{.5cm}\raisebox{-1mm}{\color{gray}\rule{.5mm}{6mm}}\hspace{.5cm}目次}
-    \pagenumbering{roman}
+    \fancyhead[RO]{目次}
+    \fancyhead[LE]{目次}
 }
 
 \renewcommand{\figurename}{図}
@@ -41,10 +45,14 @@
 \newcommand{\figref}[1]{図\ref{#1}}
 \newcommand{\tblref}[1]{表\ref{#1}}
 \newcommand{\srcref}[1]{src.\ref{#1}}
+\newcommand{\charef}[1]{\prechaptername\ref{#1}\postchaptername}
+\newcommand{\secref}[1]{\ref{#1}節}
 
-\renewcommand{\prechaptername}{}
-\renewcommand{\postchaptername}{}
-\renewcommand{\thechapter}{}
+\renewcommand{\prechaptername}{第}
+\renewcommand{\postchaptername}{項}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\newcommand{\secs}[1]{\section*{#1}
+    \addcontentsline{toc}{section}{#1}}
 
 \makeatletter
 \@addtoreset{figure}{chapter}
@@ -73,6 +81,8 @@
         \vspace{1cm}
         {\Large \@date}
         \vfill
+        {\large 第\@version 版}
+        \vspace{1cm}
     \end{center}
     \renewcommand{\footnoterule}{%
         \kern -3pt
@@ -89,6 +99,6 @@
     \end{titlepage}
     \thispagestyle{mytoc}
     \tableofcontents
+    \setcounter{page}{0}
     \pagestyle{body}
-    \setcounter{page}{1}
 }
