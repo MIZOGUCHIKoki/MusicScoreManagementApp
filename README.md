@@ -14,3 +14,11 @@ When dependabot updates some packages and @MIZOGUCHIKoki merges to `develop` bra
 ```Bash
 $ bundle install
 ```
+
+# System Proposal
+You can make the PDF of system proposal to run following commands
+```Bash
+$ cd docs/systemProposal
+$ lualatex main.tex
+$ lualatex main.tex
+```
