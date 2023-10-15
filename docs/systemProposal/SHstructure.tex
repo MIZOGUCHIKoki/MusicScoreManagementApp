@@ -1,0 +1,55 @@
+\chapter{ハードウェア構成・ソフトウェア構成}
+\section{ハードウェア構成}
+ハードウェア構成を\tblref{tbl:ハードウェア構成}に示す．
+\begin{table}[p]
+    \caption{ハードウェア構成}
+    \label{tbl:ハードウェア構成}
+    \begin{tabularx}{\textwidth}{lRr}
+        \hline
+        \multicolumn{1}{c}{\bfseries 項目} & \multicolumn{1}{c}{\bfseries 種類} & \multicolumn{1}{c}{\bfseries 数量} \\
+        \hline
+        メインサーバ                           & レンタルサーバ（Render）                  & 1                                \\
+        \multirow{2}{*}{DBサーバ}           & メインサーバ上でsqlite3を利用した場合           & 0                                \\
+                                         & PostgreSQLを利用した場合                & 1                                \\
+        バックアップ用DBサーバ                     & 物理サーバ（mac mini 2018 macOS 14）    & 1                                \\
+        管理者端末                            & {{ブラウザが使える端末}}                   & 1                                \\
+        利用者端末                            & {{ブラウザが使える端末}}                   & 1                                \\
+        \hline
+    \end{tabularx}
+\end{table}
+レンタルサーバはRender（\url{https://render.com/}）を採用する．
+選択した内容と金額を\tblref{tbl:レンタルサーバ}に示す．円換算は\(1\text{USD}=150\text{JPY}\)とする．
+\begin{table}[p]
+    \centering
+    \caption{レンタルサーバの契約内容（案）}
+    \label{tbl:レンタルサーバ}
+    \begin{tabularx}{\textwidth}{RRrr}
+        \hline
+        \multicolumn{1}{c}{\bfseries 内容} & \multicolumn{1}{c}{\bfseries 詳細} & \multicolumn{1}{c}{\bfseries 表示金額（月額）} & \multicolumn{1}{c}{\bfseries 円換算（月額）} \\
+        \hline
+        プラン価格                            & チーム                              & 19USD                                  & 2,850JPY                              \\
+        Web Services                     & starter                          & 7USD                                   & 1,050JPY                              \\
+        PostgrSQL                        & starter                          & 7USD                                   & 1,050JPY                              \\
+        Cron Jobs                        & starter                          & \multicolumn{1}{c}{--}                 & 1,050JPY                              \\
+        \hline
+    \end{tabularx}
+\end{table}
+\section{ソフトウェア構成}
+ソフトウェア構成を\tblref{tbl:ソフトウェア構成}に示す．
+\begin{table}[p]
+    \caption{ソフトウェア構成}
+    \label{tbl:ソフトウェア構成}
+    \begin{tabularx}{\textwidth}{RR}
+        \hline
+        \multicolumn{1}{c}{\bfseries 項目} & \multicolumn{1}{c}{\bfseries ソフトウェア} \\
+        \hline
+        フレームワーク                          & Ruby on Rails                        \\
+        DBMS                             & SQLite3またはPostgreSQL                 \\
+        管理者端末                            & ブラウザ                                 \\
+        利用者端末                            & ブラウザ                                 \\
+        \hline
+    \end{tabularx}
+\end{table}
+データベースの複雑な設定を省くために，SQLiteを選択した．
+同時接続が多くなると想定される場合にはPostgreSQLへ変更する．
+以降，費用設定などの記述はPostgreSQLを利用した際の記述になる．
