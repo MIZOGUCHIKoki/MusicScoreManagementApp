@@ -40,8 +40,9 @@ vendor/*
 *.pdf
 !/docs/network_iconset/*.pdf
 
-# Ignore node_module
+# NodeJS node_module
 node_modules/
 
 # System file
 *.DS_Store
+*.tmp
