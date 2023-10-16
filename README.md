@@ -9,16 +9,17 @@ $ bash env.sh
 You should type down your password🔑 when you are asked.
 
 # Recommendation
-There is bot called @dependabot, which check update of bundler.
-When dependabot updates some packages and @MIZOGUCHIKoki merges to `develop` branch, you should execute following command in this repository.
+There is bot called [@dependabot](https://github.com/apps/dependabot), which check update of bundler.
+When dependabot updates some packages and [@MIZOGUCHIKoki](https://github.com/MIZOGUCHIKoki) merges to `develop` branch, you should execute following command in this repository.
 ```Bash
 $ bundle install
 ```
 
 # System Proposal
-You can make the PDF of system proposal to run following commands
+You can make the PDF of system proposal to run following commands.
 ```Bash
 $ cd docs/systemProposal
 $ lualatex main.tex
 $ lualatex main.tex
 ```
+⚠️: DON'T commit and push anything expect `*.tex`, `*.sty`, `*.cls`
