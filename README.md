@@ -11,24 +11,24 @@ Our documents are [hear](https://www.notion.so/kut-se-group4/dir-en-gray-789a9c3
 - [山田 滉希: YAMADA Koki](https://github.com/1250382KoukiYamada)
 - [山本 祥弘: YAMAMOTO Yoshihiro](https://github.com/1250385-Yamamoto)
 
-# Settings
+# ⚙️Settings
 You can install with only follwing command when you have ruby which version is `3.2.2` and your environment is Linux.
 ```Bash
 $ bash env.sh
 ```
 You should type down your password🔑 when you are asked.
 
-## Recommendation
+## 💡Recommendation
 There is bot called [@dependabot](https://github.com/apps/dependabot), which check update of bundler.
 When dependabot updates some packages and [@MIZOGUCHIKoki](https://github.com/MIZOGUCHIKoki) merges to `develop` branch, you should execute following command in this repository.
 ```Bash
 $ bundle install
 ```
 
-# System Proposal
+# 📃System proposal
+Syste proposal is in `docs/systemProposal`.
 You can make the PDF of system proposal to run following commands.
 ```Bash
-$ cd docs/systemProposal
 $ lualatex main.tex
 $ lualatex main.tex
 ```
