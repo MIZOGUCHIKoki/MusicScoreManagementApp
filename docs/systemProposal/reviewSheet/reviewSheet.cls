@@ -32,9 +32,9 @@
     \vspace{1cm}
     \begin{tabularx}{\textwidth}{|lL|lr|lr|lr|}
         \hline
-        レビュ実施日時 & \@dateTime & 実施場所      & \@room                        & チーム名 & \@groupName & 記入者 & \@author \\
+        \textbf{レビュ実施日時} & \@dateTime & \textbf{実施場所}      & \@room                        & \textbf{チーム名} & \@groupName & \textbf{記入者} & \@author \\
         \hline
-        レビュ対象物  & \@object   & 参加者（学籍番号） & \multicolumn{5}{r|}{\@member}                                       \\
+        \textbf{レビュ対象物}  & \@object   & \textbf{参加者（学籍番号）} & \multicolumn{5}{r|}{\@member}                                                         \\
         \hline
     \end{tabularx}
 }
