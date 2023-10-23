@@ -1,25 +1,26 @@
 \chapter{費用対効果}
 \section{効果}
-\begin{itemize}
-    \item 楽譜管理が効率化され，楽譜の検索や選曲が容易になる．
-    \item 楽譜の再購入を防止し，無駄な出費を抑制する．
-\end{itemize}
+楽譜管理の効率化により，楽譜の検索や選曲が容易になる．
+また楽譜の再購入を防止し，無駄な出費を抑制できる．
+これは音楽家や愛好者にとって便益のある機能であり，楽譜の整理やアクセスの向上を通じて，曲の選定をスムーズにする．
+その結果として音楽の制作や演奏に貴重な時間とリソースを節約できる．
 \section{収益}
 \secref{sec:金銭の流れ}に記載したとおり，本サービスの収益化は，広告収入により行う．
-広告は，すべてのページに共通で2つの広告を貼付する．
+広告は，すべてのページに共通で3つの広告を貼付する．
 また，Google AdSenseなどのサービスを用いて広告を貼るのではなく，
 スコアを発行する会社や，楽器を販売する会社に直接広告を依頼する．\par
 本サービスは，楽団関係者が参照するものであり，閲覧者のほとんどは音楽関係者である．
 さらに，このサービスは定期的に確認することを想定しているので広告依頼に対して認可されると考えた．
-広告は1枚あたり\(60,000\text{円/月}\)とし，広告2枚を年単位での契約とする．\eqref{eq:広告収益}に広告2枚の契約で発生する金額を示す．
+広告は1枚あたり\(60,000\text{円/月}\)とし，広告3枚を年単位での契約とする．
+\eqref{eq:広告収益}に広告3枚の契約で発生する金額を示す．
 \begin{equation}
     \begin{aligned}
-        120,000\text{円/月}\times 12\text{月} & = 1,440,000\text{円/年}\label{eq:広告収益}
+        180,000\text{円/月}\times 12\text{月} & = 2,160,000\text{円/年}\label{eq:広告収益}
     \end{aligned}
 \end{equation}
 \section{費用}
 \subsection{人件費の計算}
-一般社会人の時給を平均年収から計算する．
+一般社会人の時給を平均年収（\url{https://doda.jp/guide/heikin/age/}）から計算する．
 \begin{framed}
     \begin{tabular}{ll}
         日本人の平均年収 & \(4,000,000\text{円/年}\)                                    \\
@@ -29,7 +30,7 @@
 \end{framed}
 \begin{equation}
     \begin{aligned}
-        \frac{(365\text{日/年}-130\text{休日/年})\times 10\text{時間/日}}{4,000,000\text{円/年}} & = 1,700\text{円/時}\label{eq:時給}
+        \frac{(365\text{日/年}-130\text{休日/年})\times 10\text{時間/日}}{4,000,000\text{円/年}} & \approx 1,700\text{円/時}\label{eq:時給}
     \end{aligned}
 \end{equation}
 \subsection{初期費用}
@@ -59,18 +60,18 @@
 合計の運用費用は，1年で以下のようになる．
 \begin{equation}
     \begin{aligned}
-        110,000\text{円/年}+117,020\text{円/年}+408,000\text{円/年} & =635,020\text{円/年}\label{eq:運用費用}
+        100,000\text{円/年}+117,020\text{円/年}+408,000\text{円/年} & =625,020\text{円/年}\label{eq:運用費用}
     \end{aligned}
 \end{equation}
 \section{利益}
 \vspace{-1cm}
 \begin{align}
     \intertext{1年目は，開発費用と運用コストを収益から引いて利益とする．}
-    \underset{収益：\eqref{eq:広告収益}}{\underline{1,440,000}} -\underset{開発費用：\eqref{eq:開発費用}}{\underline{2,142,200}}-\underset{運用費用：\eqref{eq:運用費用}}{\underline{635,020}} & = \textcolor{red}{-1,337,220\text{円/年}}\label{eq:利益1} \\
+    \underset{収益：\eqref{eq:広告収益}}{\underline{2,160,000}} -\underset{開発費用：\eqref{eq:開発費用}}{\underline{2,142,200}}-\underset{運用費用：\eqref{eq:運用費用}}{\underline{625,020}} & = \textcolor{red}{-1,327,220\text{円/年}}\label{eq:利益1} \\
     \intertext{2年目以降は，運用コストを収益から引いて利益とする．}
-    \underset{収益：\eqref{eq:広告収益}}{\underline{1,440,000}}-\underset{運用費用：\eqref{eq:運用費用}}{\underline{635,020}}                                                         & =804,980\text{円/年}\label{eq:収益2}
+    \underset{収益：\eqref{eq:広告収益}}{\underline{2,160,000}}-\underset{運用費用：\eqref{eq:運用費用}}{\underline{635,020}}                                                         & =1,534,980\text{円/年}\label{eq:収益2}
 \end{align}
 5年間の運用を予定すると，5年後の利益は以下のようになる．
 \begin{align}
-    \underset{1年目の利益：\eqref{eq:利益1}}{\underline{-1,337,220}} + \underset{2から4年目の利益：\eqref{eq:収益2}}{\underline{(804,980\times 4)}} = 1,882,700\text{円}
+    \underset{1年目の利益：\eqref{eq:利益1}}{\underline{-607,220}} + \underset{2から4年目の利益：\eqref{eq:収益2}}{\underline{(1,534,980\times 4)}} = 5,532,700\text{円}
 \end{align}
