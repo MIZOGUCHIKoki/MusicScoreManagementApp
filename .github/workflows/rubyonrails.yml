@@ -9,7 +9,6 @@ on:
   push:
     branches:
       - develop
-      - master
   pull_request_target:
     types: opened
     paths:
