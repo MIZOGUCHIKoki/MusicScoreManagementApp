@@ -35,10 +35,6 @@
 /config/master.key
 vendor/*
 
-# Ignore some files for tex
-*.pdf
-!/docs/network_iconset/*.pdf
-
 # NodeJS node_module
 node_modules/
 
@@ -350,3 +346,5 @@ TSWLatexianTemp*
 #*Notes.bib
 
 indent.log
+
+main.pdf
