@@ -20,32 +20,32 @@
     \caption{データベース名：User}
     \begin{tabularx}{\textwidth}{llcR}
         \hline
-        DataName  & DataType    & NOT NULL & Notes                     \\
+        DataName      & DataType    & NOT NULL & Notes                     \\
         \hline
-        email     & text        & O        & \texttt{user@example.com} \\
-        name      & text        & O        & XX学校吹奏楽部                  \\
-        password  & text        & O        & 6文字以上20文字以下の英数字           \\
-        login     & date        &          &                           \\
-        timestamp & created\_at & O        & 作成日時（Rails）               \\
-        timestamp & updated\_at & O        & 更新日時（Rails）               \\
+        email         & text        & O        & \texttt{user@example.com} \\
+        name          & text        & O        & XX学校吹奏楽部                  \\
+        password      & text        & O        & 6文字以上20文字以下の英数字           \\
+        login         & date        &          &                           \\
+        {{timestamp}} & created\_at & O        & 作成日時（Rails）               \\
+        {{timestamp}} & updated\_at & O        & 更新日時（Rails）               \\
         \hline
     \end{tabularx}\\
     \vfill
     \caption{データベース名：Socre}
     \begin{tabularx}{\textwidth}{llcR}
         \hline
-        DataName  & DataType    & NOT NULL & Notes       \\
+        DataName      & DataType    & NOT NULL & Notes       \\
         \hline
-        socre\_id & int         & O        & スコアID       \\
-        email     & references  & O        & userの主キーを参照 \\
-        name      & text        & O        & 楽曲名         \\
-        composer  & text        &          & 作曲者名        \\
-        arranger  & text        &          & 編曲者名        \\
-        grade     & text        &          & 難易度         \\
-        time\_m   & int         &          & 演奏時間（分）     \\
-        time\_s   & int         &          & 演奏時間（秒）     \\
-        timestamp & created\_at & O        & 作成日時（Rails） \\
-        timestamp & updated\_at & O        & 更新日時（Rails） \\
+        socre\_id     & int         & O        & スコアID       \\
+        email         & references  & O        & userの主キーを参照 \\
+        name          & text        & O        & 楽曲名         \\
+        {{composer}}  & text        &          & 作曲者名        \\
+        arranger      & text        &          & 編曲者名        \\
+        grade         & text        &          & 難易度         \\
+        time\_m       & int         &          & 演奏時間（分）     \\
+        time\_s       & int         &          & 演奏時間（秒）     \\
+        {{timestamp}} & created\_at & O        & 作成日時（Rails） \\
+        {{timestamp}} & updated\_at & O        & 更新日時（Rails） \\
         \hline
     \end{tabularx}
     \label{tableDesgin1}
@@ -80,8 +80,8 @@
         timpani                & int         &          &              \\
         drums                  & int         &          &              \\
         percussion             & int         &          &              \\
-        timestamp              & created\_at & O        & 作成日時（Rails）  \\
-        timestamp              & updated\_at & O        & 更新日時（Rails）  \\
+        {{timestamp}}          & created\_at & O        & 作成日時（Rails）  \\
+        {{timestamp}}          & updated\_at & O        & 更新日時（Rails）  \\
         \hline
     \end{tabularx}
     \label{tableDesgin2}
