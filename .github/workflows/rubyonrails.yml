@@ -16,6 +16,8 @@ on:
       - '!README.md'
   workflow_dispatch:
   push:
+    branches:
+      - 'develop'
 jobs:
   test:
     runs-on: ubuntu-latest
