@@ -2,13 +2,12 @@
 \section*{データベース設計}
 本システムで用いるDBのER図（p.\pageref{fig:ER図}），テーブル構成図（p.\pageref{tableDesgin1}，p.\pageref{tableDesgin2}）は記載のとおりである．
 \section*{ネットワーク設計}
-\begin{framed}
-    \vspace{1cm}
-    \begin{center}
-        ネットワーク設計について
-    \end{center}
-    \vspace{1cm}
-\end{framed}
+\figref{fig:ネットワーク設計}は本サービスのネットワーク構成を示す．AWSを用いてネットワークを設計する．構成としてWebサーバ，DB（楽譜，ユーザ）を使用する．
+\begin{figure}[b]
+    \centering
+    \includegraphics[keepaspectratio,width=\textwidth]{db-nwDesign/networkDesign.pdf}
+    \caption{ネットワーク設計}\label{fig:ネットワーク設計}
+\end{figure}
 \begin{figure}[p]
     \centering
     \includegraphics[keepaspectratio,height=.9\textheight]{db-nwDesign/er.pdf}
