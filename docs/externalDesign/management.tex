@@ -8,7 +8,7 @@
 \end{itemize}
 ソースコードの管理はGitHubで行う．CIツールとしてGitHub Actionsを用い，各ブランチへのプッシュの際に，\texttt{rails test}を実行する．
 また，ソースコードの可読性を向上させるため，同時に\texttt{rubocop}を実行し，Rubyコードの表記が統一されていない場合は，CIをFailedとする．\par
-アプリバージョンはGitTagで管理し，Tagが発行された場合に，対象コミットを本番環境へデプロイするCDも，GitHub Actionsが担う．
+アプリケーションバージョンはGitTagで管理し，Tagが発行された場合に，対象コミットを本番環境へデプロイするCDも，GitHub Actionsが担う．
 開発ブランチを\texttt{develop}と定め，デフォルトブランチをこれにする．
 \section{保守}
 保守の項目として以下のものが考えられる．
