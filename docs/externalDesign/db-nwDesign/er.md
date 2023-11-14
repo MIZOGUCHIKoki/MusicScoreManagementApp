@@ -2,6 +2,11 @@
 erDiagram
 	User ||--o{ Score : "1つのユーザは0以上のスコアを持つ"
 	Instrument ||--|| Score : "1つの楽曲につき1つの楽器データが対応する"
+
+	AdminInfo {
+		text email "管理者のメールアドレスを保持する"
+	}
+
 	User {
 		text email PK "メールアドレス"
 		text name "組織名など"
@@ -31,6 +36,7 @@ Instrument {
 	int c_flute
 	int oboe
 	int english_horn
+	int e_clarinet
 	int b_clarinet
 	int b_bass_clarinet
 	int bassoon
@@ -41,7 +47,6 @@ Instrument {
 	int f_horn
 	int trombone
 	int baritone
-	int baritone_treble_clef
 	int tuba
 	int string_bass
 	int piano
@@ -50,6 +55,6 @@ Instrument {
 	int drums
 	int percussion
 	timestamp created_at "作成日時"
-  timestamp updated_at "更新日時"
+  	timestamp updated_at "更新日時"
 }
 ```

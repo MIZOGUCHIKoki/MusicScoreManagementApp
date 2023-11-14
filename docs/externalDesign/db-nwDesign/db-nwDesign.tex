@@ -1,16 +1,17 @@
 \chapter{データベース/ネットワーク設計}
 \section*{データベース設計}
-本システムで用いるDBのER図（p.\pageref{fig:ER図}），テーブル構成図（p.\pageref{tableDesgin1}，p.\pageref{tableDesgin2}）は記載のとおりである．
+本システムで用いるデータベースのER図（p.\pageref{fig:ER図}），テーブル構成図（p.\pageref{tableDesgin1}，p.\pageref{tableDesgin2}）は記載のとおりである．
+\texttt{AdminInfo}は，管理者であるか比較するために，管理者のメールアドレスを保持するデータベースである．
 \section*{ネットワーク設計}
-\figref{fig:ネットワーク設計}は本サービスのネットワーク構成を示す．AWSを用いてネットワークを設計する．構成としてWebサーバ，DB（楽譜，ユーザ）を使用する．
+\figref{fig:ネットワーク設計}は本サービスのネットワーク構成を示す．AWSを用いてネットワークを設計する．構成としてWebサーバ，データベース（楽譜，ユーザ）を使用する．
 \begin{figure}[b]
     \centering
-    \includegraphics[keepaspectratio,width=\textwidth]{db-nwDesign/networkDesign.pdf}
+    \includegraphics[keepaspectratio,width=.8\textwidth]{db-nwDesign/networkDesign.pdf}
     \caption{ネットワーク設計}\label{fig:ネットワーク設計}
 \end{figure}
 \begin{figure}[p]
     \centering
-    \includegraphics[keepaspectratio,height=.9\textheight]{db-nwDesign/er.pdf}
+    \includegraphics[keepaspectratio,width=\textwidth]{db-nwDesign/er.pdf}
     \caption{ER図}
     \label{fig:ER図}
 \end{figure}
@@ -61,6 +62,7 @@
         c\_fulute              & int         &          &              \\
         oboe                   & int         &          &              \\
         english\_horn          & int         &          &              \\
+        e\_clarinet            & int         &          &              \\
         b\_clarinet            & int         &          &              \\
         b\_bass\_clarinet      & int         &          &              \\
         bassoon                & int         &          &              \\
@@ -71,7 +73,6 @@
         f\_horn                & int         &          &              \\
         trombone               & int         &          &              \\
         baritone               & int         &          &              \\
-        baritone\_treble\_clef & int         &          &              \\
         tuba                   & int         &          &              \\
         string\_bass           & int         &          &              \\
         piano                  & int         &          &              \\
