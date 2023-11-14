@@ -49,7 +49,6 @@
     番号 & 分類 & 頁/行 & \multicolumn{1}{c|}{指摘事項} & \multicolumn{1}{c|}{緊急} & \multicolumn{1}{c|}{重要} & \multicolumn{1}{c|}{訂正担当} & \multicolumn{1}{c|}{訂正内容} & \multicolumn{1}{c|}{訂正日} & \multicolumn{1}{c|}{確認者} & \multicolumn{1}{c|}{確認日}\\
     \hline\hline
     \endhead
-    \hline
     \endfoot
 }{
     \endxltabular
