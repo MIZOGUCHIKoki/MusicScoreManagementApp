@@ -18,6 +18,7 @@ on:
   push:
     branches:
       - 'develop'
+      - '!docs/*'
 jobs:
   test:
     runs-on: ubuntu-latest
