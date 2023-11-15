@@ -7,9 +7,6 @@
 name: "Ruby on Rails CI"
 on:
   push:
-    branches:
-      - develop
-  pull_request:
     paths:
       - '!docs/**'
       - '!README.md'
