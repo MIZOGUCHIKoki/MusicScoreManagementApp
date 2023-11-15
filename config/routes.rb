@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'static_pages#home'
+  root 'sessions#new'
 
   get 'sessions/new'
-  get 'static_pages/home'
   get '/help', to: 'static_pages#help'
+  get '/release_note', to: 'static_pages#release_note'
 
   resources :users
   get '/signup', to: 'users#new'
