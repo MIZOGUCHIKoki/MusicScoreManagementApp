@@ -6,7 +6,6 @@
 # run tests and linters.
 name: "Ruby on Rails CI"
 on:
-  push:
   pull_request_target:
     paths:
       - '!docs/**'
@@ -16,6 +15,9 @@ on:
       - '!docs/**'
       - '!README.md'
   workflow_dispatch:
+  push:
+    branches:
+      - 'develop'
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -28,6 +30,7 @@ jobs:
           ruby-version: 3.2.2
       - name: Install dependencies
         run: |
+          rm Gemfile.lock
           bundle install --jobs 4
           bundle lock --add-platform x86_64-linux
       # Add or replace test runners here
@@ -45,6 +48,7 @@ jobs:
           ruby-version: 3.2.2
       - name: Install dependencies
         run: |
+          rm Gemfile.lock
           bundle install --jobs 4
           bundle lock --add-platform x86_64-linux
       - name: run Rubocop
