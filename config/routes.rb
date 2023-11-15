@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'static_pages/help'
 
   resources :users
+  get '/signup', to: 'users#new'
   # GET	    /users	        index	  users_path	          すべてのユーザーを一覧するページ
   # GET     /users/1	      show	  user_path(user)	      特定のユーザーを表示するページ
   # GET	    /users/new	    new	    new_user_path	        ユーザーを新規作成するページ（ユーザー登録）
