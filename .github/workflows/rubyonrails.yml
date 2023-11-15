@@ -6,19 +6,13 @@
 # run tests and linters.
 name: "Ruby on Rails CI"
 on:
-  pull_request_target:
-    paths:
-      - '!docs/**'
-      - '!README.md'
-  pull_request:
-    paths:
-      - '!docs/**'
-      - '!README.md'
-  workflow_dispatch:
   push:
-    paths:
+    branches:
+      - 'develop'
+  pull_request:
+    branches:
       - '!docs/**'
-      - '!README.md'
+  workflow_dispatch:
 jobs:
   test:
     runs-on: ubuntu-latest
