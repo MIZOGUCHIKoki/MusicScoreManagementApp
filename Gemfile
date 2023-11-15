@@ -35,15 +35,13 @@ gem 'jbuilder'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 gem 'bcrypt', '3.1.19'
 
 # Use Sass to process CSS
@@ -73,6 +71,7 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'rails-controller-testing'
   gem 'selenium-webdriver'
 end
 
