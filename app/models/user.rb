@@ -10,6 +10,6 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX }, # FORMATに沿っているか？
                     uniqueness: { case_sensitive: false } # 一意なものであるか?
   validates :password, presence: true, # 入力必須
-                       length: { in: 8..50 } # 8〜50文字
+                       length: { in: 6..50 } # 8〜50文字
   has_secure_password # NEED `bcrypt`
 end
