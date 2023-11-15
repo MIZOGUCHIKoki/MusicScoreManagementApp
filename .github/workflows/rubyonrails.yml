@@ -16,9 +16,9 @@ on:
       - '!README.md'
   workflow_dispatch:
   push:
-    branches:
-      - 'develop'
-      - '!docs/*'
+    paths:
+      - '!docs/**'
+      - '!README.md'
 jobs:
   test:
     runs-on: ubuntu-latest
