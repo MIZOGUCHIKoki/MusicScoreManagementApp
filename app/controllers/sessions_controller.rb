@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out
+    @current_user = nil
     redirect_to root_url, status: :see_other
   end
 end
