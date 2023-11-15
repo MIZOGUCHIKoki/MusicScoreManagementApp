@@ -2,8 +2,10 @@
 
 Rails.application.routes.draw do
   root 'static_pages#home'
+
+  get 'sessions/new'
   get 'static_pages/home'
-  get 'static_pages/help'
+  get '/help', to: 'static_pages#help'
 
   resources :users
   get '/signup', to: 'users#new'
@@ -14,4 +16,8 @@ Rails.application.routes.draw do
   # GET	    /users/1/edit	  edit	  edit_user_path(user)	id=1のユーザーを編集するページ
   # PATCH	  /users/1	      update	user_path(user)	      ユーザーを更新するアクション
   # DELETE	/users/1	      destroy	user_path(user)	      ユーザーを削除するアクション
+
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
 end
