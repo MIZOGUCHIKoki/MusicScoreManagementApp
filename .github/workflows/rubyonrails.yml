@@ -7,9 +7,8 @@
 name: "Ruby on Rails CI"
 on:
   push:
-    paths:
-      - '!docs/**'
-      - '!README.md'
+    paths-ignore:
+      - 'docs/**'
   workflow_dispatch:
 jobs:
   test:
