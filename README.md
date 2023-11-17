@@ -24,12 +24,14 @@ When dependabot updates some packages and [@MIZOGUCHIKoki](https://github.com/MI
 ```Bash
 $ bundle install
 ```
-
-# 📃System proposal
-Syste proposal is in `docs/systemProposal`.
-You can make the PDF of system proposal to run following commands.
+# 📃Documents
+We can make the PDF of some documents to run following commands.
 ```Bash
 $ lualatex main.tex
 $ lualatex main.tex
 ```
 ⚠️ DON'T commit and push anything expect `*.tex`, `*.sty`, `*.cls`
+## System proposal document
+This document is in `docs/systemProposal`.
+## External design document
+This document is in `docs/externalDesign`.
