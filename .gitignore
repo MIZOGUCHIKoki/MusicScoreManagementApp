@@ -346,5 +346,6 @@ TSWLatexianTemp*
 #*Notes.bib
 
 indent.log
-
 main.pdf
+
+Gemfile.lock
