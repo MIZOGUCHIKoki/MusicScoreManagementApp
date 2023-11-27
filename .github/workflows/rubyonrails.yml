@@ -22,7 +22,6 @@ jobs:
           ruby-version: 3.2.2
       - name: Install dependencies
         run: |
-          rm Gemfile.lock
           bundle install --jobs 4
           bundle lock --add-platform x86_64-linux
       # Add or replace test runners here
@@ -40,7 +39,6 @@ jobs:
           ruby-version: 3.2.2
       - name: Install dependencies
         run: |
-          rm Gemfile.lock
           bundle install --jobs 4
           bundle lock --add-platform x86_64-linux
       - name: run Rubocop
