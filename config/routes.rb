@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :scores
-  get '/signup', to: 'users#new'
   # GET	    /users	        index	  users_path	          すべてのユーザーを一覧するページ
   # GET     /users/1	      show	  user_path(user)	      特定のユーザーを表示するページ
   # GET	    /users/new	    new	    new_user_path	        ユーザーを新規作成するページ（ユーザー登録）
@@ -17,6 +16,7 @@ Rails.application.routes.draw do
   # PATCH	  /users/1	      update	user_path(user)	      ユーザーを更新するアクション
   # DELETE	/users/1	      destroy	user_path(user)	      ユーザーを削除するアクション
 
+  get    '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
