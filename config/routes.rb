@@ -3,11 +3,11 @@
 Rails.application.routes.draw do
   root 'sessions#new'
 
-  get 'sessions/new'
   get '/help', to: 'static_pages#help'
   get '/release_note', to: 'static_pages#release_note'
 
   resources :users
+  resources :scores
   get '/signup', to: 'users#new'
   # GET	    /users	        index	  users_path	          すべてのユーザーを一覧するページ
   # GET     /users/1	      show	  user_path(user)	      特定のユーザーを表示するページ
