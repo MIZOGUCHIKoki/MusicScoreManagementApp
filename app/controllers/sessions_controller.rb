@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
+  # ログインページの表示 :GET
   def new; end
 
+  # sessionを作る :POST
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user&.authenticate(params[:session][:password])
-      reset_session      # ログインの直前に必ずこれを書くこと
+      reset_session # ログインの直前に必ずこれを書くこと
       log_in user
       redirect_to user
     else
@@ -15,6 +17,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  # sessionを消去する :DELETE
   def destroy
     log_out
     @current_user = nil
