@@ -19,6 +19,6 @@ class ScoresController < ApplicationController
   # 編集の反映 :PATCH/PUT
   def update; end
 
-  # 削除の反映 :
+  # 削除の反映 :DELETE
   def destroy; end
 end
