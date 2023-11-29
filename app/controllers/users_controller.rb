@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def edit; end
+
   def create
     @user = User.new(user_params) # 実装は終わっていないことに注意!
     if @user.save == true
@@ -16,11 +18,15 @@ class UsersController < ApplicationController
       reset_session
       log_in @user
       flash[:success] = 'Welcome!'
-      redirect_to @user
+      redirect_to @user # userのページにリダイレクト
     else
-      render 'new', status: :unprocessable_entity
+      render 'new', status: :unprocessable_entity # 保存に失敗した場合
     end
   end
+
+  def destroy; end
+  def show_detail; end
+  def show_list; end
 
   private
 
