@@ -20,6 +20,10 @@ You can install with only follwing command when you have ruby which version is `
 $ bash env.sh
 ```
 You should type down your password🔑 when you are asked.
+When the flow finish, please run the following commands.
+```Bash
+$ bundle exec rails migrate
+```
 
 ## 💡Install via bundler
 There is bot called [@dependabot](https://github.com/apps/dependabot), which check update of bundler.
