@@ -2,7 +2,9 @@
 
 class UsersController < ApplicationController
   # 一覧の表示 :GET
-  def index; end
+  def index
+    @user = User.all
+  end
 
   # 詳細の表示 :GET
   def show
@@ -37,7 +39,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end
