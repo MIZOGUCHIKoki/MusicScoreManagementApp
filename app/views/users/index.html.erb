@@ -1,16 +1,5 @@
+<% provide(:title, 'ユーザ一覧（管理者用）') %>
 <h1>ユーザ一覧（管理者用）</h1>
-<table>
-<%# ヘッダー部分 %>
-<tr>
-    <th> ユーザ名 </th> <th> メールアドレス </th> <th> アカウント作成日 </th> <th> アカウント更新日 </th>
-</tr>
-<%# 内容部分 %>
-<% @user.each do |user| %>
-<tr>
-    <td><%= user.name %></td>
-    <td><%= user.email %></td>
-    <td><%= user.created_at%></td>
-    <td><%= user.updated_at%></td>
-</tr>
-<% end %>
-</table>
+<ul class="users">
+    <%= render @user%>
+</ul>

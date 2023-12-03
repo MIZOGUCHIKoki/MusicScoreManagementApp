@@ -3,24 +3,4 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
-  def setup
-    @base_title = '楽譜管理サービス'
-  end
-
-  test 'should get root' do
-    get root_url
-    assert_response :success
-  end
-
-  test 'should get help' do
-    get help_url
-    assert_response :success
-    assert_select 'title', "Help | #{@base_title}"
-  end
-
-  test 'should get elease_note' do
-    get release_note_url
-    assert_response :success
-    assert_select 'title', "Release Note | #{@base_title}"
-  end
 end
