@@ -19,6 +19,12 @@ Metrics:
   Exclude:
     - 'db/migrate/*'
 
+# ブロックの長さ制限
 Metrics/BlockLength:
   Exclude:
     - 'config/environments/development.rb'
+
+# selfをつけるかどうか
+Style/RedundantSelf:
+  Exclude:
+    - 'app/models/user.rb'
