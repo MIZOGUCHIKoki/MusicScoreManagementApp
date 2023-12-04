@@ -19,3 +19,6 @@ Metrics:
   Exclude:
     - 'db/migrate/*'
 
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/development.rb'
