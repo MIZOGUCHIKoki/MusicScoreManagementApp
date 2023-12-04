@@ -24,6 +24,10 @@ jobs:
         run: |
           bundle install --jobs 4
           bundle lock --add-platform x86_64-linux
+      - name: set database
+        run: |
+          bin/rails db:migrate:reset
+          bin/rails db:seed
       # Add or replace test runners here
       - name: Run tests
         run: bin/rails test
