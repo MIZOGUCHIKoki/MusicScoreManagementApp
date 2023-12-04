@@ -14,3 +14,8 @@ Style/Documentation:
 
 Rails/I18nLocaleTexts:
   Enabled: false  
+
+Metrics:
+  Exclude:
+    - 'db/migrate/*'
+

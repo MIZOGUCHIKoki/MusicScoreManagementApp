@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  has_many :scores, dependent: :destroy # ユーザが削除されたときに関連づけられた楽譜データを削除する命令込み
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   before_save { self.email = email.downcase } # email を小文字へ変換する．
   validates :name,  presence: true, # 入力必須

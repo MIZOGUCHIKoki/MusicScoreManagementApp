@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class UserTestr < ActiveSupport::TestCase
+class ScoreTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
