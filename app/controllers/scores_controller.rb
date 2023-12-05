@@ -7,16 +7,27 @@ class ScoresController < ApplicationController
   def index; end
 
   # 個々のデータを表示：GET
-  def show; end
+  def show
+    @score = Score.find(params[:id])
+  end
 
   # 新規作成画面を表示：GET
-  def new; end
+  def new
+    # 管理者ならユーザ一覧へリダイレクト
+    return unless current_user.admin
+
+    redirect_to users_url
+  end
 
   # 編集画面を表示：GET
   def edit; end
 
   # 作成を実行：POST
   def create
+    # 管理者ならユーザ一覧へリダイレクト
+    return unless current_user.admin
+
+    redirect_to users_url
     @score = current_user.scores.build(score_params)
     if @score.save
       flash[:success] = '登録しました'
@@ -28,10 +39,18 @@ class ScoresController < ApplicationController
   end
 
   # 更新を実行：PATCH/PUT
-  def update; end
+  def update
+    return unless current_user.admin
+
+    redirect_to users_url
+  end
 
   # 削除を実行：DELETE
-  def destroy; end
+  def destroy
+    score = Score.find(params[:id]).destroy
+    flash[:success] = '削除に成功しました'
+    redirect_to user_path(id: score.user_id), status: :see_other
+  end
 
   private
 

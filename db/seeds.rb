@@ -9,11 +9,6 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-User.create!(name: 'Example User',
-             email: 'example@railstutorial.org',
-             password: 'password',
-             password_confirmation: 'password',
-             admin: true)
 
 99.times do |t|
   name = Faker::Name.name
@@ -29,3 +24,9 @@ users = User.order(:created_at).take(6)
   name = Faker::Lorem.sentence(word_count: 1)
   users.each { |user| user.scores.create!(name:) }
 end
+
+User.create!(name: 'Example User',
+             email: 'example@railstutorial.org',
+             password: 'password',
+             password_confirmation: 'password',
+             admin: true)

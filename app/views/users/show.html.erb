@@ -4,9 +4,10 @@
     <li><%= @user.email %></li>
 </ul>
 <%= link_to "編集する", edit_user_path(@user) %>
+<h2>楽譜一覧</h2>
 <% if @user.scores.any? %>
     <ol>
         <%= render @scores %>
     </ol>
-    <%= will_paginate @scores%>
+    <%= will_paginate @scores %>
 <% end %>

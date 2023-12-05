@@ -31,7 +31,7 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
 
-  # 正しい情報で認証する
+  # 正しい情報で認証する（管理者）
   test 'sign-in with valid information followed by sign-out' do
     post signin_path, params: { session: { email: @user.email, password: 'password' } }
     assert signed_in?
@@ -40,6 +40,7 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     assert_template 'users/show'
     assert_select 'a[href=?]', signin_path, count: 0
     assert_select 'a[href=?]', signout_path, count: 1
+    assert_select 'a[href=?]', users_path, count: 1
     assert_select 'a[href=?]', user_path(@user), count: 1
     delete signout_path
     assert_not signed_in?
@@ -48,6 +49,7 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_select 'a[href=?]', signin_path, count: 1
     assert_select 'a[href=?]', signout_path, count: 0
+    assert_select 'a[href=?]', users_path, count: 0
     assert_select 'a[href=?]', user_path(@user), count: 0
   end
 

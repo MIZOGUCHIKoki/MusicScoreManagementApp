@@ -2,7 +2,11 @@
 
 class SessionsController < ApplicationController
   # 新規作成画面を表示：GET（サインイン画面の生成）
-  def new; end
+  def new
+    return unless signed_in?
+
+    redirect_to current_user
+  end
 
   # 作成を実行：POST（サインイン）
   def create
@@ -16,7 +20,11 @@ class SessionsController < ApplicationController
       # 条件式 ? 真の式 : 偽の式
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       sign_in user
-      redirect_to forwarding_url || user
+      if current_user.admin?
+        redirect_to forwarding_url || users_path
+      else
+        redirect_to forwarding_url || user
+      end
     else
       # 認証失敗
       flash.now[:danger] = 'Eメール・パスワードが異なります'

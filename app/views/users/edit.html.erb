@@ -1,3 +1,6 @@
 <h1>UsersController#edit</h1>
 <% provide(:button_text, "変更を反映する")%>
 <%= render 'form' %>
+<% if !@user.admin? %>
+    <%= link_to '削除する', @user, data:{"turbo-method": :delete, turbo_confirm: "本当に削除しますか？"}%>
+<% end %>
