@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  # edit, update は signed_in_user/correct_user を事前に通過させる
+  before_action :signed_in_user?, only: %i[edit update]
+  before_action :correct_user, only: %i[edit update]
+
   # 一覧を表示：GET
   def index; end
 
@@ -15,7 +19,9 @@ class UsersController < ApplicationController
   end
 
   # 編集画面を表示：GET
-  def edit; end
+  def edit
+    @user = User.find(params[:id])
+  end
 
   # 作成を実行：POST
   def create
@@ -33,7 +39,15 @@ class UsersController < ApplicationController
   end
 
   # 更新を実行：PATCH/PUT
-  def update; end
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = '保存に成功しました'
+      redirect_to @user
+    else
+      render 'edit', status: :unprocessable_entity
+    end
+  end
 
   # 削除を実行：DELETE
   def destroy; end
@@ -45,5 +59,22 @@ class UsersController < ApplicationController
     # :name, :email, :password, :password_confirmation
     # "user" => { "name" => "X", "email" => "x@x.com", "password" => "xxxxxx", "password_confirmation" => "xxxxxx" }
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  # サインイン済みのユーザか確認する
+  def signed_in_user?
+    return true if signed_in?
+
+    # 偽である場合（サインインできていない時）の処理
+    store_location # どこからやってきたか保存する
+    flash[:danger] = 'サインインしてください'
+    redirect_to signin_path, status: :see_other
+    false
+  end
+
+  # 正しいユーザか確認する
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(signin_path, status: :see_other) unless @user == current_user
   end
 end

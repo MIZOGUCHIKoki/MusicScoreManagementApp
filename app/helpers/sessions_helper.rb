@@ -4,6 +4,8 @@ module SessionsHelper
   # 渡されたユーザでサインインする
   def sign_in(user)
     session[:user_id] = user.id
+    # セッションリプレイ攻撃から保護する
+    session[:session_token] = user.session_token
   end
 
   # 永続的セッションのためにユーザをデータベースに記憶する
@@ -19,9 +21,10 @@ module SessionsHelper
   def current_user
     # セッションがあれば
     if (user_id = session[:user_id]) # 代入した後にuser_idが存在すれば真
+      user = User.find_by(id: user_id)
       # @current_user = @current_user || User.find_by(id: session[:user_id])
       # @current_user ||= User.find_by(id: session[:user_id]) <helperからインスタンス変数を削除>
-      User.find_by(id: session[:user_id])
+      User.find_by(id: session[:user_id]) if user && session[:session_token] == user.session_token
     # Cookieに情報があれば
     elsif (user_id = cookies.encrypted[:user_id]) # 代入した後にuser_idが存在すれば真
       # raise # 例外処理を強制する（Passしたら未通過）
@@ -54,5 +57,15 @@ module SessionsHelper
     forget current_user
     reset_session
     # @current_user = nil <helperからインスタンス変数を削除>
+  end
+
+  # 渡されたユーザが現在のユーザであれば true を返す
+  def current_user?(user)
+    user && user == current_user
+  end
+
+  # アクセスしようとしたURLを保存する
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
   end
 end

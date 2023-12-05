@@ -11,12 +11,12 @@ class SessionsController < ApplicationController
     # user（有効なユーザ） && user.authenticate(params[:session][:password])（認証通過）
     if user&.authenticate(params[:session][:password])
       # 認証成功
+      forwarding_url = session[:forwarding_url]
       reset_session
       # 条件式 ? 真の式 : 偽の式
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       sign_in user
-      flash[:success] = 'サインインしました'
-      redirect_to root_path
+      redirect_to forwarding_url || root_path
     else
       # 認証失敗
       flash.now[:danger] = 'Eメール・パスワードが異なります'

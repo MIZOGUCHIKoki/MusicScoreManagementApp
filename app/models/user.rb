@@ -16,8 +16,8 @@ class User < ApplicationRecord
                     uniqueness: true # 一意性の検証
   has_secure_password
   validates :password, presence: true, # Presence（存在性；空白でない）
-                       length: { minimum: 6 } # 最小長6
-
+                       length: { minimum: 6 }, # 最小長6
+                       allow_nil: true # パスワードが空白でも更新できるように
   # 渡された文字列のハッシュ値を返す
   def self.digest(string)
     cost = if ActiveModel::SecurePassword.min_cost
@@ -38,6 +38,7 @@ class User < ApplicationRecord
     self.remember_token = User.new_token
     # パスワードなどは更新しないので，1項目のみ更新する update_attribute を使用
     update_attribute(:remember_digest, User.digest(remember_token))
+    remember_digest
   end
 
   # 渡されたトークンがダイジェストと一致したらtrueを返す
@@ -48,5 +49,11 @@ class User < ApplicationRecord
   # ユーザのサインイン情報を破棄する
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  # セッションハイジャック防止のためのセッショントークンを返す
+  # この記憶ダイジェスト再利用しているのは単に利便性のため
+  def session_token
+    remember_digest || remember
   end
 end

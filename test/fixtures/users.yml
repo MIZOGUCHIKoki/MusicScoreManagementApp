@@ -4,3 +4,8 @@ ex:
   name: Example User
   email: example@railstutorial.com
   password_digest: <%= User.digest('password') %>
+
+other:
+  name: Other User
+  email: other@railstutorial.com
+  password_digest: <%= User.digest('password') %>
