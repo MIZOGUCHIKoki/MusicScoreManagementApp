@@ -40,7 +40,7 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     assert_template 'scores/index'
     assert_select 'a[href=?]', signin_path, count: 0
     assert_select 'a[href=?]', signout_path, count: 1
-    assert_select 'a[href=?]', users_path(@user), count: 1
+    assert_select 'a[href=?]', user_path(@user), count: 1
     delete signout_path
     assert_not signed_in?
     assert_response :see_other # 303レスポンス
@@ -48,6 +48,6 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_select 'a[href=?]', signin_path, count: 1
     assert_select 'a[href=?]', signout_path, count: 0
-    assert_select 'a[href=?]', users_path(@user), count: 0
+    assert_select 'a[href=?]', user_path(@user), count: 0
   end
 end

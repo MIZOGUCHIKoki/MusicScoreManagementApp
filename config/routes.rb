@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   post 'signin' => 'sessions#create'
   delete 'signout' => 'sessions#destroy'
 
-  resource :users
-  resource :scores
+  resources :users
+  resources :scores
 end
