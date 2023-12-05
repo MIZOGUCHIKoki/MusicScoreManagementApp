@@ -2,9 +2,7 @@
 <%= will_paginate %>
 <ul>
     <% @users.each do |user| %>
-        <li>
-            <%= link_to user.name, user%>：
-            <%= user.email %>
+        <%= render user %>
     <% end %>
 </ul>
 <%= will_paginate %>
