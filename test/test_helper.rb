@@ -18,5 +18,21 @@ module ActiveSupport
     def signed_in?
       !session[:user_id].nil?
     end
+
+    # テストユーザとしてサインインする
+    def sign_in_as(user)
+      session[:user_id] = user.id
+    end
+  end
+end
+
+module ActionDispatch
+  class IntegrationTest
+    # テストユーザとしてサインインする
+    def sign_in_as(user, password: 'password', remember_me: '1')
+      post signin_path, params: { session: { email: user.email,
+                                             password:,
+                                             remember_me: } }
+    end
   end
 end

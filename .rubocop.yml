@@ -20,14 +20,24 @@ Metrics:
     - 'db/migrate/*'
 
 Metrics/AbcSize:
-  Max: 20
+  Max: 25
 
 # ブロックの長さ制限
 Metrics/BlockLength:
+  Max: 20
   Exclude:
     - 'config/environments/development.rb'
+# メソッド内のながさ制限
+Metrics/MethodLength:
+  Max: 20
 
 # selfをつけるかどうか
 Style/RedundantSelf:
   Exclude:
     - 'app/models/user.rb'
+
+# validation をスキップする警告を無視
+Rails/SkipsModelValidations:
+  Exclude:
+    - 'app/models/user.rb'
+    - 'test/helpers/sessions_helper_test.rb'

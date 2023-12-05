@@ -6,11 +6,42 @@ module SessionsHelper
     session[:user_id] = user.id
   end
 
+  # 永続的セッションのためにユーザをデータベースに記憶する
+  def remember(user)
+    user.remember # :remember_digest に保存する
+    # cookies[:remember_token] = { value: remmber_token,
+    #                              expires: 20.years.from_now.utc }
+    cookies.permanent.encrypted[:user_id] = user.id
+    cookies.permanent[:remember_token] = user.remember_token
+  end
+
   # 現在サインイン中のユーザを返す（なければnil）
   def current_user
-    return unless session[:user_id] # sessionにuser_idが存在しない場合 return する
+    # セッションがあれば
+    if (user_id = session[:user_id]) # 代入した後にuser_idが存在すれば真
+      # @current_user = @current_user || User.find_by(id: session[:user_id])
+      # @current_user ||= User.find_by(id: session[:user_id]) <helperからインスタンス変数を削除>
+      User.find_by(id: session[:user_id])
+    # Cookieに情報があれば
+    elsif (user_id = cookies.encrypted[:user_id]) # 代入した後にuser_idが存在すれば真
+      # raise # 例外処理を強制する（Passしたら未通過）
+      user = User.find_by(id: user_id)
+      # Cookiesの内容を認証する
+      # if user && user.authenticated?(cookies[:remember_token])
+      if user&.authenticated?(cookies[:remember_token])
+        # Cookiesに情報があればサインインする
+        sign_in user
+        # @current_user = user <helperからインスタンス変数を削除>
+        user
+      end
+    end
+  end
 
-    @current_user ||= User.find_by(id: session[:user_id])
+  # Cookieの情報を削除する
+  def forget(user)
+    user.forget
+    cookies.delete(:user_id)
+    cookies.delete(:remember_token)
   end
 
   # サインインしているかどうか？
@@ -20,7 +51,8 @@ module SessionsHelper
 
   # サインアウト処理
   def sign_out
+    forget current_user
     reset_session
-    @current_user = nil
+    # @current_user = nil <helperからインスタンス変数を削除>
   end
 end

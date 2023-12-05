@@ -50,4 +50,19 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', signout_path, count: 0
     assert_select 'a[href=?]', user_path(@user), count: 0
   end
+
+  # サインイン情報を記録するテスト
+  test 'sign-in with remembering' do
+    sign_in_as(@user, remember_me: '1')
+    assert_not cookies[:remember_token].blank?
+  end
+
+  # サインイン情報を記録しないテスト
+  test 'sing-in without remembering' do
+    # Cookieを保存してサインイン
+    sign_in_as(@user, remember_me: '1')
+    # Cookieを削除して再サインイン
+    sign_in_as(@user, remember_me: '0')
+    assert cookies[:remember_token].blank?
+  end
 end

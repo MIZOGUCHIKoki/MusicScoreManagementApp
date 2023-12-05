@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  # 新規作成画面を表示：GET（ログイン画面の生成）
+  # 新規作成画面を表示：GET（サインイン画面の生成）
   def new; end
 
-  # 作成を実行：POST（ログイン）
+  # 作成を実行：POST（サインイン）
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     # sessionハッシュ値のpasswordを取り出す．
@@ -12,8 +12,10 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:session][:password])
       # 認証成功
       reset_session
+      # 条件式 ? 真の式 : 偽の式
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       sign_in user
-      flash[:success] = 'ログインしました'
+      flash[:success] = 'サインインしました'
       redirect_to root_path
     else
       # 認証失敗

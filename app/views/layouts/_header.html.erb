@@ -1,11 +1,12 @@
 ---start of header---
 <ul>
     <% if signed_in? %>
+        サインイン中のユーザ：<%= current_user.name %>，<%= current_user.email %>
         <li><%= link_to "楽譜一覧", scores_path %></li>
         <li><%= link_to "プロフィール", user_path(current_user) %></li>
         <li><%= link_to "ログアウト", signout_path , data:{ "turbo-method": :delete } %>
     <% else %>
-        <li><%= link_to "ログイン", signin_path %></li>
+        <li><%= link_to "サインイン", signin_path %></li>
     <% end %>
 </ul>
 ---end of header---
