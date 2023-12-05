@@ -11,8 +11,10 @@ class SessionsController < ApplicationController
     # user（有効なユーザ） && user.authenticate(params[:session][:password])（認証通過）
     if user&.authenticate(params[:session][:password])
       # 認証成功
+      reset_session
+      sign_in user
       flash[:success] = 'ログインしました'
-      redirect_to scores_path
+      redirect_to root_path
     else
       # 認証失敗
       flash.now[:danger] = 'Eメール・パスワードが異なります'
@@ -21,5 +23,8 @@ class SessionsController < ApplicationController
   end
 
   # 削除を実行：DELETE（ログアウト）
-  def destroy; end
+  def destroy
+    sign_out
+    redirect_to signin_path, status: :see_other # 303レスポンス
+  end
 end
