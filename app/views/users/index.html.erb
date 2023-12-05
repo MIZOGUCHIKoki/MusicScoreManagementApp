@@ -1,0 +1,10 @@
+<h1>UsersController#index</h1>
+<%= will_paginate %>
+<ul>
+    <% @users.each do |user| %>
+        <li>
+            <%= link_to user.name, user%>：
+            <%= user.email %>
+    <% end %>
+</ul>
+<%= will_paginate %>

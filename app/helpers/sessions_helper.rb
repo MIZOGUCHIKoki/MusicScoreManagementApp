@@ -34,7 +34,7 @@ module SessionsHelper
       if user&.authenticated?(cookies[:remember_token])
         # Cookiesに情報があればサインインする
         sign_in user
-        # @current_user = user <helperからインスタンス変数を削除>
+        # @current_user = user # <helperからインスタンス変数を削除>
         user
       end
     end

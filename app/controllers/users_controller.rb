@@ -2,11 +2,14 @@
 
 class UsersController < ApplicationController
   # edit, update は signed_in_user/correct_user を事前に通過させる
-  before_action :signed_in_user?, only: %i[edit update]
+  before_action :signed_in_user, only: %i[index edit update destroy]
   before_action :correct_user, only: %i[edit update]
+  before_action :admin_user, only: %i[index destroy]
 
   # 一覧を表示：GET
-  def index; end
+  def index
+    @users = User.paginate(page: params[:page])
+  end
 
   # 個々のデータを表示：GET
   def show
@@ -50,7 +53,11 @@ class UsersController < ApplicationController
   end
 
   # 削除を実行：DELETE
-  def destroy; end
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = '削除に成功しました'
+    redirect_to users_url, status: :see_other
+  end
 
   private
 
@@ -62,7 +69,7 @@ class UsersController < ApplicationController
   end
 
   # サインイン済みのユーザか確認する
-  def signed_in_user?
+  def signed_in_user
     return true if signed_in?
 
     # 偽である場合（サインインできていない時）の処理
@@ -76,5 +83,13 @@ class UsersController < ApplicationController
   def correct_user
     @user = User.find(params[:id])
     redirect_to(signin_path, status: :see_other) unless @user == current_user
+  end
+
+  # 管理者かどうが確認
+  def admin_user
+    return if current_user.admin?
+
+    flash[:danger] = '管理者としてサインインしてください'
+    redirect_to(signin_path, status: :see_other)
   end
 end
