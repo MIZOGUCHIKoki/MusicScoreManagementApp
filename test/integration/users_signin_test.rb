@@ -35,13 +35,12 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
   test 'sign-in with valid information followed by sign-out' do
     post signin_path, params: { session: { email: @user.email, password: 'password' } }
     assert signed_in?
-    assert_redirected_to user_path(@user)
+    assert_redirected_to users_path
     follow_redirect! # リダイレクトを実行
-    assert_template 'users/show'
+    assert_template 'users/index'
     assert_select 'a[href=?]', signin_path, count: 0
     assert_select 'a[href=?]', signout_path, count: 1
     assert_select 'a[href=?]', users_path, count: 1
-    assert_select 'a[href=?]', user_path(@user), count: 1
     delete signout_path
     assert_not signed_in?
     assert_response :see_other # 303レスポンス

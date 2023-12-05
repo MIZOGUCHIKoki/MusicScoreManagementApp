@@ -1,5 +1,5 @@
-<% if @user.errors.any? %>
-    <div><font color="red"><% pluralize(@user.errors.count, "error") %></font></div>
+<% if object.errors.any? %>
+    <div><font color="red"><% pluralize(object.errors.count, "error") %></font></div>
     <ul>
         <% object.errors.full_messages.each do |msg| %>
             <li><font color="red"><%= msg %></font></li>

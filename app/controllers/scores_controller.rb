@@ -14,24 +14,25 @@ class ScoresController < ApplicationController
   # 新規作成画面を表示：GET
   def new
     # 管理者ならユーザ一覧へリダイレクト
-    return unless current_user.admin
+    redirect_to users_url if current_user.admin
 
-    redirect_to users_url
+    @score = Score.new
   end
 
   # 編集画面を表示：GET
-  def edit; end
+  def edit
+    @score = Score.find(params[:id])
+  end
 
   # 作成を実行：POST
   def create
     # 管理者ならユーザ一覧へリダイレクト
-    return unless current_user.admin
+    redirect_to users_url if current_user.admin
 
-    redirect_to users_url
     @score = current_user.scores.build(score_params)
     if @score.save
       flash[:success] = '登録しました'
-      redirect_to user
+      redirect_to @score
     else
       flash.now[:danger] = '登録できませんでした'
       render 'new', status: :unprocessable_entity
@@ -40,9 +41,15 @@ class ScoresController < ApplicationController
 
   # 更新を実行：PATCH/PUT
   def update
-    return unless current_user.admin
+    # redirect_to users_url if current_user.admin
 
-    redirect_to users_url
+    @score = Score.find(params[:id])
+    if @score.update(score_params)
+      flash[:success] = '更新しました'
+      redirect_to score_url(@score)
+    else
+      render 'edit', status: :unprocessable_entity
+    end
   end
 
   # 削除を実行：DELETE
