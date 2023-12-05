@@ -11,8 +11,9 @@ Rails.application.routes.draw do
 
   root 'scores#index'
 
+  get 'signup' => 'users#new'
+  get 'signin' => 'sessions#new'
+  post 'signin' => 'sessions#create'
   resource :users
   resource :scores
-
-  get 'signup' => 'users#new'
 end

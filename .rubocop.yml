@@ -19,6 +19,9 @@ Metrics:
   Exclude:
     - 'db/migrate/*'
 
+Metrics/AbcSize:
+  Max: 20
+
 # ブロックの長さ制限
 Metrics/BlockLength:
   Exclude:

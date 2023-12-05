@@ -1,0 +1,13 @@
+<h1>SessionsController#new</h1>
+<div>
+<%= form_with(url: signin_path, scope: :session) do |f| %>
+    <%= f.label :email, "Eメールアドレス" %>
+    <%= f.email_field :email %>
+
+    <%= f.label :password, "パスワード" %>
+    <%= f.password_field :password %>
+
+    <%= f.submit "ログイン" %>
+<% end %>
+</div>
+<p>アカウト作成は<%= link_to "こちらから", signup_path %></p>
