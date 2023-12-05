@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       # 条件式 ? 真の式 : 偽の式
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       sign_in user
-      redirect_to forwarding_url || root_path
+      redirect_to forwarding_url || user
     else
       # 認証失敗
       flash.now[:danger] = 'Eメール・パスワードが異なります'

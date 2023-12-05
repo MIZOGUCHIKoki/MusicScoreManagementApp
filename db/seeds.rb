@@ -23,3 +23,9 @@ User.create!(name: 'Example User',
                password: 'password',
                password_confirmation: 'password')
 end
+
+users = User.order(:created_at).take(6)
+50.times do
+  name = Faker::Lorem.sentence(word_count: 1)
+  users.each { |user| user.scores.create!(name:) }
+end

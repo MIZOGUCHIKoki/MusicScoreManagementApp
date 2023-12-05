@@ -3,4 +3,10 @@
     <li><%= @user.name %></li>
     <li><%= @user.email %></li>
 </ul>
-<%= link_to "編集する", edit_user_path(current_user) %>
+<%= link_to "編集する", edit_user_path(@user) %>
+<% if @user.scores.any? %>
+    <ol>
+        <%= render @scores %>
+    </ol>
+    <%= will_paginate @scores%>
+<% end %>

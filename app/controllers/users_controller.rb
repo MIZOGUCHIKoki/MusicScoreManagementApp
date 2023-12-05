@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   # 個々のデータを表示：GET
   def show
     @user = User.find(params[:id])
+    @scores = @user.scores.paginate(page: params[:page])
   end
 
   # 新規作成画面を表示：GET
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
       reset_session
       sign_in @user
       flash[:success] = '登録が完了しました'
-      redirect_to scores_path # スコア一覧へ
+      redirect_to @user
     else
       render 'new', status: :unprocessable_entity
     end
@@ -66,17 +67,6 @@ class UsersController < ApplicationController
     # :name, :email, :password, :password_confirmation
     # "user" => { "name" => "X", "email" => "x@x.com", "password" => "xxxxxx", "password_confirmation" => "xxxxxx" }
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
-
-  # サインイン済みのユーザか確認する
-  def signed_in_user
-    return true if signed_in?
-
-    # 偽である場合（サインインできていない時）の処理
-    store_location # どこからやってきたか保存する
-    flash[:danger] = 'サインインしてください'
-    redirect_to signin_path, status: :see_other
-    false
   end
 
   # 正しいユーザか確認する

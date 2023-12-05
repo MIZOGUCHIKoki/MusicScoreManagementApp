@@ -83,4 +83,13 @@ class UserTest < ActiveSupport::TestCase
     @user.password = @user.password_confirmation = 'a' * 5
     assert_not @user.valid?
   end
+
+  # dependent: :destroy のテスト
+  test 'associated scores should be destroyed' do
+    @user.save
+    @user.scores.create!(name: '眩い')
+    assert_difference 'Score.count', -1 do
+      @user.destroy
+    end
+  end
 end

@@ -35,9 +35,9 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
   test 'sign-in with valid information followed by sign-out' do
     post signin_path, params: { session: { email: @user.email, password: 'password' } }
     assert signed_in?
-    assert_redirected_to root_path
+    assert_redirected_to user_path(@user)
     follow_redirect! # リダイレクトを実行
-    assert_template 'scores/index'
+    assert_template 'users/show'
     assert_select 'a[href=?]', signin_path, count: 0
     assert_select 'a[href=?]', signout_path, count: 1
     assert_select 'a[href=?]', user_path(@user), count: 1

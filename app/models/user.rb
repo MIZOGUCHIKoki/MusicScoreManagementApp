@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  # リレーション
+  has_many :scores, dependent: :destroy
+
   # 仮想属性の追加（getter, setterを :remmber_token に設定する）
   attr_accessor :remember_token
 

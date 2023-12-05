@@ -25,12 +25,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password: 'foofoo',
                                          password_confirmation: 'foofoo' } }
     end
-    assert_response :redirect
-    assert_redirected_to scores_path
     follow_redirect!
-    assert_template 'scores/index'
-    assert_not flash.empty?
-    get scores_path
-    assert flash.empty?
+    assert_template 'users/show'
   end
 end

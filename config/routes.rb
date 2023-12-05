@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
 
-  root 'scores#index'
+  root 'sessions#new'
 
   get 'signup' => 'users#new'
   get 'signin' => 'sessions#new'
