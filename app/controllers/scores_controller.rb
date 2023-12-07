@@ -21,6 +21,7 @@ class ScoresController < ApplicationController
 
   # 編集画面を表示：GET
   def edit
+    redirect_to users_url if current_user.admin
     @score = Score.find(params[:id])
   end
 
@@ -32,7 +33,7 @@ class ScoresController < ApplicationController
     @score = current_user.scores.build(score_params)
     if @score.save
       flash[:success] = '登録しました'
-      redirect_to @score
+      redirect_to home_path(current_user)
     else
       flash.now[:danger] = '登録できませんでした'
       render 'new', status: :unprocessable_entity
@@ -54,9 +55,9 @@ class ScoresController < ApplicationController
 
   # 削除を実行：DELETE
   def destroy
-    score = Score.find(params[:id]).destroy
+    Score.find(params[:id]).destroy
     flash[:success] = '削除に成功しました'
-    redirect_to user_path(id: score.user_id), status: :see_other
+    redirect_to home_path(current_user), status: :see_other
   end
 
   private

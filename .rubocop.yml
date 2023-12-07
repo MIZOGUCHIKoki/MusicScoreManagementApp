@@ -15,20 +15,18 @@ Style/Documentation:
 Rails/I18nLocaleTexts:
   Enabled: false  
 
-Metrics:
-  Exclude:
-    - 'db/migrate/*'
-
 Metrics/AbcSize:
   Max: 30
 
 Metrics/PerceivedComplexity:
   Max: 10
+
 # ブロックの長さ制限
 Metrics/BlockLength:
   Max: 20
   Exclude:
     - 'config/environments/development.rb'
+
 # メソッド内のながさ制限
 Metrics/MethodLength:
   Max: 20

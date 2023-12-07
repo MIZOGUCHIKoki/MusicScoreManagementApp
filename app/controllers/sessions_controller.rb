@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
       if current_user.admin?
         redirect_to forwarding_url || users_path
       else
-        redirect_to forwarding_url || user
+        redirect_to forwarding_url || home_path(user)
       end
     else
       # 認証失敗

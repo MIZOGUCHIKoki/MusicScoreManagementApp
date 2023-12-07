@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  # edit, update は signed_in_user/correct_user を事前に通過させる
-  before_action :signed_in_user, only: %i[index edit update destroy]
-  before_action :correct_user_admin, only: %i[edit update destroy]
+  # %i[ action name ] は method を事前に通過させる
+  before_action :signed_in_user, only: %i[index home show edit update destroy]
+  before_action :correct_user_admin, only: %i[home show edit update destroy]
   before_action :admin_user, only: %i[index]
 
   # 一覧を表示：GET
@@ -13,6 +13,14 @@ class UsersController < ApplicationController
 
   # 個々のデータを表示：GET
   def show
+    @user = User.find(params[:id])
+    @scores = @user.scores.paginate(page: params[:page])
+  end
+
+  # 楽譜一覧
+  def home
+    redirect_to users_url if current_user.admin
+
     @user = User.find(params[:id])
     @scores = @user.scores.paginate(page: params[:page])
   end
