@@ -13,6 +13,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  # 未サインイン状態でルートを取得できるか
+  test 'should get root_path' do
+    get root_path
+    assert_response :see_other
+    assert_redirected_to signin_path
+  end
+
   # サインイン状態でのみ index をみれるか
   test 'should redirect index when not signed in' do
     get users_path
