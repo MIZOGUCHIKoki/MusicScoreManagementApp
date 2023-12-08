@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 
   # 一覧を表示：GET
   def index
-    @users = User.paginate(page: params[:page])
+    @search_params = user_search_params
+    @users = User.search(@search_params).paginate(page: params[:page])
   end
 
   # 個々のデータを表示：GET
@@ -94,5 +95,9 @@ class UsersController < ApplicationController
 
     flash[:danger] = '管理者としてサインインしてください'
     redirect_to(signin_path, status: :see_other)
+  end
+
+  def user_search_params
+    params.fetch(:search, {}).permit(:name, :email)
   end
 end

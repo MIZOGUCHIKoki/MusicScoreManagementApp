@@ -59,4 +59,16 @@ class User < ApplicationRecord
   def session_token
     remember_digest || remember
   end
+
+  # スコープに名前をつけ，引数を受ける
+  scope :search, lambda { |search_params|
+                   return if search_params.blank? # 引数が空ならその後の処理を行わない
+
+                   title_like(search_params[:name])
+                     .email_like(search_params[:email])
+                 }
+
+  # 条件に合致するデータを検索
+  scope :title_like, ->(search_user) { where('name LIKE ?', "%#{search_user}%") }
+  scope :email_like, ->(search_email) { where('email LIKE ?', "%#{search_email}%") }
 end
