@@ -30,6 +30,8 @@ Metrics/BlockLength:
 # メソッド内のながさ制限
 Metrics/MethodLength:
   Max: 20
+  Exclude:
+    - 'db/migrate/*'
 
 # selfをつけるかどうか
 Style/RedundantSelf:
