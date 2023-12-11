@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :scores
 
   get 'home/:id' => 'users#home', as: 'home'
+  get 'home' => 'users#home', as: 'homeb'
 
   root 'users#home'
 end

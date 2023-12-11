@@ -21,6 +21,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to signin_path
   end
 
+  # idを持たないhomeを取得できるか
+  test 'should call users#home without id' do
+    get homeb_path
+    assert_response :see_other
+    assert_redirected_to signin_path
+  end
+
   # 未サインイン状態でindexを閲覧できない
   test 'should redirect index when not signed in' do
     get users_path
