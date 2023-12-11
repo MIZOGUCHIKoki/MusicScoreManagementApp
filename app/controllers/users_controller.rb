@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   # 楽譜一覧
   def home
+    redirect_to signin_path if params[:id].blank?
     redirect_to users_url if current_user.admin
 
     @user = User.find(params[:id])

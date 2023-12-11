@@ -8,25 +8,27 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @other = users(:other)
   end
 
+  # サインインパスを取得できる
   test 'should get new' do
     get signup_path
     assert_response :success
   end
 
-  # 未サインイン状態でルートを取得できるか
+  # 未サインイン状態でルートを取得できない
   test 'should get root_path' do
     get root_path
     assert_response :see_other
     assert_redirected_to signin_path
   end
 
-  # サインイン状態でのみ index をみれるか
+  # 未サインイン状態でindexを閲覧できない
   test 'should redirect index when not signed in' do
     get users_path
+    assert_response :see_other
     assert_redirected_to signin_path
   end
 
-  # サインイン状態でのみ destroy（non-admin） できるか
+  # サインイン状態でのみ destroy（non-admin） できる
   test 'should redirect destroy when not signed in' do
     assert_no_difference 'User.count' do
       delete user_path(@other)
@@ -35,7 +37,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to signin_path
   end
 
-  # adminアカウントのみ destroy（non-admin） できるか
+  # adminアカウントのみ destroy（non-admin） できる
   test 'should redirect destroy when signed in as a non-admin' do
     sign_in_as(@other)
     assert_no_difference 'User.count' do

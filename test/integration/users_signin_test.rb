@@ -10,6 +10,7 @@ class UsersSignin < ActionDispatch::IntegrationTest
 end
 
 class InvalidPasswordTest < UsersSignin
+  # サインインパスを取得する
   test 'signin path' do
     get signin_path # signin_path でページを取得できたか
     assert_template 'sessions/new' # sessions/new が呼び出されたか
@@ -45,7 +46,7 @@ class ValidSigninTest < UsersSignin
     assert_select 'a[href=?]', signin_path, count: 1
     assert_select 'a[href=?]', signout_path, count: 0
     assert_select 'a[href=?]', users_path, count: 0
-    assert_select 'a[href=?]', user_path(@other), count: 0
+    assert_select 'a[href=?]', user_path(@user), count: 0
   end
 
   # 管理者でないとして
