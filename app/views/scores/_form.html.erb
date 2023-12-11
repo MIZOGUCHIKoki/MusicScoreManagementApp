@@ -1,8 +1,6 @@
 <%= form_with(model: @score) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
-
-    
-    <%= f.label :name, "曲名" %>
-    <%= f.text_field :name %>
-    <%= f.submit yield(:button_text) %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.label :name, "曲名" %>
+  <%= f.text_field :name %>
+  <%= f.submit yield(:button_text) %>
 <% end %>

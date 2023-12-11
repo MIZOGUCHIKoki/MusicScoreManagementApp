@@ -1,11 +1,11 @@
 <h1>UsersController#home</h1>
 <h2>楽譜一覧</h2>
 <% if !current_user.admin? %>
-    <%= link_to "楽譜を登録する", new_score_path %>
+  <%= link_to "楽譜を登録する", new_score_path %>
 <% end %>
 <% if @user.scores.any? %>
-    <ol>
-        <%= render @scores %>
-    </ol>
-    <%= will_paginate @scores %>
+  <ol>
+    <%= render @scores %>
+  </ol>
+  <%= will_paginate @scores %>
 <% end %>

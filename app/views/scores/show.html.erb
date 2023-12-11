@@ -1,10 +1,9 @@
 <h1>ScoresController#show</h1>
 <ul>
-    <li>曲名：<%= @score.name %></li>
-    <li>作成日：<%= @score.created_at %></li>
+  <li>曲名：<%= @score.name %></li>
+  <li>作成日：<%= @score.created_at %></li>
 </ul>
 <% if !current_user.admin? %>
-    <%= link_to '編集する', edit_score_url(@score) %>
+  <%= link_to '編集する', edit_score_url(@score) %>
 <% end %>
-
 <%= link_to '削除する', @score, data:{"turbo-method": :delete, turbo_confirm: "本当に削除しますか？"}%>

@@ -1,18 +1,19 @@
 <h1>UsersController#index</h1>
 <%= will_paginate %>
-<%= form_with(scope: :search, method: :get, local: true) do |form| %> 
-    <div>
-        <%= form.label :name, "ユーザ名検索" %>
-        <%= form.text_field :name, value: @search_params[:name] %><br>
-        <%= form.label :email, "ユーザID検索"%>
-        <%= form.text_field :email, value: @search_params[:email]%>
-    </div>
-    <%= button_to "検索", user_path(form)%>
-    <h3>両方の条件を満たすものが検索できます．片方が空欄なら片方のみが適用されます．</h3><br>
+<%= form_with(scope: :search, method: :get, local: true) do |form| %>
+  <div>
+    <%= form.label :name, "ユーザ名検索" %>
+    <%= form.text_field :name, value: @search_params[:name] %><br>
+    <%= form.label :email, "ユーザID検索"%>
+    <%= form.text_field :email, value: @search_params[:email]%>
+  </div>
+  <%= button_to "検索", user_path(form)%>
+  <h3>両方の条件を満たすものが検索できます．片方が空欄なら片方のみが適用されます．</h3>
+  <br>
 <% end %>
 <ul>
-    <% @users.each do |user| %>
-        <%= render user %>
-    <% end %>
+  <% @users.each do |user| %>
+    <%= render user %>
+  <% end %>
 </ul>
 <%= will_paginate %>
