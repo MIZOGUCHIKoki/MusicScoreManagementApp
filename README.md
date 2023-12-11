@@ -14,6 +14,17 @@ Our documents are [hear](https://www.notion.so/kut-se-group4/dir-en-gray-789a9c3
 - [山田 滉希: YAMADA Koki](https://github.com/1250382KoukiYamada)
 - [山本 祥弘: YAMAMOTO Yoshihiro](https://github.com/1250385-Yamamoto)
 
+# 🧑‍💻Before pushing
+Please run following command and check result before pushing to GitHub.
+RuboCop is Ruby linter.
+```Bash
+$ bundle exec rubocop
+```
+Rails test does unit and integration tests.
+```Bash
+$ bundle exec rails test
+```
+
 # ⚙️Settings
 You can install with only follwing command when you have ruby which version is `3.2.2` and your environment is Linux.
 ```Bash
@@ -42,3 +53,5 @@ $ lualatex main.tex
 This document is in `docs/systemProposal`.
 ## External design document
 This document is in `docs/externalDesign`.
+## Internal design document
+This document is in `docs/internalDesing`.
