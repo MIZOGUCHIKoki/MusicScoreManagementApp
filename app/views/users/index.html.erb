@@ -4,7 +4,7 @@
   <div>
     <%= form.label :name, "ユーザ名検索" %>
     <%= form.text_field :name, value: @search_params[:name] %><br>
-    <%= form.label :email, "ユーザID検索"%>
+    <%= form.label :email, "ユーザID検索" %>
     <%= form.text_field :email, value: @search_params[:email]%>
   </div>
   <%= button_to "検索", user_path(form)%>

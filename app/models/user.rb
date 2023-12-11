@@ -65,7 +65,7 @@ class User < ApplicationRecord
                    return if search_params.blank? # 引数が空ならその後の処理を行わない
 
                    title_like(search_params[:name])
-                     .email_like(search_params[:email])
+                     .email_like(search_params[:email]) # .をつけるとANDになる
                  }
 
   # 条件に合致するデータを検索
