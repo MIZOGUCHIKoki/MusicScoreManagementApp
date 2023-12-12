@@ -1,39 +1,39 @@
 \begin{tikzpicture}
-    \newcommand{\ic}[1]{\includegraphics[keepaspectratio,width=3cm]{#1}}
-    \node (ms-db){\ic{../network_iconset/server_db.pdf}};
-    \node at(ms-db.north){楽譜DB};
-    \node [right=10cm of ms-db](usr-db){\ic{../network_iconset/server_db.pdf}};
-    \node at(usr-db.north){ユーザDB};
-    \node at($($(ms-db)!0.5!(usr-db)$)+(0,-5.5cm)$)(server){\ic{../network_iconset/server}};
-    \node at(server.south){Webサーバ};
-    \node at(usr-db|-server)(user){\ic{../network_iconset/network_user_w.pdf}};
-    \node at(user.south){ユーザ};
-    \node at($(ms-db)!0.5!(usr-db)$)(admin){\ic{../network_iconset/network_administrator.pdf}};
-    \node at(admin.north){管理者};
+	\newcommand{\ic}[1]{\includegraphics[keepaspectratio,width=3cm]{#1}}
+	\node (ms-db){\ic{../network_iconset/server_db.pdf}};
+	\node at(ms-db.north){楽譜DB};
+	\node [right=10cm of ms-db](usr-db){\ic{../network_iconset/server_db.pdf}};
+	\node at(usr-db.north){ユーザDB};
+	\node at($($(ms-db)!0.5!(usr-db)$)+(0,-5.5cm)$)(server){\ic{../network_iconset/server}};
+	\node at(server.south){Webサーバ};
+	\node at(usr-db|-server)(user){\ic{../network_iconset/network_user_w.pdf}};
+	\node at(user.south){ユーザ};
+	\node at($(ms-db)!0.5!(usr-db)$)(admin){\ic{../network_iconset/network_administrator.pdf}};
+	\node at(admin.north){管理者};
 
-    % Arrow
-    \newcommand{\col}{green!50!black}
-    \newcommand{\coll}{red!70!black}
-    \draw[-latex,very thick] (admin.south)--(server.north)node[midway,left]{\scriptsize 運用・広告更新};
-    \draw[-latex,very thick,blue] ($(user.west)+(0,.9cm)$)--($(server.east)+(0,.9cm)$)node[midway,above]{\scriptsize 認証情報・ユーザ情報};
-    \draw[-latex,very thick,blue] ($(server.east)+(0,.3cm)$)--($(user.west)+(0,.3cm)$)node[midway,above]{\scriptsize 認証応答・結果表示};
+	% Arrow
+	\newcommand{\col}{green!50!black}
+	\newcommand{\coll}{red!70!black}
+	\draw[-latex,very thick] (admin.south)--(server.north)node[midway,left]{\scriptsize 運用・広告更新};
+	\draw[-latex,very thick,blue] ($(user.west)+(0,.9cm)$)--($(server.east)+(0,.9cm)$)node[midway,above]{\scriptsize 認証情報・ユーザ情報};
+	\draw[-latex,very thick,blue] ($(server.east)+(0,.3cm)$)--($(user.west)+(0,.3cm)$)node[midway,above]{\scriptsize 認証応答・結果表示};
 
-    \draw[latex-latex,very thick,blue] ($(server.north east)+(0,-.3cm)$)--($(usr-db.south west)+(.3cm,0)$)node[midway,below right]{\scriptsize 登録情報クエリ・結果};
+	\draw[latex-latex,very thick,blue] ($(server.north east)+(0,-.3cm)$)--($(usr-db.south west)+(.3cm,0)$)node[midway,below right]{\scriptsize 登録情報クエリ・結果};
 
-    \draw[\col,-latex,very thick] ($(user.west)+(0,-.3cm)$)--($(server.east)+(0,-.3cm)$)node[midway,below]{\scriptsize 登録・検索・削除など};
-    \draw[\col,-latex,very thick] ($(server.east)+(0,-.9cm)$)--($(user.west)+(0,-.9cm)$)node[midway,below]{\scriptsize 結果表示};
+	\draw[\col,-latex,very thick] ($(user.west)+(0,-.3cm)$)--($(server.east)+(0,-.3cm)$)node[midway,below]{\scriptsize 登録・検索・削除など};
+	\draw[\col,-latex,very thick] ($(server.east)+(0,-.9cm)$)--($(user.west)+(0,-.9cm)$)node[midway,below]{\scriptsize 結果表示};
 
-    \draw[\col,-latex,very thick] ($(server.west)+(0,.3cm)$)-|($(ms-db.south)+(.3cm,0)$)node[midway,above right]{\scriptsize クエリ（ユーザ情報を探索条件に含む）};
-    \draw[\col,-latex,very thick] ($(ms-db.south)+(-.3cm,0)$)|-($(server.west)+(0,-.3cm)$)node[midway,below right]{\scriptsize 結果};
+	\draw[\col,-latex,very thick] ($(server.west)+(0,.3cm)$)-|($(ms-db.south)+(.3cm,0)$)node[midway,above right]{\scriptsize クエリ（ユーザ情報を探索条件に含む）};
+	\draw[\col,-latex,very thick] ($(ms-db.south)+(-.3cm,0)$)|-($(server.west)+(0,-.3cm)$)node[midway,below right]{\scriptsize 結果};
 
-    \draw[-latex,very thick] (admin.east)--(usr-db.west)node[midway,above]{\scriptsize 運用上のアクセス};
-    \draw[-latex,very thick] (admin.west)--(ms-db.east)node[midway,above]{\scriptsize 運用上のアクセス};
+	\draw[-latex,very thick] (admin.east)--(usr-db.west)node[midway,above]{\scriptsize 運用上のアクセス};
+	\draw[-latex,very thick] (admin.west)--(ms-db.east)node[midway,above]{\scriptsize 運用上のアクセス};
 
-    \draw[\coll,-latex,very thick] (server.north west)--(ms-db.south east)node[midway,below left]{\scriptsize 楽譜データの削除};
-    \draw[\coll,-latex,very thick] ($(server.north east)+(-.3cm,0)$)--($(usr-db.south west)+(0,.3cm)$)node[midway,above left]{\scriptsize ユーザデータの削除};
+	\draw[\coll,-latex,very thick] (server.north west)--(ms-db.south east)node[midway,below left]{\scriptsize 楽譜データの削除};
+	\draw[\coll,-latex,very thick] ($(server.north east)+(-.3cm,0)$)--($(usr-db.south west)+(0,.3cm)$)node[midway,above left]{\scriptsize ユーザデータの削除};
 
-    \draw[\coll,-latex,very thick] ($(ms-db|-server)+(0,-2.5cm)$)--($(ms-db|-server)+(2cm,-2.5cm)$)node[right,text=black]{\tiny 自動処理};
-    \draw[-latex,very thick] ($(ms-db|-server)+(0,-3cm)$)--($(ms-db|-server)+(2cm,-3cm)$)node[right,text=black]{\tiny 管理者からのアクセス};
-    \draw[\col,-latex,very thick] ($(ms-db|-server)+(5cm,-2.5cm)$)--($(ms-db|-server)+(7cm,-2.5cm)$)node[right, text=black]{\tiny 認可されたユーザが承認された部分でのアクセス};
-    \draw[blue,-latex,very thick] ($(ms-db|-server)+(5cm,-3cm)$)--($(ms-db|-server)+(7cm,-3cm)$)node[right, text=black]{\tiny ユーザ情報処理・認証処理};
+	\draw[\coll,-latex,very thick] ($(ms-db|-server)+(0,-2.5cm)$)--($(ms-db|-server)+(2cm,-2.5cm)$)node[right,text=black]{\tiny 自動処理};
+	\draw[-latex,very thick] ($(ms-db|-server)+(0,-3cm)$)--($(ms-db|-server)+(2cm,-3cm)$)node[right,text=black]{\tiny 管理者からのアクセス};
+	\draw[\col,-latex,very thick] ($(ms-db|-server)+(5cm,-2.5cm)$)--($(ms-db|-server)+(7cm,-2.5cm)$)node[right, text=black]{\tiny 認可されたユーザが承認された部分でのアクセス};
+	\draw[blue,-latex,very thick] ($(ms-db|-server)+(5cm,-3cm)$)--($(ms-db|-server)+(7cm,-3cm)$)node[right, text=black]{\tiny ユーザ情報処理・認証処理};
 \end{tikzpicture}
