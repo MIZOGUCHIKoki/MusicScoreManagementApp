@@ -60,6 +60,11 @@ class User < ApplicationRecord
     remember_digest || remember
   end
 
+  # サインイン時刻を記録する
+  def update_sign_in_at
+    update_attribute(:last_signin_date, Time.zone.now)
+  end
+
   # スコープに名前をつけ，引数を受ける
   scope :search, lambda { |search_params|
                    return if search_params.blank? # 引数が空ならその後の処理を行わない

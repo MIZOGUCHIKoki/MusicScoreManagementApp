@@ -6,6 +6,8 @@ module SessionsHelper
     session[:user_id] = user.id
     # セッションリプレイ攻撃から保護する
     session[:session_token] = user.session_token
+    # サインイン時刻を記録する
+    user.update_sign_in_at
   end
 
   # 永続的セッションのためにユーザをデータベースに記憶する

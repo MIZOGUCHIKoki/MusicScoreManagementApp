@@ -51,8 +51,8 @@ gem 'bcrypt', '3.1.20'
 # gem "image_processing", "~> 1.2"
 
 gem 'faker', '3.2.2'
+gem 'whenever', '1.0.0'
 gem 'will_paginate', '3.3.1'
-
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'bootstrap-will_paginate', '1.0.0'
