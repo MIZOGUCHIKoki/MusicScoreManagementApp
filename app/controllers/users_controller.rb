@@ -43,6 +43,7 @@ class UsersController < ApplicationController
     # 上記はセキュリティ的な問題があるので user_params を使って，特定のparamsのみを引き渡す
     @user = User.new(user_params)
     if @user.save
+      @user.update_sign_in_at
       reset_session
       sign_in @user
       flash[:success] = '登録が完了しました'
