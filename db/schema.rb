@@ -10,16 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_15_083346) do
-  create_table "users", force: :cascade do |t|
-    t.integer "user_id"
+ActiveRecord::Schema[7.1].define(version: 2023_12_14_184842) do
+  create_table "scores", force: :cascade do |t|
     t.text "name"
-    t.text "email"
-    t.text "password"
-    t.boolean "admin"
-    t.date "login"
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "piccolo", default: 0, null: false
+    t.integer "c_fulte", default: 0, null: false
+    t.integer "oboe", default: 0, null: false
+    t.integer "english_holn", default: 0, null: false
+    t.integer "b_clarinet", default: 0, null: false
+    t.integer "b_bass_clarinet", default: 0, null: false
+    t.integer "bassoon", default: 0, null: false
+    t.integer "e_alto_saxophone", default: 0, null: false
+    t.integer "b_tenor_saxophone", default: 0, null: false
+    t.integer "b_baritone_saxophone", default: 0, null: false
+    t.integer "b_trumpet", default: 0, null: false
+    t.integer "f_horn", default: 0, null: false
+    t.integer "trombone", default: 0, null: false
+    t.integer "euphonium", default: 0, null: false
+    t.integer "tuba", default: 0, null: false
+    t.integer "string_bass", default: 0, null: false
+    t.integer "eb", default: 0, null: false
+    t.integer "piano", default: 0, null: false
+    t.integer "timpani", default: 0, null: false
+    t.integer "drums", default: 0, null: false
+    t.integer "percussion", default: 0, null: false
+    t.index ["user_id", "created_at"], name: "index_scores_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_scores_on_user_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.string "remember_digest"
+    t.boolean "admin", default: false, null: false
+    t.date "last_signin_date"
+    t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  add_foreign_key "scores", "users"
 end
