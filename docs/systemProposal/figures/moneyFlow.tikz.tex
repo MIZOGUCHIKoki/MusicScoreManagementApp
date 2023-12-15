@@ -1,17 +1,17 @@
 \begin{tikzpicture}
-    \newcommand{\ic}[1]{\includegraphics[keepaspectratio,width=3cm]{#1}}
-    \node(admin){\ic{../network_iconset/network_administrator.pdf}};
-    \node at(admin.north){管理者};
-    \node[right=6cm of admin](ads){\ic{../network_iconset/network_user.pdf}};
-    \node at(ads.north){広告依頼者};
-    \node[below=4cm of ads](usr){\ic{../network_iconset/network_user_w.pdf}};
-    \node at(usr.south){利用者};
-    \node at(admin|-usr)(server){\ic{../network_iconset/virtual_server.pdf}};
-    \node at(server.south){レンタルサーバ};
+	\newcommand{\ic}[1]{\includegraphics[keepaspectratio,width=3cm]{#1}}
+	\node(admin){\ic{../network_iconset/network_administrator.pdf}};
+	\node at(admin.north){管理者};
+	\node[right=6cm of admin](ads){\ic{../network_iconset/network_user.pdf}};
+	\node at(ads.north){広告依頼者};
+	\node[below=4cm of ads](usr){\ic{../network_iconset/network_user_w.pdf}};
+	\node at(usr.south){利用者};
+	\node at(admin|-usr)(server){\ic{../network_iconset/virtual_server.pdf}};
+	\node at(server.south){レンタルサーバ};
 
 
-    \draw[-latex,very thick](ads.west)--(admin.east)node[midway,fill=white,draw]{広告費用};
-    \draw[-latex,very thick](usr.north)--(ads.south)node[midway,fill=white,draw]{商品購入};
-    \draw[-latex,dashed,very thick](admin.south east)--(usr.north west)node[midway,fill=white,draw]{広告掲示};
-    \draw[-latex,very thick](admin.south)--(server.north)node[midway,fill=white,draw]{レンタルサーバ代};
+	\draw[-latex,very thick](ads.west)--(admin.east)node[midway,fill=white,draw]{広告費用};
+	\draw[-latex,very thick](usr.north)--(ads.south)node[midway,fill=white,draw]{商品購入};
+	\draw[-latex,dashed,very thick](admin.south east)--(usr.north west)node[midway,fill=white,draw]{広告掲示};
+	\draw[-latex,very thick](admin.south)--(server.north)node[midway,fill=white,draw]{レンタルサーバ代};
 \end{tikzpicture}

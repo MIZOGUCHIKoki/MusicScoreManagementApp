@@ -14,64 +14,64 @@
 広告は1枚あたり\(60,000\text{円/月}\)とし，広告3枚を年単位での契約とする．
 \eqref{eq:広告収益}に広告3枚の契約で発生する金額を示す．
 \begin{equation}
-    \begin{aligned}
-        180,000\text{円/月}\times 12\text{月} & = 2,160,000\text{円/年}\label{eq:広告収益}
-    \end{aligned}
+	\begin{aligned}
+		180,000\text{円/月}\times 12\text{月} & = 2,160,000\text{円/年}\label{eq:広告収益}
+	\end{aligned}
 \end{equation}
 \section{費用}
 \subsection{人件費の計算}
 一般社会人の時給を平均年収（\url{https://doda.jp/guide/heikin/age/}）から計算する．
 \begin{framed}
-    \begin{tabular}{ll}
-        日本人の平均年収 & \(4,000,000\text{円/年}\)                                    \\
-        年休       & \(130\text{日}=120\text{日（土日，祝日分）}+10\text{（有給，お盆，大晦日など）}\) \\
-        勤務時間     & 8時から18時の10時間
-    \end{tabular}
+	\begin{tabular}{ll}
+		日本人の平均年収 & \(4,000,000\text{円/年}\)                                    \\
+		年休       & \(130\text{日}=120\text{日（土日，祝日分）}+10\text{（有給，お盆，大晦日など）}\) \\
+		勤務時間     & 8時から18時の10時間
+	\end{tabular}
 \end{framed}
 \begin{equation}
-    \begin{aligned}
-        \frac{(365\text{日/年}-130\text{休日/年})\times 10\text{時間/日}}{4,000,000\text{円/年}} & \approx 1,700\text{円/時}\label{eq:時給}
-    \end{aligned}
+	\begin{aligned}
+		\frac{(365\text{日/年}-130\text{休日/年})\times 10\text{時間/日}}{4,000,000\text{円/年}} & \approx 1,700\text{円/時}\label{eq:時給}
+	\end{aligned}
 \end{equation}
 \subsection{初期費用}
 初期費用として，開発費用が考えられる．実際に開発できる時間や日数を考えた．そのほかの初期費用は発生しない．
 \begin{framed}
-    \begin{tabular}{ll}
-        時給（\eqref{eq:時給}より） & \(1,700\text{円/時}\) \\
-        実働日数                & \(15\text{日/月}\)    \\
-        実働時間                & \(3\text{時間/日}\)
-    \end{tabular}
+	\begin{tabular}{ll}
+		時給（\eqref{eq:時給}より） & \(1,700\text{円/時}\) \\
+		実働日数                & \(15\text{日/月}\)    \\
+		実働時間                & \(3\text{時間/日}\)
+	\end{tabular}
 \end{framed}
 \begin{equation}
-    \begin{aligned}
-        1,700{円/時}\times 3\text{時間}\times 15\text{日}\times 4\text{月}\times 7\text{人} & = 2,142,000\text{円}\label{eq:開発費用}
-    \end{aligned}
+	\begin{aligned}
+		1,700{円/時}\times 3\text{時間}\times 15\text{日}\times 4\text{月}\times 7\text{人} & = 2,142,000\text{円}\label{eq:開発費用}
+	\end{aligned}
 \end{equation}
 \subsection{運用費用}
 広告は年契約のため，1年おきの広告更新に対して営業が必要である．この費用を「営業費用」とする．
 また，保守メンテナンスは，1人が月20時間対応するとして，その費用を「保守費用」とする．
 \begin{framed}
-    \begin{tabular}{ll}
-        営業費用     & \(100,000\text{円/年}\)                                                      \\
-        レンタルサーバ代 & \(117,020\text{円/年}\)                                                      \\
-        保守費用     & \(1,700\text{円/時}\times 20\text{時間/月}\times 12\text{月}=408,000\text{円/年}\) \\
-    \end{tabular}
+	\begin{tabular}{ll}
+		営業費用     & \(100,000\text{円/年}\)                                                      \\
+		レンタルサーバ代 & \(117,020\text{円/年}\)                                                      \\
+		保守費用     & \(1,700\text{円/時}\times 20\text{時間/月}\times 12\text{月}=408,000\text{円/年}\) \\
+	\end{tabular}
 \end{framed}
 合計の運用費用は，1年で以下のようになる．
 \begin{equation}
-    \begin{aligned}
-        100,000\text{円/年}+117,020\text{円/年}+408,000\text{円/年} & =625,020\text{円/年}\label{eq:運用費用}
-    \end{aligned}
+	\begin{aligned}
+		100,000\text{円/年}+117,020\text{円/年}+408,000\text{円/年} & =625,020\text{円/年}\label{eq:運用費用}
+	\end{aligned}
 \end{equation}
 \section{利益}
 \vspace{-1cm}
 \begin{align}
-    \intertext{1年目は，開発費用と運用コストを収益から引いて利益とする．}
-    \underset{収益：\eqref{eq:広告収益}}{\underline{2,160,000}} -\underset{開発費用：\eqref{eq:開発費用}}{\underline{2,142,000}}-\underset{運用費用：\eqref{eq:運用費用}}{\underline{625,020}} & = \textcolor{red}{-607,020\text{円/年}}\label{eq:利益1} \\
-    \intertext{2年目以降は，運用コストを収益から引いて利益とする．}
-    \underset{収益：\eqref{eq:広告収益}}{\underline{2,160,000}}-\underset{運用費用：\eqref{eq:運用費用}}{\underline{625,020}}                                                         & =1,534,980\text{円/年}\label{eq:収益2}
+	\intertext{1年目は，開発費用と運用コストを収益から引いて利益とする．}
+	\underset{収益：\eqref{eq:広告収益}}{\underline{2,160,000}} -\underset{開発費用：\eqref{eq:開発費用}}{\underline{2,142,000}}-\underset{運用費用：\eqref{eq:運用費用}}{\underline{625,020}} & = \textcolor{red}{-607,020\text{円/年}}\label{eq:利益1} \\
+	\intertext{2年目以降は，運用コストを収益から引いて利益とする．}
+	\underset{収益：\eqref{eq:広告収益}}{\underline{2,160,000}}-\underset{運用費用：\eqref{eq:運用費用}}{\underline{625,020}}                                                         & =1,534,980\text{円/年}\label{eq:収益2}
 \end{align}
 5年間の運用を予定すると，5年後の利益は以下のようになる．
 \begin{align}
-    \underset{1年目の利益：\eqref{eq:利益1}}{\underline{-607,020}} + \underset{2から4年目の利益：\eqref{eq:収益2}}{\underline{(1,534,980\times 4)}} = 5,532,900\text{円}
+	\underset{1年目の利益：\eqref{eq:利益1}}{\underline{-607,020}} + \underset{2から4年目の利益：\eqref{eq:収益2}}{\underline{(1,534,980\times 4)}} = 5,532,900\text{円}
 \end{align}
