@@ -14,8 +14,8 @@
             "no-doubled-conjunction": false
         },
         "preset-ja-engineering-paper": {
-          "unify-kuten-and-touten": true,
-          "ja-hiragana-fukushi": false
+            "unify-kuten-and-touten": true,
+            "ja-hiragana-fukushi": false
         },
         "preset-jtf-style": {
             "1.2.1.句点(。)と読点(、)": false,
@@ -34,14 +34,13 @@
             "enablingComment": "textlint-enable",
             "disablingComment": "textlint-disable"
         },
-				"allowlist": {
+        "allowlist": {
             "allow": [
-							"ユーザ",
-							"メンバ",
-							"単体テスト",
-							"/``[\\s\\S]*?''/m",
-							"/\\{\\{[\\s\\S]*?\\}\\}/m",
-		    					"マスター"
+                "ユーザ",
+                "メンバ",
+                "単体テスト",
+                "/``[\\s\\S]*?''/m",
+                "/\\{\\{[\\s\\S]*?\\}\\}/m"
             ]
         }
     }
