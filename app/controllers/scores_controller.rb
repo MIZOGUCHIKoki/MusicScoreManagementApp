@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ScoresController < ApplicationController
+  before_action :signed_in_user, only: %i[index show new edit create update destroy]
   # 一覧を表示：GET
   def index; end
 
