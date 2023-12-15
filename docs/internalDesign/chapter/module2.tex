@@ -3,9 +3,9 @@
 
 \vspace{-0.5cm}
 %曲名．作曲者・編曲者検索
-\subsection*{楽譜を曲名，作曲者・編曲者から検索する機能}
-検索ボックスへの入力値を受け取り，その文字列を曲名に含むデータ，または
-作曲者・編曲者に含むデータを検索する．
+\subsection*{楽譜を曲名，作曲者・編曲者，グレードから検索する機能}
+検索ボックス，プルダウンへの入力値を受け取り，その文字列を曲名に含むデータ，または
+作曲者・編曲者・グレードに含むデータを検索する．
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{img/Method/score_search_params}
@@ -16,17 +16,6 @@
     \centering
     \includegraphics[scale=0.5]{img/Model/Score_search(scope).pdf}
     \caption{Score.score\_search}
-\end{figure}
-\clearpage
-
-%グレード検索
-\subsection*{楽譜をグレードから検索する機能}
-プルダウンからグレードを受け取り，一致する楽譜を検索する機能．
-入力値の受け取りは図\ref{ScoresController.score-search-params}を使用する．
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{img/Method/Score_search(scope).pdf}
-    \caption{Score.search}
 \end{figure}
 \clearpage
 
