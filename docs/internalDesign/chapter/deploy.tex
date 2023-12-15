@@ -3,8 +3,8 @@
 本番環境への設定には，Railsを動かすアプリケーションサーバとして\texttt{Puma}，
 Webサーバとして\texttt{nginx}を使用する．
 \subsection{Master keyの設定}
-マスターキーは，pushしてもgithubには上がらないため，EC2上で作成する．
-ローカル環境でマスターキーの確認を行う．
+マスターキーは，pushしてもGitHubには上がらないため，EC2上で作成する．
+ローカル環境でマスターキーを確認する．
 \begin{screen}
     \texttt{\$ cat config/master.key}
 \end{screen}
@@ -15,7 +15,7 @@ EC2にログインし，マスターキーを作成する．
 ローカル環境で取得したマスターキーの中身を記述する．
 
 \subsection{環境変数の設定}
-EC2上で\texttt{credentials.yml}の設定を行う．
+EC2上で\texttt{credentials.yml}を設定する．
 \begin{screen}
     \texttt{\$ EDITOR="vi" bin/rails credentials:edit}
 \end{screen}
@@ -74,7 +74,7 @@ server {
 }
 \end{lstlisting}
 \end{screen}
-権限の変更を行う．
+権限を変更する．
 \begin{screen}
     \texttt{\$ cd /etc}
     \texttt{\$ sudo chown -R ec2-user nginx}
