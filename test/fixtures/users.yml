@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  email: MyText
+  name: MyText
+  password: MyText
+  login: 2023-12-15
+
+two:
+  user_id: 1
+  email: MyText
+  name: MyText
+  password: MyText
+  login: 2023-12-15

@@ -21,4 +21,12 @@ class UsersController < ApplicationController
 
   # 削除を実行：DELETE
   def destroy; end
+
+  def user_params
+    params.require(:user).permit(:name, :email)
+  end
+
+  def user_search_params
+    params.fetch(:user_search, {}).permit(:name, :email)
+  end
 end

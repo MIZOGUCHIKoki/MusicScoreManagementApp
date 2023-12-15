@@ -21,4 +21,8 @@ class ScoresController < ApplicationController
 
   # 削除を実行：DELETE
   def destroy; end
+
+  def score_params
+    params.require(:score).permit
+  end
 end
