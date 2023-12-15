@@ -1,8 +1,7 @@
-\chapter{本番環境}
-\section{本番環境の設定-Rails}
+\chapter{本番環境の設定-Rails}
 本番環境への設定には，Railsを動かすアプリケーションサーバとして\texttt{Puma}，
 Webサーバとして\texttt{nginx}を使用する．
-\subsection{Master keyの設定}
+\section{Master keyの設定}
 {{マスター}}キーは，pushしてもGitHubには上がらないため，EC2上で作成する．
 ローカル環境で{{マスター}}キーを確認する．
 \begin{screen}
@@ -14,7 +13,7 @@ EC2にログインし，{{マスター}}キーを作成する．
 \end{screen}
 ローカル環境で取得した{{マスター}}キーの中身を記述する．
 
-\subsection{環境変数の設定}
+\section{環境変数の設定}
 EC2上で\texttt{credentials.yml}を設定する．
 \begin{screen}
     \texttt{\$ EDITOR="vi" bin/rails credentials:edit}
@@ -25,10 +24,10 @@ EC2上で\texttt{credentials.yml}を設定する．
     \texttt{Rails.application.credentials. + ハッシュオブジェクト名 + [:キー]}
 \end{screen}
 \texttt{master.key}の内容は共有すれば，\texttt{credential.yml}の内容を
-他メンバーからも編集できる，他メンバーにも知られたくない個人の秘匿情報は，サーバ上
+他メンバーからも編集できる．他メンバーにも知られたくない個人の秘匿情報は，サーバ上
 の\texttt{/etc/environment}に環境変数として設定しておく．
 
-\subsection{nginxの設定}
+\section{nginxの設定}
 \texttt{nginx}をインストールし，設定ファイルを編集する．
 \begin{screen}
     \texttt{\$ sudo yum -y install nginx}\\
@@ -81,14 +80,14 @@ server {
     \texttt{\$ ls -l}
 \end{screen}
 
-\subsection{Pumaの設定}
+\section{Pumaの設定}
 railsの\texttt{config/puma.rb}を編集する．
 \begin{lstlisting}
     #port        ENV.fetch("PORT") { 3000 }
     bind "unix://#{Rails.root}/tmp/sockets/puma.sock"       
 \end{lstlisting}
 
-\subsection{本番環境での起動}
+\section{本番環境での起動}
 静的ファイルのコンパイルを行う．
 \begin{screen}
     \texttt{\$ bundle exec rails assets:precompile RAILS\_ENV=production}
