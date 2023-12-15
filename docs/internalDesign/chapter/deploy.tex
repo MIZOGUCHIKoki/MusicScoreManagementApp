@@ -29,9 +29,9 @@ EC2上で\texttt{credentials.yml}を設定する．
 の\texttt{/etc/environment}に環境変数として設定しておく．
 
 \subsection{nginxの設定}
-\texttt{nginx}をインストールし，設定ふぁいるを編集する．
+\texttt{nginx}をインストールし，設定ファイルを編集する．
 \begin{screen}
-    \texttt{\$ sudo yum -y install nginx}
+    \texttt{\$ sudo yum -y install nginx}\\
     \texttt{\$ vi /etc/nginx/conf.d/APPLICATION\_NAME.conf}
 \end{screen}
 以下を\texttt{nginx.conf}に記述する．
@@ -76,8 +76,8 @@ server {
 \end{screen}
 権限を変更する．
 \begin{screen}
-    \texttt{\$ cd /etc}
-    \texttt{\$ sudo chown -R ec2-user nginx}
+    \texttt{\$ cd /etc}\\
+    \texttt{\$ sudo chown -R ec2-user nginx}\\
     \texttt{\$ ls -l}
 \end{screen}
 
@@ -101,3 +101,4 @@ railsの\texttt{config/puma.rb}を編集する．
 \begin{screen}
     \texttt{\$ bundle exec rails s -e production}
 \end{screen}
+ブラウザにElastic IPを打ち込むとアプリにアクセスできる．
