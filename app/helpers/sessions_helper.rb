@@ -31,6 +31,8 @@ module SessionsHelper
   end
 
   def sign_out; end
-  def current_user?(user); end
+  def current_user?(user); 
+    user && user == current_user
+  end
   def store_location; end
 end
