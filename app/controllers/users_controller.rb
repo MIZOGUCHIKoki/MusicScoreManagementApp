@@ -20,7 +20,19 @@ class UsersController < ApplicationController
   def edit; end
 
   # 作成を実行：POST
-  def create; end
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      @user.update_sign_in_at
+      reset_session
+      sign_in @user
+      flash[:success] = '登録が完了しました'
+      redirect_to @user
+    else
+      flash[:danger] = '登録に失敗しました'
+      redirect_to new_user_path, status: :unprocessable_entity
+    end
+  end
 
   # 更新を実行：PATCH/PUT
   def update; end
