@@ -8,7 +8,21 @@ module SessionsHelper
   end
 
   def remeber(user); end
-  def current_user; end
+  
+  #現在のuserを取得
+  def current_user; 
+    if (user_id = session[:user_id])
+      user = User.find_by(id: user_id)
+      user if user && sessin[:sessin_token] == user.sessin_token
+    elsif (user_id cokkies.encrypted[:user_id])
+      user = User.find_by(id: user_id)
+      if (user && user.authenticated?(cookies[:remember_token]))
+        sign_in user
+        user
+      end
+    end
+  end
+  
   def forget(user); end
 
   # ユーザがログインしているか確認
