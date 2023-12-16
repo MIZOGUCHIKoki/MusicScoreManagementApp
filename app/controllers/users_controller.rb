@@ -67,6 +67,16 @@ class UsersController < ApplicationController
     params.fetch(:score_search, {}).permit(:name, :composer, :arranger, :grade)
   end
 
-  def current_user_admin; end
-  def admin_user; end
+  def current_user_admin
+    @user = User.find(params[:id])
+  raise ActiveRecord::RecordNotFound unless @user == current_user || current_user.admin?
+rescue ActiveRecord::RecordNotFound
+  redirect_to signin_path, status: :see_other
+  end
+  def admin_user
+    raise '管理者としてサインインしてください' unless current_user.admin?
+  rescue StandardError => e
+    flash[:danger] = e.message
+    redirect_to signin_path, status: :see_other
+  end
 end
