@@ -13,4 +13,5 @@ class Score < ApplicationRecord
   validates :arranger,  length: { maximum: 255 }
   validates :grade,     length: { maxumum: 5 }
   validates :piccoro, inclusion: { in: [0, 1] }
+  validates :o_flute, inclusion: { in: [0, 1] }
 end
