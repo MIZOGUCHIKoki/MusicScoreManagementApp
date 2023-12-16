@@ -14,7 +14,13 @@ class UsersController < ApplicationController
   end
 
   # 個々のデータを表示：GET
-  def show; end
+  def show
+    @user = if current_user.admin?
+              User.find(params[:id])
+            else
+              User.find(current_user.id)
+            end
+  end
 
   # 新規作成画面を表示：GET
   def new; end
