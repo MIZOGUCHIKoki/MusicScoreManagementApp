@@ -26,7 +26,43 @@ class UsersController < ApplicationController
   def new; end
 
   # ホーム画面を表示：GET
-  def home; end
+  def home
+    # if params[:input_value] == :order
+    #   @user = User.find(params[:id])#ユーザ特定
+    #   if params[:order] == 'asc'
+    #     order = :grate_sort_asc
+    #   elsif params[:order] == 'desc'
+    #     order = :grate_sort_desc
+    #   else
+    #     order = :all
+    #   end
+    #   @scores = @user.scores.send(order)#ソート結果格納
+    # else
+    #   @score_params = score_search_params || score_search_gakki_params
+    #   if @search_params.instance_of(String)?
+    #     @scores = score_search(@search_params)
+    #   else
+    #     @scores = score_search_gakki(@search_params)
+    #   end
+    # end
+    if params[:input_value] == :order
+      @user = User.find(params[:id]) # ユーザ特定
+      order = if params[:order] == 'asc' # 昇順
+                :grate_sort_asc
+              elsif params[:order] == 'desc' # 降順
+                :grate_sort_desc
+              else
+                :all
+              end
+      @scores = @user.scores.send(order) # ソート結果格納
+    elsif params[:input_value] == :name || params[:input_value] == :composer || params[input_value] == :arranger
+      @search_params = score_search_params
+      @scores = score_search(@search_params)
+    else
+      @search_params = score_search_gakki_params
+      @scores = score_search(@search_params)
+    end
+  end
 
   # 編集画面を表示：GET
   def edit; end
