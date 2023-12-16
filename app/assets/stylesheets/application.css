@@ -14,7 +14,7 @@
  *= require_self
  */
 
-
+/*基本フィールド定義*/
  body {
     background-color: #f8f9fa;
     margin-left: auto;
@@ -22,24 +22,37 @@
     
     width: 920px;
  }
-
  .center {
     text-align: center;
  }
-
  .left {
     text-align: left;
  }
-
  .field {
     justify-content: space-around;
     display: flex;
  }
-
  table {
     margin: auto;
     padding: 50px;
  }
+
+/*flash関連*/
+.flash-message {
+   border-radius: 5px;
+   padding: 16px 24px;
+   margin: 16px 0px;
+}
+.flash-message.success {
+   background-color: #bcdfff;
+   color: #0067C0;
+   border: solid 1px #0067C0;
+}
+.flash-message.danger {
+   background-color: #ffd4d1;
+   color: #930403;
+   border: solid 1px #930403;
+}
 
  /*チェックボックスを隠す*/
  #hide {
