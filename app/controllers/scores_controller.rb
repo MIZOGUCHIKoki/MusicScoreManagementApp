@@ -23,7 +23,7 @@ class ScoresController < ApplicationController
     @score = current_user.scores.build(score_params)
 
     if @score.save
-      flash[:success] = '登録しました'
+      flash[:success] = '新規楽譜の登録が完了しました'
       redirect_to home_path(current_user)
     else
       flash.now[:danger] = '登録できませんでした'
