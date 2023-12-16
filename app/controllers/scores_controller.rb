@@ -6,7 +6,9 @@ class ScoresController < ApplicationController
   def index; end
 
   # 個々のデータを表示：GET
-  def show; end
+  def show
+    @score = Score.find(params[:id])
+  end
 
   # 新規作成画面を表示：GET
   def new; end
