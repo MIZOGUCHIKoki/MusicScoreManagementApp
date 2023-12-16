@@ -35,7 +35,18 @@ class ScoresController < ApplicationController
   end
 
   # 更新を実行：PATCH/PUT
-  def update; end
+  def update
+    # 編集される楽譜のユーザと現在のユーザが同じか確かめる（current_user = いじりたい楽譜データの持ち主）
+    @score = Score.find(params[:id])
+    if @score.update(score_params)
+      flash[:success] = '変更が完了しました'
+      # 設計書に間違いあり(index -> user.home)
+      redirect_to home_path(current_user)
+    else
+      flash[:danger] = '変更に失敗しました'
+      redirect_to edit_score_path, status: :unprocessable_entity
+    end
+  end
 
   # 削除を実行：DELETE
   def destroy; end

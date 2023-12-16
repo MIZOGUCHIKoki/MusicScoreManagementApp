@@ -86,14 +86,16 @@ class UsersController < ApplicationController
   # 更新を実行：PATCH/PUT
   def update
     @user = User.find(find[:id])
-    if current_user_admin
-      if @user.update(user_params)
-        flash[:success] = '変更が完了しました'
-        redirect_to @user
-      else
-        falsh[:danger] = '変更に失敗しました'
-        redirect_to edit_user_path, status: :unprocessable_entity
-      end
+
+    return unless current_user_admin
+
+    if @user.update(user_params)
+      flash[:success] = '変更が完了しました'
+      redirect_to @user
+    else
+      falsh[:danger] = '変更に失敗しました'
+      redirect_to edit_user_path, status: :unprocessable_entity
+    end
   end
 
   # 削除を実行：DELETE
@@ -116,12 +118,13 @@ class UsersController < ApplicationController
   def current_user_admin
     @user = User.find(params[:id])
     raise ActiveRecord::RecordNotFound unless @user == current_user || current_user.admin?
-    rescue ActiveRecord::RecordNotFound
+  rescue ActiveRecord::RecordNotFound
     redirect_to signin_path, status: :see_other
   end
+
   def admin_user
     raise '管理者としてサインインしてください' unless current_user.admin?
-    rescue StandardError => e
+  rescue StandardError => e
     flash[:danger] = e.message
     redirect_to signin_path, status: :see_other
   end
