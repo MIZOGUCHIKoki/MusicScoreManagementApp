@@ -6,7 +6,6 @@ class Score < ApplicationRecord
   grade_sort_no ->    { order(created_at: :desc) }
   grade_sort_desc ->  { order('CAST(grade AS float) DESC') }
   grade_sort_asc ->   { order('CAST(grade AS float) ASC') }
-
   validates :name,      presence: true,
                         length: { maximum: 50 }
   validates :composer,  length: { maximum: 255 }
