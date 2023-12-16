@@ -5,5 +5,12 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def signed_in_user; end
+  def signed_in_user
+    return true if sign_in?
+
+    store_location # ユーザがどこからアクセスしてきたか保存
+    flash[:danger] = 'ログインしてください' # フラッシュメッセージをセット
+    redirect_to controller: :SessionsController, action: :new # ログインページへリダイレクト
+    false
+  end
 end
