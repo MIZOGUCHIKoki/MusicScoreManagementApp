@@ -57,6 +57,10 @@ class UsersController < ApplicationController
     params.fetch(:user_search, {}).permit(:name, :email)
   end
 
+  def score_search_params
+    params.fetch(:score_search, {}).permit(:name, :composer, :arranger, :grade)
+  end
+
   def current_user_admin; end
   def admin_user; end
 end
