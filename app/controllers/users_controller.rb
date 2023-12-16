@@ -30,6 +30,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash[:danger] = '登録に失敗しました'
+      # renderは"再描画"であるためflashが表示されない．
       redirect_to new_user_path, status: :unprocessable_entity
     end
   end

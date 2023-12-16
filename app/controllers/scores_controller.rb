@@ -15,7 +15,22 @@ class ScoresController < ApplicationController
   def edit; end
 
   # 作成を実行：POST
-  def create; end
+  def create
+    redirect_to users_url if current_user.admin
+
+    # 親モデルに属する子モデルの新たなインスタンス生成に使用：build
+    # ユーザに紐づく楽譜情報に新たに足す処理
+    @score = current_user.scores.build(score_params)
+
+    if @score.save
+      flash[:success] = '登録しました'
+      redirect_to home_path(current_user)
+    else
+      flash.now[:danger] = '登録できませんでした'
+      # renderは"再描画"であるためflashが表示されない．
+      redirect_to new_score_path, status: :unprocessable_entity
+    end
+  end
 
   # 更新を実行：PATCH/PUT
   def update; end
