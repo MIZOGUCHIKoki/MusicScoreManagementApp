@@ -12,11 +12,11 @@ class Score < ApplicationRecord
   validates :composer,              length: { maximum: 255 }
   validates :arranger,              length: { maximum: 255 }
   validates :grade,                 length: { maximum: 5 }
-  validates :time,                  numericality: {
-    only_integer: true,
-    greater_than_or_equal_to: 0,
-    less_than_or_equal_to: 1800
-  }
+  # validates :time,                  numericality: {
+  #   only_integer: true,
+  #   greater_than_or_equal_to: 0,
+  #   less_than_or_equal_to: 1800
+  # }
   validates :piccolo,               inclusion: { in: [0, 1] }
   validates :c_flute,               inclusion: { in: [0, 1] }
   validates :oboe,                  inclusion: { in: [0, 1] }
