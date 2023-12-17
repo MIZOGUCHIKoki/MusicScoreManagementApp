@@ -1,0 +1,103 @@
+\chapter{本番環境の設定-Rails}
+本番環境への設定には，Railsを動かすアプリケーションサーバとして\texttt{Puma}，
+Webサーバとして\texttt{nginx}を使用する．
+\section{Master keyの設定}
+{{マスター}}キーは，pushしてもGitHubには上がらないため，EC2上で作成する．
+ローカル環境で{{マスター}}キーを確認する．
+\begin{screen}
+    \texttt{\$ cat config/master.key}
+\end{screen}
+EC2にログインし，{{マスター}}キーを作成する．
+\begin{screen}
+    \texttt{\$ vi config/master.key}
+\end{screen}
+ローカル環境で取得した{{マスター}}キーの中身を記述する．
+
+\section{環境変数の設定}
+EC2上で\texttt{credentials.yml}を設定する．
+\begin{screen}
+    \texttt{\$ EDITOR="vi" bin/rails credentials:edit}
+\end{screen}
+ファイル内にAPIキーやDBのパスワードなどの秘密情報を必要に応じて記述する．
+\texttt{credentials.yml}の環境変数の利用は以下のように行う．
+\begin{screen}
+    \texttt{Rails.application.credentials. + ハッシュオブジェクト名 + [:キー]}
+\end{screen}
+\texttt{master.key}の内容は共有すれば，\texttt{credential.yml}の内容を
+他メンバーからも編集できる．他メンバーにも知られたくない個人の秘匿情報は，サーバ上
+の\texttt{/etc/environment}に環境変数として設定しておく．
+
+\section{nginxの設定}
+\texttt{nginx}をインストールし，設定ファイルを編集する．
+\begin{screen}
+    \texttt{\$ sudo yum -y install nginx}\\
+    \texttt{\$ vi /etc/nginx/conf.d/APPLICATION\_NAME.conf}
+\end{screen}
+以下を\texttt{nginx.conf}に記述する．
+\begin{screen}
+    \begin{lstlisting}
+# log directory
+error_log  /var/www/rails/{APPLICATION\_NAME}/log/nginx.error.log; 
+access_log /var/www/rails/{APPLICATION\_NAME}/log/nginx.access.log;
+
+# max body size
+client_max_body_size 2G;
+upstream app_server {
+  # for UNIX domain socket setups
+  server unix:/var/www/rails/{APPLICATION\_NAME}/tmp/sockets/puma.sock fail_timeout=0; 
+}
+server {
+  listen 80;
+  server_name 自身のElasticIP;
+
+  # nginx so increasing this is generally safe...
+  keepalive_timeout 5;
+  # path for static files
+  root /var/www/rails/{APPLICATION\_NAME}/public;
+  # page cache loading
+  try_files $uri/index.html $uri.html $uri @app;
+
+  location @app {
+    # HTTP headers
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_pass http://app_server;
+  }
+
+  # Rails error pages
+  error_page 500 502 503 504 /500.html;
+  location = /500.html {
+    root /var/www/rails/{APPLICATION\_NAME}/public; 
+  }
+}
+\end{lstlisting}
+\end{screen}
+権限を変更する．
+\begin{screen}
+    \texttt{\$ cd /etc}\\
+    \texttt{\$ sudo chown -R ec2-user nginx}\\
+    \texttt{\$ ls -l}
+\end{screen}
+
+\section{Pumaの設定}
+railsの\texttt{config/puma.rb}を編集する．
+\begin{lstlisting}
+    #port        ENV.fetch("PORT") { 3000 }
+    bind "unix://#{Rails.root}/tmp/sockets/puma.sock"       
+\end{lstlisting}
+
+\section{本番環境での起動}
+静的ファイルのコンパイルを行う．
+\begin{screen}
+    \texttt{\$ bundle exec rails assets:precompile RAILS\_ENV=production}
+\end{screen}
+\texttt{nginx}を起動する．
+\begin{screen}
+    \texttt{\$ sudo service nginx start}
+\end{screen}
+\texttt{Puma}を起動する．
+\begin{screen}
+    \texttt{\$ bundle exec rails s -e production}
+\end{screen}
+ブラウザにElastic IPを打ち込むとアプリケーションにアクセスできる．
