@@ -47,5 +47,7 @@ module SessionsHelper
     user && user == current_user
   end
 
-  def store_location; end
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
 end
