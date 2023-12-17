@@ -7,7 +7,11 @@ module SessionsHelper
     session[:user_session_token] = user.session.token
   end
 
-  def remeber(user); end
+  def remeber(user)
+    user.remember # :remember_digest に保存する
+    cookies.permanent.encrypted[:user_id] = user.id
+    cookies.permanent[:remember_token] = user.remember_token
+  end
 
   # 現在のuserを取得
   def current_user
@@ -30,7 +34,10 @@ module SessionsHelper
     !current_user.nil?
   end
 
-  def sign_out; end
+  def sign_out
+    forget current_user
+    reset_session
+  end
 
   def current_user?(user)
     user && user == current_user
