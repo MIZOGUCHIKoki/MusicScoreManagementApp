@@ -1,6 +1,30 @@
-<h1>UsersController#show</h1>
-<ul>
-  <li><%= @user.name %></li>
-  <li><%= @user.email %></li>
-</ul>
-<%= link_to "編集する", edit_user_path(@user) %>
+<body>
+  <div class="left">
+    <h2>マイページ</h2>
+  </div>
+    
+  <div class="center">
+    <div>
+      <small>作成日：<%= @score.created_at %></small>
+    </div>
+
+    <table>
+      <tr>
+        <th>ユーザ名</th><th>メールアドレス</th>
+      </tr>
+      <tr>
+        <td><%= @user.name %></td>
+        <td><%= @user.email %></td>
+      </tr>
+    </table>
+
+    <div>
+      <%= link_to "ログアウト", controller: "sessions_controller", action: "destroy" %>
+      <%= link_to "アカウント削除", @user, data:{"turbo-method": :delete, turbo_confirm: "本当に削除しますか？"} %>
+    </div>
+    <div>
+      <%= link_to "編集", edit_user_url(@user) %>
+      <%= link_to "戻る", controller: "users_controller", action: "home" %>
+    </div>
+  </div>
+</body>
