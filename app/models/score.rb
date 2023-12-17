@@ -53,7 +53,7 @@ class Score < ApplicationRecord
       .grade_like(search_params[:grade])
   }
   scope :name_like, ->(name) { where('name LIKE ?', "%#{name}%") if name.present? }
-  scope :composer_like, ->(composer) { where('composer LIKE ?', "%#{composer}%") if composer.present? }
+  scope :composer_like, ->(composer) { where('composr LIKE ?', "%#{composer}%") if composer.present? }
   scope :arranger_like, ->(arranger) { where('arranger LIKE ?', "%#{arranger}%") if arranger.present? }
   scope :grade_like, ->(grade) { where('grade LIKE ?', "#{grade}%") if grade.present? }
   # if ~.present?:~の文字列が空か存在しない場合に処理をスキップする
@@ -68,4 +68,51 @@ class Score < ApplicationRecord
   #     end
   #   end
   # end
+
+  # 実引数:search_gakki_params, 仮引数:x
+  scope :score_search_gakki, lambda { |*search_gakki_params|
+    use_piccolo(search_gakki_params[0])
+      .use_c_flute(search_gakki_params[1])
+      .use_oboe(search_gakki_params[2])
+      .use_english_horn(search_gakki_params[3])
+      .use_e_clarinet(search_gakki_params[4])
+      .use_b_clarinet(search_gakki_params[5])
+      .use_b_bass_clarinet(search_gakki_params[6])
+      .use_bassoon(search_gakki_params[7])
+      .use_e_alt_saxophone(search_gakki_params[8])
+      .use_b_tenor_saxophone(search_gakki_params[9])
+      .use_b_baritone_saxophone(search_gakki_params[10])
+      .use_b_trumpet(search_gakki_params[11])
+      .use_f_horm(search_gakki_params[12])
+      .use_trombone(search_gakki_params[13])
+      .use_baritone(search_gakki_params[14])
+      .use_tuba(search_gakki_params[15])
+      .use_string_bass(search_gakki_params[16])
+      .use_piano(search_gakki_params[17])
+      .use_harp(search_gakki_params[18]).use_timpani(search_gakki_params[19])
+      .use_drums(search_gakki_params[20]).use_percussion(search_gakki_params[21])
+  }  # 21ブロック以上だと注意されるため，20ブロックに収めました
+
+  scope :use_piccolo, ->(x) { where(piccolo: 1) if x == 1 }
+  scope :use_c_flute, ->(x) { where(c_flute: 1) if x == 1 }
+  scope :use_oboe, ->(x) { where(oboe: 1) if x == 1 }
+  scope :use_english_horn, ->(x) { where(english_horn: 1) if x == 1 }
+  scope :use_e_clarinet, ->(x) { where(e_clarinet: 1) if x == 1 }
+  scope :use_b_clarinet, ->(x) { where(b_clarinet: 1) if x == 1 }
+  scope :use_b_bass_clarinet, ->(x) { where(b_bass_clarinet: 1) if x == 1 }
+  scope :use_bassoon, ->(x) { where(bassoon: 1) if x == 1 }
+  scope :use_e_alt_saxophone, ->(x) { where(e_alto_saxophone: 1) if x == 1 }
+  scope :use_b_tenor_saxophone, ->(x) { where(b_tenor_saxophone: 1) if x == 1 }
+  scope :use_b_baritone_saxophone, ->(x) { where(b_baritone_saxophone: 1) if x == 1 }
+  scope :use_b_trumpet, ->(x) { where(b_trumpet: 1) if x == 1 }
+  scope :use_f_horm, ->(x) { where(f_horn: 1) if x == 1 }
+  scope :use_trombone, ->(x) { where(trombone: 1) if x == 1 }
+  scope :use_baritone, ->(x) { where(baritone: 1) if x == 1 }
+  scope :use_tuba, ->(x) { where(tuba: 1) if x == 1 }
+  scope :use_string_bass, ->(x) { where(string_bass: 1) if x == 1 }
+  scope :use_piano, ->(x) { where(piano: 1) if x == 1 }
+  scope :use_harp, ->(x) { where(harp: 1) if x == 1 }
+  scope :use_timpani, ->(x) { where(timpani: 1) if x == 1 }
+  scope :use_drums, ->(x) { where(drums: 1) if x == 1 }
+  scope :use_percussion, ->(x) { where(percussion: 1) if x == 1 }
 end
