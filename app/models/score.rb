@@ -11,7 +11,7 @@ class Score < ApplicationRecord
                         length: { maximum: 50 }
   validates :composer,  length: { maximum: 255 }
   validates :arranger,  length: { maximum: 255 }
-  validates :grade,     length: { maxumum: 5 }
+  validates :grade,     length: { maximum: 5 }
   validates :piccoro, inclusion: { in: [0, 1] }
   validates :o_flute, inclusion: { in: [0, 1] }
   validates :oboe,    inclusion: { in: [0, 1] }
