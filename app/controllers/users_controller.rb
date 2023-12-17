@@ -67,7 +67,9 @@ class UsersController < ApplicationController
   end
 
   # 編集画面を表示：GET
-  def edit; end
+  def edit
+    @user = User.find(params[:id])
+  end
 
   # 作成を実行：POST
   def create

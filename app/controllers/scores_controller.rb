@@ -16,7 +16,10 @@ class ScoresController < ApplicationController
   end
 
   # 編集画面を表示：GET
-  def edit; end
+  def edit
+    redirect_to users_url if current_user.admin
+    @score = Score.find(params[:id])
+  end
 
   # 作成を実行：POST
   def create
