@@ -23,7 +23,9 @@ class UsersController < ApplicationController
   end
 
   # 新規作成画面を表示：GET
-  def new; end
+  def new
+    @user = User.new
+  end
 
   # ホーム画面を表示：GET
   def home
@@ -99,7 +101,16 @@ class UsersController < ApplicationController
   end
 
   # 削除を実行：DELETE
-  def destroy; end
+  def destroy
+    if User.find(params[:id]).admin?
+      flash[:danger] = '管理者は削除できません'
+      redirect_to user_path(current_user)
+    else
+      User.find(params[:id]).destroy
+      flash[:success] = '削除に成功しました'
+      redirect_to users_url, status: :see_other
+    end
+  end
 
   private
 
@@ -113,6 +124,10 @@ class UsersController < ApplicationController
 
   def score_search_params
     params.fetch(:score_search, {}).permit(:name, :composer, :arranger, :grade)
+  end
+
+  def score_search_gakki_params
+    params.require(:score).permit(use_gakki: [])
   end
 
   def current_user_admin

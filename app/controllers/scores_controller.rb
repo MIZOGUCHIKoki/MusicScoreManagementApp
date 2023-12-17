@@ -11,7 +11,9 @@ class ScoresController < ApplicationController
   end
 
   # 新規作成画面を表示：GET
-  def new; end
+  def new
+    redirect_to users_url if current_user.admin
+  end
 
   # 編集画面を表示：GET
   def edit; end
@@ -49,7 +51,11 @@ class ScoresController < ApplicationController
   end
 
   # 削除を実行：DELETE
-  def destroy; end
+  def destroy
+    Score.find(params[:id]).destroy
+    flash[:success] = '削除に成功しました'
+    redirect_to home_path(current_user), status: :see_other
+  end
 
   private
 

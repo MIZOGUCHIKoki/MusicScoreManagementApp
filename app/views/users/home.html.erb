@@ -1,4 +1,32 @@
 <h1>UsersController#home</h1>
+
+#使用楽器検索
+#表示するチェックボックスの位置を後で調整しやすくするよう列挙しました
+<div class = "field">
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>piccolo
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>c_flute
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>oboe
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>english_horn
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>b_clarinet
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>b_bass_clarinet
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>bassoon
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>e_alto_saxophone
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>b_tenor_saxophone
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>b_baritone_saxophone
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>b_trumpet
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>f_horn
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>trombone
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>baritone
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>baritone_treble_clef
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>tuba
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>string_bass
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>piano
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>harp
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>timpani
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>drums
+<%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>percussion
+</div>
+
 <h2>楽譜一覧</h2>
 <% if !current_user.admin? %>
   <%= link_to "楽譜を登録する", new_score_path %>
