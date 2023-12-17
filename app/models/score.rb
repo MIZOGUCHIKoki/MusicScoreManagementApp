@@ -70,6 +70,7 @@ class Score < ApplicationRecord
   # end
 
   # 実引数:search_gakki_params, 仮引数:x
+  # 21ブロック以上だと注意されるため，20ブロックに収めました
   scope :score_search_gakki, lambda { |*search_gakki_params|
     use_piccolo(search_gakki_params[0])
       .use_c_flute(search_gakki_params[1])
@@ -91,8 +92,7 @@ class Score < ApplicationRecord
       .use_piano(search_gakki_params[17])
       .use_harp(search_gakki_params[18]).use_timpani(search_gakki_params[19])
       .use_drums(search_gakki_params[20]).use_percussion(search_gakki_params[21])
-  }  # 21ブロック以上だと注意されるため，20ブロックに収めました
-
+  }
   scope :use_piccolo, ->(x) { where(piccolo: 1) if x == 1 }
   scope :use_c_flute, ->(x) { where(c_flute: 1) if x == 1 }
   scope :use_oboe, ->(x) { where(oboe: 1) if x == 1 }
