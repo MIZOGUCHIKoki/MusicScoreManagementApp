@@ -4,6 +4,10 @@ class CreateScores < ActiveRecord::Migration[7.1]
   def change
     create_table :scores do |t|
       t.text :name
+      t.text :composer
+      t.text :arranger
+      t.text :grade
+      t.integer :time
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

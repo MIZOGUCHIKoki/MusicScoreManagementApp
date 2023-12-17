@@ -13,14 +13,19 @@
 ActiveRecord::Schema[7.1].define(version: 2023_12_14_184842) do
   create_table "scores", force: :cascade do |t|
     t.text "name"
+    t.text "composer"
+    t.text "arranger"
+    t.text "grade"
+    t.integer "time"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "piccolo", default: 0, null: false
-    t.integer "c_fulte", default: 0, null: false
+    t.integer "c_flute", default: 0, null: false
     t.integer "oboe", default: 0, null: false
-    t.integer "english_holn", default: 0, null: false
+    t.integer "english_horn", default: 0, null: false
     t.integer "b_clarinet", default: 0, null: false
+    t.integer "e_clarinet", default: 0, null: false
     t.integer "b_bass_clarinet", default: 0, null: false
     t.integer "bassoon", default: 0, null: false
     t.integer "e_alto_saxophone", default: 0, null: false
@@ -34,6 +39,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_14_184842) do
     t.integer "string_bass", default: 0, null: false
     t.integer "eb", default: 0, null: false
     t.integer "piano", default: 0, null: false
+    t.integer "harp", default: 0, null: false
     t.integer "timpani", default: 0, null: false
     t.integer "drums", default: 0, null: false
     t.integer "percussion", default: 0, null: false

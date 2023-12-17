@@ -27,7 +27,7 @@ class Score < ApplicationRecord
   validates :b_trumpet,             inclusion: { in: [0, 1] }
   validates :f_horn,                inclusion: { in: [0, 1] }
   validates :trombone,              inclusion: { in: [0, 1] }
-  validates :baritone,              inclusion: { in: [0, 1] }
+  # validates :baritone,              inclusion: { in: [0, 1] }
   validates :tuba,                  inclusion: { in: [0, 1] }
   validates :string_bass,           inclusion: { in: [0, 1] }
   validates :piano,                 inclusion: { in: [0, 1] }
