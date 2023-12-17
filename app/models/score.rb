@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 class Score < ApplicationRecord
-  belongs_to :user
+  # 各楽器のカラムがvalidate_numeric_rangeのメソッドがdreate, updateが実行時に呼び出される
+  # validate :validate_numeric_range, on: [:create, :update]
 
-  scope :grade_sort_no, ->    { order(created_at: :desc) }
-  scope :grade_sort_desc, ->  { order('CAST(grade AS float) DESC') }
-  scope :grade_sort_asc, ->   { order('CAST(grade AS float) ASC') }
+  belongs_to :user
 
   validates :name,                  presence: true,
                                     length: { maximum: 50 }
@@ -40,6 +39,9 @@ class Score < ApplicationRecord
   validates :drums,                 inclusion: { in: [0, 1] }
   validates :percussion,            inclusion: { in: [0, 1] }
 
+  scope :grade_sort_no, ->    { order(created_at: :desc) }
+  scope :grade_sort_desc, ->  { order('CAST(grade AS float) DESC') }
+  scope :grade_sort_asc, ->   { order('CAST(grade AS float) ASC') }
   scope :score_search, lambda { |search_params|
     return if search_params.blank?
 
@@ -55,4 +57,15 @@ class Score < ApplicationRecord
   scope :arranger_like, ->(arranger) { where('arranger LIKE ?', "%#{arranger}%") if arranger.present? }
   scope :grade_like, ->(grade) { where('grade LIKE ?', "#{grade}%") if grade.present? }
   # if ~.present?:~の文字列が空か存在しない場合に処理をスキップする
+
+  # 以下を実装することで、validatesを各楽器ごとに同じ条件を記述する必要がなくなると思われる
+  # private
+  # def validate_numeric_range
+  #   [各楽器のカラム].each do |column|
+  #     value = send(column)
+  #     unless (value.is_a?(Integer) && value >= 0 && value <= 5)
+  #       errors.add(column, '数値型で0から5までのみ受け付けています')
+  #     end
+  #   end
+  # end
 end
