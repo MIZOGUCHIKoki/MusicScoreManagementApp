@@ -129,7 +129,7 @@ class UsersController < ApplicationController
   end
 
   def score_search_gakki_params
-    params.require(:score).permit(use_gakki: [])
+    params(use_gakki: [])
   end
 
   def current_user_admin
