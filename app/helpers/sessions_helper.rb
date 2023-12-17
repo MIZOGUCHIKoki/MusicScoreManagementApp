@@ -27,7 +27,11 @@ module SessionsHelper
     end
   end
 
-  def forget(user); end
+  def forget(user)
+    user.forget
+    cookies[:user_id] = nil
+    cookies[:remember_token] = nil
+  end
 
   # ユーザがログインしているか確認
   def sign_in?
