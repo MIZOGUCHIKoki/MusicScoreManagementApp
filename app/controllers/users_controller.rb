@@ -123,7 +123,7 @@ class UsersController < ApplicationController
   end
 
   def admin_user
-    raise '管理者としてサインインしてください' unless current_user.admin?
+    raise '管理者としてサインインしてください' unless current_user&.admin?
   rescue StandardError => e
     flash[:danger] = e.message
     redirect_to signin_path, status: :see_other
