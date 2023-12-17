@@ -79,11 +79,11 @@ class UsersController < ApplicationController
       reset_session
       sign_in @user
       flash[:success] = '登録が完了しました'
-      redirect_to @user
+      redirect_to home_user_path
     else
-      flash[:danger] = '登録に失敗しました'
+      flash.now[:danger] = '登録に失敗しました'
       # renderは"再描画"であるためflashが表示されない．
-      redirect_to new_user_path, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
