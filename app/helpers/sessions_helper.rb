@@ -34,7 +34,7 @@ module SessionsHelper
   end
 
   # ユーザがログインしているか確認
-  def sign_in?
+  def signed_in?
     !current_user.nil?
   end
 

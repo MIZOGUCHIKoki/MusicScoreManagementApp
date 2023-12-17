@@ -20,5 +20,5 @@ Rails.application.routes.draw do
   get 'home/:id' => 'users#home', as: 'home'
   get 'home' => 'users#home', as: 'homeb'
 
-  root 'users#home'
+  root 'sessions#new'
 end
