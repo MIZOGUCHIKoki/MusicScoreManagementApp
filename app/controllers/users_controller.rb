@@ -133,20 +133,16 @@ class UsersController < ApplicationController
   end
 
   def current_user_admin
-    begin
-      @user = User.find(params[:id])
-      raise ActiveRecord::RecordNotFound unless @user == current_user || current_user.admin?
-    rescue ActiveRecord::RecordNotFound
-      redirect_to signin_path, status: :see_other
-    end
+    @user = User.find(params[:id])
+    raise ActiveRecord::RecordNotFound unless @user == current_user || current_user.admin?
+  rescue ActiveRecord::RecordNotFound
+    redirect_to signin_path, status: :see_other
   end
-  
+
   def admin_user
-    begin
-      raise '管理者としてサインインしてください' unless current_user&.admin?
-    rescue StandardError => e
-      flash[:danger] = e.message
-      redirect_to signin_path, status: :see_other
-    end
+    raise '管理者としてサインインしてください' unless current_user&.admin?
+  rescue StandardError => e
+    flash[:danger] = e.message
+    redirect_to signin_path, status: :see_other
   end
 end
