@@ -70,7 +70,7 @@ class UsersController < ApplicationController
       @scores = score_search(@search_params)
     else
       @search_params = score_search_gakki_params
-      @scores = score_search(@search_params)
+      @scores = score_search_gakki(@search_params)
     end
   end
 
