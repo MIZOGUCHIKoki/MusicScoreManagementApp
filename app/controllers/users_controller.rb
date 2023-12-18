@@ -65,7 +65,7 @@ class UsersController < ApplicationController
                 :all
               end
       @scores = @user.scores.send(order) # ソート結果格納
-    elsif params[:input_value] == :name || params[:input_value] == :composer || params[input_value] == :arranger
+    elsif params[:input_value] == :name || params[:input_value] == :composer || params[:input_value] == :arranger
       @search_params = score_search_params
       @scores = score_search(@search_params)
     else
