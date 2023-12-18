@@ -1,3 +1,37 @@
+<body> 
+
+<div class="center">
 <h1>ScoresController#edit</h1>
 <% provide(:button_text, "楽譜情報を更新") %>
 <%= render 'form' %>
+
+<div class="left">
+	<h2>楽曲情報の編集</h2>
+</div>
+
+<div class="left">
+<h3>曲名：<%= @score.name %></h3>
+</div>
+
+<div class="flex-field">
+    <div class="box">
+        <%= form.label :composer, "作曲者" %>
+        <%= form.text_field :composer, value: @score.composer %>
+    </div>
+
+    <div class="box">
+        <%= form.label :arranger, "編曲者" %>
+        <%= form.text_field :arranger, value: @score.arranger %>
+    </div>
+
+    <div class="box">
+        <%= form.label :grade, "グレード" %>
+        <%= form.text_field :grade, value: @score.grade %>
+    </div>
+
+    <div class="box">
+        <%= form.label :time, "演奏時間" %>
+        <%= form.text_field :time, value: @score.time %>
+    </div>
+</div></div> 
+</body>
