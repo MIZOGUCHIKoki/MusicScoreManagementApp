@@ -79,7 +79,7 @@ class UsersController < ApplicationController
       reset_session
       sign_in @user
       flash[:success] = '登録が完了しました'
-      redirect_to home_user_path
+      redirect_to @user
     else
       flash.now[:danger] = '登録に失敗しました'
       # renderは"再描画"であるためflashが表示されない．
