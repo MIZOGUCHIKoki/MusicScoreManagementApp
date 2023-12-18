@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def signed_in_user
-    return true if sign_in?
+    return true if signed_in?
 
     store_location # ユーザがどこからアクセスしてきたか保存
     flash[:danger] = 'ログインしてください' # フラッシュメッセージをセット
