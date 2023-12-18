@@ -1,8 +1,10 @@
 <h1>UsersController#home</h1>
 
-#使用楽器検索
-#表示するチェックボックスの位置を後で調整しやすくするよう列挙しました
-<div class = "field">
+# 使用楽器検索
+# 表示するチェックボックスの位置を後で調整しやすくするよう列挙しました
+<input type="checkbox" id="hide">
+<label class="hide" for="hide">使用楽器</label>
+<div class="hide-and-seek">
 <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>piccolo
 <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>c_flute
 <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>oboe
