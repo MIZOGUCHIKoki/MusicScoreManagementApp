@@ -19,12 +19,12 @@
     </table>
 
     <div>
-      <%= link_to "ログアウト", controller: "sessions_controller", action: "destroy" %>
+      <%= link_to "ログアウト", signout_path, data:{ "turbo-method": :delete } %>
       <%= link_to "アカウント削除", @user, data:{"turbo-method": :delete, turbo_confirm: "本当に削除しますか？"} %>
     </div>
     <div>
       <%= link_to "編集", edit_user_url(@user) %>
-      <%= link_to "戻る", controller: "users_controller", action: "home" %>
+      <%= link_to "戻る", home_path %>
     </div>
   </div>
 </body>
