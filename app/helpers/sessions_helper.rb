@@ -4,7 +4,7 @@ module SessionsHelper
   # ユーザのログイン処理
   def sign_in(user)
     session[:user_id] = user.id
-    session[:user_session_token] = user.session_token
+    session[:session_token] = user.session_token
   end
 
   def remeber(user)
