@@ -5,11 +5,19 @@ class UsersController < ApplicationController
   before_action :correct_user_admin, only: %i[home show edit update destroy]
   before_action :admin_user, only: %i[index]
   # 一覧を表示：GET
+  # def index
+  #   if current_user.admin # もし管理者なら
+  #     @users = User.all # 全ユーザ情報取得
+  #   else
+  #     render :home # UsersController.homeを呼び出す
+  #   end
+  # end
   def index
-    if current_user.admin # もし管理者なら
-      @users = User.all # 全ユーザ情報取得
+    if current_user.admin?
+      @search_params = user_search_params
+      @users = user_search(@search_params)
     else
-      render :home # UsersController.homeを呼び出す
+      redirect_to controller: :SessionsController, action: :new
     end
   end
 
