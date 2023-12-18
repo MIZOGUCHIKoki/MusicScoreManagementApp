@@ -1,15 +1,28 @@
-<h1>SessionsController#new</h1>
-<div>
-  <%= form_with(url: signin_path, scope: :session) do |f| %>
-    <%= f.label :email, "Eメールアドレス" %>
-    <%= f.email_field :email %>
-    <%= f.label :password, "パスワード" %>
-    <%= f.password_field :password %>
-    <%= f.label :remember_me do %>
-      <%= f.check_box :remember_me %>
-      <span> サインイン情報を記録する </span>
-    <% end %>
-    <%= f.submit "サインイン" %>
-  <% end %>
+<body>
+  <div class="center">
+    <div class="left">
+      <h2>サインイン</h2>
+    </div>
+    <div class="block-field">
+      <%= form_with(url: signin_path, scope: :session) do |f| %>
+        <div class="box">
+          <%= f.label :email, "Eメールアドレス" %>
+          <%= f.email_field :email %>
+        </div>
+        <div class="box">
+          <%= f.label :password, "パスワード" %>
+          <%= f.password_field :password %>
+          <%= f.label :remember_me do %>
+          </div>
+          <div class="box">
+            <%= f.check_box :remember_me %>
+            <span> サインイン情報を記録する </span>
+          </div>
+        <% end %>
+        <%= f.submit "サインイン" %>
+      <% end %>
+    </div>
+  </div>
+  <p>アカウト作成は<%= link_to "こちらから", signup_path %></p>
 </div>
-<p>アカウト作成は<%= link_to "こちらから", signup_path %></p>
+</body>
