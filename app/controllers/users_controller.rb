@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def index
     if current_user.admin?
       @search_params = user_search_params
-      @users = user_search(@search_params)
+      @users = User.user_search(@search_params)
     else
       redirect_to controller: :SessionsController, action: :new
     end
