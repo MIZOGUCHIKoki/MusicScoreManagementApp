@@ -132,7 +132,7 @@ class UsersController < ApplicationController
     params(use_gakki: [])
   end
 
-  def current_user_admin
+  def correct_user_admin
     @user = User.find(params[:id])
     raise ActiveRecord::RecordNotFound unless @user == current_user || current_user.admin?
   rescue ActiveRecord::RecordNotFound
