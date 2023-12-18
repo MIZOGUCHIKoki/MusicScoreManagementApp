@@ -137,7 +137,7 @@ class UsersController < ApplicationController
   end
 
   def score_search_gakki_params
-    params(use_gakki: [])
+    params.require(:score).permit(score: {})
   end
 
   def correct_user_admin
