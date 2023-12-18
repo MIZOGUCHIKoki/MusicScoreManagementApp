@@ -15,36 +15,36 @@
       </tr>
       <tr>
         <td><%= @score.composer %></td>
-          <td><%= @score.arranger %></td>
-          <td><%= @score.grade %></td>
-          <td><%= @score.time %></td>
+        <td><%= @score.arranger %></td>
+        <td><%= @score.grade %></td>
+        <td><%= @score.time %></td>
       </tr>
     </table>
 
     <div>
       <h3>使用楽器一覧</h3>
-      <% if @score.piccolo == 1 %><p>piccolo</p><% end %>
-      <% if @score.c_flute == 1 %><p>c_flute</p><% end %>
-      <% if @score.oboe == 1 %><p>oboe</p><% end %>
-      <% if @score.english_horn == 1 %><p>english_horn</p><% end %>
-      <% if @score.e_clarinet == 1 %><p>e_clarinet</p><% end %>
-      <% if @score.b_clarinet == 1 %><p>b_clarinet</p><% end %>
-      <% if @score.b_bass_clarinet == 1 %><p>b_bass_clarinet</p><% end %>
-      <% if @score.bassoon == 1 %><p>bassoon</p><% end %>
-      <% if @score.e_alto_saxophone == 1 %><p>e_alto_saxophone</p><% end %>
-      <% if @score.b_tenor_saxophone == 1 %><p>b_tenor_saxophone</p><% end %>
-      <% if @score.b_baritone_saxophone == 1 %><p>b_baritone_saxophone</p><% end %>
-      <% if @score.b_trumpet == 1 %><p>b_trumpet</p><% end %>
-      <% if @score.f_horn == 1 %><p>f_horn</p><% end %>
-      <% if @score.trombone == 1 %><p>trombone</p><% end %>
-      <% if @score.baritone == 1 %><p>baritone</p><% end %>
-      <% if @score.tuba == 1 %><p>tuba</p><% end %>
-      <% if @score.string_bass == 1 %><p>string_bass</p><% end %>
-      <% if @score.piano == 1 %><p>piano</p><% end %>
-      <% if @score.harp == 1 %><p>harp</p><% end %>
-      <% if @score.timpani == 1 %><p>timpani</p><% end %>
-      <% if @score.drums == 1 %><p>drums</p><% end %>
-      <% if @score.percussion == 1 %><p>percussion</p><% end %>
+      <% if @score.piccolo > 0 %><p>piccolo</p><% end %>
+      <% if @score.c_flute > 0 %><p>c_flute</p><% end %>
+      <% if @score.oboe > 0 %><p>oboe</p><% end %>
+      <% if @score.english_horn > 0 %><p>english_horn</p><% end %>
+      <% if @score.e_clarinet > 0 %><p>e_clarinet</p><% end %>
+      <% if @score.b_clarinet > 0 %><p>b_clarinet</p><% end %>
+      <% if @score.b_bass_clarinet > 0 %><p>b_bass_clarinet</p><% end %>
+      <% if @score.bassoon > 0 %><p>bassoon</p><% end %>
+      <% if @score.e_alto_saxophone > 0 %><p>e_alto_saxophone</p><% end %>
+      <% if @score.b_tenor_saxophone > 0 %><p>b_tenor_saxophone</p><% end %>
+      <% if @score.b_baritone_saxophone > 0 %><p>b_baritone_saxophone</p><% end %>
+      <% if @score.b_trumpet > 0 %><p>b_trumpet</p><% end %>
+      <% if @score.f_horn > 0 %><p>f_horn</p><% end %>
+      <% if @score.trombone > 0 %><p>trombone</p><% end %>
+      <% if @score.baritone > 0 %><p>baritone</p><% end %>
+      <% if @score.tuba > 0 %><p>tuba</p><% end %>
+      <% if @score.string_bass > 0 %><p>string_bass</p><% end %>
+      <% if @score.piano > 0 %><p>piano</p><% end %>
+      <% if @score.harp > 0 %><p>harp</p><% end %>
+      <% if @score.timpani > 0 %><p>timpani</p><% end %>
+      <% if @score.drums > 0 %><p>drums</p><% end %>
+      <% if @score.percussion > 0 %><p>percussion</p><% end %>
     </div>
 
     <div>
@@ -53,8 +53,8 @@
       <% end %>
       <%= link_to "削除", @score, data:{"turbo-method": :delete, turbo_confirm: "本当に削除しますか？"} %>
     </div>
-      <div>
-        <%= link_to "戻る", controller: "users_controller", action: "home" %>
-      </div>
+    <div>
+      <%= link_to "戻る", users_path %>
     </div>
+  </div>
 </body>
