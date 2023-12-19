@@ -6,17 +6,30 @@
 </div>
 <div class="flex-field">
 <%= form_with model: @user do |form| %>
+    <div class="box"> 
     <%= form.label :name, "名前（楽団名）" %>
     <%= form.text_field :name %>
+    </div>
+
+    <div class="box"> 
     <%= form.label :email, "Eメールアドレス" %>
     <%= form.email_field :email %>
+    </div>
+
+    <div class="box"> 
     <%= form.label :password, "パスワード" %>
     <%= form.password_field :password %>
+    </div>
+
+    <div class="box"> 
     <%= form.label :password_confirmation, "パスワードの再確認" %>
     <%= form.password_field :password_confirmation %>
+    </div>
 
-    # 利用規約を表示する
+    <div class="box"> 
     <%= form.submit "利用規約に同意して登録" %>
+    </div>
+
 <% end %>
 </div>
 
