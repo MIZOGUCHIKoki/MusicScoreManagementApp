@@ -1,14 +1,11 @@
 <body>
 <div class="center">
 
-# <h1>UsersController#new</h1>
-# <% provide(:button_text, "アカウントを作成する") %>
-# <%= render 'form' %>
-
 <div class="left">
     <h2>ご利用登録</h2>
 </div>
 <div class="flex-field">
+<%= form_with model: @user do |form| %>
     <%= form.label :name, "名前（楽団名）" %>
     <%= form.text_field :name %>
     <%= form.label :email, "Eメールアドレス" %>
@@ -17,12 +14,11 @@
     <%= form.password_field :password %>
     <%= form.label :password_confirmation, "パスワードの再確認" %>
     <%= form.password_field :password_confirmation %>
-</div>
-# 利用規約を表示する
 
-# <%= link_to "キャンセル", users_path %>
-<%= form.submit "利用規約に同意して登録" %>
-#<%= form.submit yield(:button_text) %>
+    # 利用規約を表示する
+    <%= form.submit "利用規約に同意して登録" %>
+<% end %>
+</div>
 
 </div>
 </body>

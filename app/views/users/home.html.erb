@@ -1,10 +1,14 @@
+<body>
+  <div class="center">
+
 <h1>UsersController#home</h1>
 
 # 使用楽器検索
 # 表示するチェックボックスの位置を後で調整しやすくするよう列挙しました
 <input type="checkbox" id="hide">
 <label class="hide" for="hide">使用楽器</label>
-<div class="hide-and-seek">
+#<div class="hide-and-seek">
+<%= form_with model: @scores do |form| %>
 <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>piccolo
 <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>c_flute
 <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>oboe
@@ -27,6 +31,7 @@
 <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>timpani
 <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>drums
 <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>percussion
+<% end %>
 </div>
 
 <h2>楽譜一覧</h2>
@@ -39,3 +44,6 @@
   </ol>
   <%= will_paginate @scores %>
 <% end %>
+
+</div>
+</body>

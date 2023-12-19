@@ -12,6 +12,7 @@
 <h4>※使用楽器の複数選択はshiftキーor Commandキーを押しながらクリックするとできます．</h4>
 
 <div class="flex-field">
+    <%= form_with model: @score do |form| %>
     <div class = "box">
         <%= form.label :name, "曲名" %> <%= form.text_field :name %>
     </div>
@@ -31,10 +32,11 @@
     <div class = "box">
         <%= form.label :time, "演奏時間" %> <%= form.text_field :name %>
     </div>
+    <%= form.submit "楽譜情報を登録" %>
+    <% end %>
 </div>
 
-<%= form.submit "楽譜情報を登録" %>
-<%= form.submit "戻る" %>
+
 
 
 </div>
