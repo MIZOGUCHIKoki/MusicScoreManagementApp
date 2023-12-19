@@ -97,9 +97,9 @@ class UsersController < ApplicationController
 
   # 更新を実行：PATCH/PUT
   def update
-    @user = User.find(find[:id])
+    @user = User.find(params[:id])
 
-    return unless current_user_admin
+    return unless correct_user_admin
 
     if @user.update(user_params)
       flash[:success] = '変更が完了しました'
