@@ -1,6 +1,37 @@
-<h1>UsersController#edit</h1>
-<% provide(:button_text, "変更を反映する")%>
-<%= render 'form' %>
-<% if !@user.admin? %>
-  <%= link_to '削除する', @user, data:{"turbo-method": :delete, turbo_confirm: "本当に削除しますか？"}%>
-<% end %>
+<body>
+  <div class="left">
+    <h2>マイページ編集</h2>
+  </div>
+
+  <div class="center">
+    <%= form_with(model: @user, url: user_path(@user), method: :patch) do |form| %>
+      <div>
+        <%= form.label :name, "ユーザ名" %>
+        <%= form.text_field :name %>
+      </div>
+
+      <div>
+        <%= form.label :email, "メールアドレス" %>
+        <%= form.email_field :email %>
+      </div>
+
+      <div>
+        <%= form.label :password, "パスワード" %>
+        <%= form.password_field :password %>
+      </div>
+
+      <div>
+        <%= form.label :password_confirmation, "パスワードの確認" %>
+        <%= form.password_field :password_confirmation %>
+      </div>
+
+      <div>
+        <%= form.submit "更新" %>
+      </div>
+    <% end %>
+
+    <div>
+      <%= link_to "戻る", user_path(@user) %>
+    </div>
+  </div>
+</body>
