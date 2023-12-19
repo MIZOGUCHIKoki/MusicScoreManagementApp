@@ -68,7 +68,7 @@ class UsersController < ApplicationController
     elsif params[:input_value] == :name || params[:input_value] == :composer || params[:input_value] == :arranger
       @search_params = score_search_params
       @scores = score_search(@search_params)
-    elseif params[:use_gakki]
+    elsif !params[:use_gakki].nil?
       @search_params = score_search_gakki_params
       @scores = score_search_gakki(@search_params)
     end
