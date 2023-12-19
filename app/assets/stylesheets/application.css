@@ -28,14 +28,25 @@
  .left {
     text-align: left;
  }
- .field {
+ .flex-field {
     justify-content: space-around;
     display: flex;
+ }
+ .block-field {
+   justify-content: space-around;
+   display: block;
  }
  table {
     margin: auto;
     padding: 50px;
  }
+
+ /*エラーメッセージ表示の際，勝手に新しいクラスが生成され，Viewを壊すようである．
+   以下が生成されるクラスであり，これにCSSを当てておくことで崩壊を回避する．*/
+ .field_with_errors {
+   display: contents;
+ }
+
 
 /*flash関連*/
 .flash-message {
