@@ -1,43 +1,28 @@
 <body>
-<div class="center">
-
-# <h1>ScoresController#new</h1>
-# <% provide(:button_text, "楽譜情報を登録") %>
-# <%= render 'form' %>
-
-<div class="left">
-    <h2>楽譜情報を登録</h2>
-</div>
-
-<h4>※使用楽器の複数選択はshiftキーor Commandキーを押しながらクリックするとできます．</h4>
-
-<div class="flex-field">
-    <%= form_with model: @score do |form| %>
-    <div class = "box">
-        <%= form.label :name, "曲名" %> <%= form.text_field :name %>
+  <div class="center">
+    <div class="left">
+      <h2>楽譜情報を登録</h2>
     </div>
-
-    <div class = "box">
-        <%= form.label :composer, "作曲者" %> <%= form.text_field :composer %>
+    <h4>※使用楽器の複数選択はshiftキーor Commandキーを押しながらクリックするとできます．</h4>
+    <div class="flex-field">
+      <%= form_with model: @score do |form| %>
+        <div class = "box">
+          <%= form.label :name, "曲名" %> <%= form.text_field :name %>
+        </div>
+        <div class = "box">
+          <%= form.label :composer, "作曲者" %> <%= form.text_field :composer %>
+        </div>
+        <div class = "box">
+          <%= form.label :arranger, "編曲者" %> <%= form.text_field :name %>
+        </div>
+        <div class = "box">
+          <%= form.label :grade, "グレード" %> <%= form.text_field :name %>
+        </div>
+        <div class = "box">
+          <%= form.label :time, "演奏時間" %> <%= form.text_field :name %>
+        </div>
+        <%= form.submit "楽譜情報を登録" %>
+      <% end %>
     </div>
-
-    <div class = "box">
-        <%= form.label :arranger, "編曲者" %> <%= form.text_field :name %>
-    </div>
-
-    <div class = "box">
-        <%= form.label :grade, "グレード" %> <%= form.text_field :name %>
-    </div>
-
-    <div class = "box">
-        <%= form.label :time, "演奏時間" %> <%= form.text_field :name %>
-    </div>
-    <%= form.submit "楽譜情報を登録" %>
-    <% end %>
-</div>
-
-
-
-
-</div>
+  </div>
 </body>

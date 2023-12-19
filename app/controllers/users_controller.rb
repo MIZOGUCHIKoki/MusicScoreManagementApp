@@ -5,13 +5,6 @@ class UsersController < ApplicationController
   before_action :correct_user_admin, only: %i[home show edit update destroy]
   before_action :admin_user, only: %i[index]
   # 一覧を表示：GET
-  # def index
-  #   if current_user.admin # もし管理者なら
-  #     @users = User.all # 全ユーザ情報取得
-  #   else
-  #     render :home # UsersController.homeを呼び出す
-  #   end
-  # end
   def index
     if current_user.admin?
       @search_params = user_search_params
@@ -37,24 +30,6 @@ class UsersController < ApplicationController
 
   # ホーム画面を表示：GET
   def home
-    # if params[:input_value] == :order
-    #   @user = User.find(params[:id])#ユーザ特定
-    #   if params[:order] == 'asc'
-    #     order = :grate_sort_asc
-    #   elsif params[:order] == 'desc'
-    #     order = :grate_sort_desc
-    #   else
-    #     order = :all
-    #   end
-    #   @scores = @user.scores.send(order)#ソート結果格納
-    # else
-    #   @score_params = score_search_params || score_search_gakki_params
-    #   if @search_params.instance_of(String)?
-    #     @scores = score_search(@search_params)
-    #   else
-    #     @scores = score_search_gakki(@search_params)
-    #   end
-    # end
     if params[:input_value] == :order
       @user = User.find(params[:id]) # ユーザ特定
       order = if params[:order] == 'asc' # 昇順
