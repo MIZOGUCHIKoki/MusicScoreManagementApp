@@ -81,7 +81,7 @@ class Score < ApplicationRecord
       .use_b_clarinet(search_params[5])
       .use_b_bass_clarinet(search_params[6])
       .use_bassoon(search_params[7])
-      .use_e_alt_saxophone(search_params[8])
+      .use_e_alto_saxophone(search_params[8])
       .use_b_tenor_saxophone(search_params[9])
       .use_b_baritone_saxophone(search_params[10])
       .use_b_trumpet(search_params[11])
@@ -104,7 +104,7 @@ class Score < ApplicationRecord
   scope :use_b_clarinet, ->(x) { where(b_clarinet => x) if x >= 1 }
   scope :use_b_bass_clarinet, ->(x) { where(b_bass_clarinet => x) if x >= 1 }
   scope :use_bassoon, ->(x) { where(bassoon => x) if x >= 1 }
-  scope :use_e_alt_saxophone, ->(x) { where(e_alto_saxophone => x) if x >= 1 }
+  scope :use_e_alto_saxophone, ->(x) { where(e_alto_saxophone => x) if x >= 1 }
   scope :use_b_tenor_saxophone, ->(x) { where(b_tenor_saxophone => x) if x >= 1 }
   scope :use_b_baritone_saxophone, ->(x) { where(b_baritone_saxophone => x) if x >= 1 }
   scope :use_b_trumpet, ->(x) { where(b_trumpet >= x) if x >= 1 }
