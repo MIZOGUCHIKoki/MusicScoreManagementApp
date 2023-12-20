@@ -20,8 +20,8 @@ class Score < ApplicationRecord
   validates :c_flute,               inclusion: { in: [0, 1] }
   validates :oboe,                  inclusion: { in: [0, 1] }
   validates :english_horn,          inclusion: { in: [0, 1] }
-  validates :e_clarinet,            inclusion: { in: [0, 1] }
   validates :b_clarinet,            inclusion: { in: [0, 1] }
+  validates :e_clarinet,            inclusion: { in: [0, 1] }
   validates :b_bass_clarinet,       inclusion: { in: [0, 1] }
   validates :bassoon,               inclusion: { in: [0, 1] }
   validates :e_alto_saxophone,      inclusion: { in: [0, 1] }
@@ -30,9 +30,10 @@ class Score < ApplicationRecord
   validates :b_trumpet,             inclusion: { in: [0, 1] }
   validates :f_horn,                inclusion: { in: [0, 1] }
   validates :trombone,              inclusion: { in: [0, 1] }
-  # validates :baritone,              inclusion: { in: [0, 1] }
+  validates :euphonium,             inclusion: { in: [0, 1] }
   validates :tuba,                  inclusion: { in: [0, 1] }
   validates :string_bass,           inclusion: { in: [0, 1] }
+  validates :eb,                    inclusion: { in: [0, 1] }
   validates :piano,                 inclusion: { in: [0, 1] }
   validates :harp,                  inclusion: { in: [0, 1] }
   validates :timpani,               inclusion: { in: [0, 1] }
