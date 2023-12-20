@@ -36,7 +36,7 @@
     <% if !current_user.admin? %>
       <%= link_to "楽譜を登録する", new_score_path %>
     <% end %>
-    <% if @scores.present? && @scores.any? %>
+    <% if @scores.any? %>
       <ol>
         <% @scores.each do |score|%>
           <li>
