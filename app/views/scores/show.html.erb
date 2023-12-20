@@ -23,29 +23,34 @@
 
     <div>
       <h3>使用楽器一覧</h3>
-      <% if @score.piccolo > 0 %><p>piccolo</p><% end %>
-      <% if @score.c_flute > 0 %><p>c_flute</p><% end %>
-      <% if @score.oboe > 0 %><p>oboe</p><% end %>
-      <% if @score.english_horn > 0 %><p>english_horn</p><% end %>
-      <% if @score.b_clarinet > 0 %><p>b_clarinet</p><% end %>
-      <% if @score.e_clarinet > 0 %><p>e_clarinet</p><% end %>
-      <% if @score.b_bass_clarinet > 0 %><p>b_bass_clarinet</p><% end %>
-      <% if @score.bassoon > 0 %><p>bassoon</p><% end %>
-      <% if @score.e_alto_saxophone > 0 %><p>e_alto_saxophone</p><% end %>
-      <% if @score.b_tenor_saxophone > 0 %><p>b_tenor_saxophone</p><% end %>
-      <% if @score.b_baritone_saxophone > 0 %><p>b_baritone_saxophone</p><% end %>
-      <% if @score.b_trumpet > 0 %><p>b_trumpet</p><% end %>
-      <% if @score.f_horn > 0 %><p>f_horn</p><% end %>
-      <% if @score.trombone > 0 %><p>trombone</p><% end %>
-      <% if @score.euphonium > 0 %><p>euphonium</p><% end %>
-      <% if @score.tuba > 0 %><p>tuba</p><% end %>
-      <% if @score.string_bass > 0 %><p>string_bass</p><% end %>
-      <% if @score.eb > 0 %><p>eb</p><% end %>
-      <% if @score.piano > 0 %><p>piano</p><% end %>
-      <% if @score.harp > 0 %><p>harp</p><% end %>
-      <% if @score.timpani > 0 %><p>timpani</p><% end %>
-      <% if @score.drums > 0 %><p>drums</p><% end %>
-      <% if @score.percussion > 0 %><p>percussion</p><% end %>
+      <table>
+	      <tr>
+		      <th>楽器名</th><th>パート数</th>
+	      </tr>
+		    <% if @score.piccolo > 0 %><tr><td>piccolo</td><td>@score.piccolo</td></tr><% end %>
+        <% if @score.c_flute > 0 %><tr><td>c_flute</td><td>@score.c_flute</td></tr><% end %>
+        <% if @score.oboe > 0 %><tr><td>oboe</td><td>@score.oboe</td></tr><% end %>
+        <% if @score.english_horn > 0 %><tr><td>english_horn</td><td>@score.english_horn</td></tr><% end %>
+        <% if @score.b_clarinet > 0 %><tr><td>b_clarinet</td><td>@score.b_clarinet</td></tr><% end %>
+        <% if @score.e_clarinet > 0 %><tr><td>e_clarinet</td><td>@score.e_clarinet</td></tr><% end %>
+        <% if @score.b_bass_clarinet > 0 %><tr><td>b_bass_clarinet</td><td>@score.b_bass_clarinet</td></tr><% end %>
+        <% if @score.bassoon > 0 %><tr><td>bassoon</td><td>@score.bassoon</td></tr><% end %>
+        <% if @score.e_alto_saxophone > 0 %><tr><td>e_alto_saxophone</td><td>@score.e_alto_saxophone</td></tr><% end %>
+        <% if @score.b_tenor_saxophone > 0 %><tr><td>b_tenor_saxophone</td><td>@score.b_tenor_saxophone</td></tr><% end %>
+        <% if @score.b_baritone_saxophone > 0 %><tr><td>b_baritone_saxophone</td><td>@score.b_baritone_saxophone</td></tr><% end %>
+        <% if @score.b_trumpet > 0 %><tr><td>b_trumpet</td><td>@score.b_trumpet</td></tr><% end %>
+        <% if @score.f_horn > 0 %><tr><td>f_horn</td><td>@score.f_horn</td></tr><% end %>
+        <% if @score.trombone > 0 %><tr><td>trombone</td><td>@score.trombone</td></tr><% end %>
+        <% if @score.euphonium > 0 %><tr><td>euphonium</td><td>@score.euphonium</td></tr><% end %>
+        <% if @score.tuba > 0 %><tr><td>tuba</td><td>@score.tuba</td></tr><% end %>
+        <% if @score.string_bass > 0 %><tr><td>string_bass</td><td>@score.string_bass</td></tr><% end %>
+        <% if @score.eb > 0 %><tr><td>eb</td><td>@score.eb</td></tr><% end %>
+        <% if @score.piano > 0 %><tr><td>piano</td><td>@score.piano</td></tr><% end %>
+        <% if @score.harp > 0 %><tr><td>harp</td><td>@score.harp</td></tr><% end %>
+        <% if @score.timpani > 0 %><tr><td>timpani</td><td>@score.timpani</td></tr><% end %>
+        <% if @score.drums > 0 %><tr><td>drums</td><td>@score.drums</td></tr><% end %>
+        <% if @score.percussion > 0 %><tr><td>percussion</td><td>@score.percussion</td></tr><% end %>
+      </table>
     </div>
 
     <div>
