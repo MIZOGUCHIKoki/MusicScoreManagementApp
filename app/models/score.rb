@@ -87,12 +87,12 @@ class Score < ApplicationRecord
       .use_b_trumpet(search_params[11])
       .use_f_horm(search_params[12])
       .use_trombone(search_params[13])
-      .use_baritone(search_params[14])
-      .use_tuba(search_params[15])
-      .use_string_bass(search_params[16])
-      .use_piano(search_params[17])
-      .use_harp(search_params[18]).use_timpani(search_gakki_params[19])
-      .use_drums(search_params[20]).use_percussion(search_gakki_params[21])
+      .use_eb(search_params[14])
+      .use_euphonium(search_params[15])
+      .use_tuba(search_params[16])
+      .use_string_bass(search_params[17]).use_piano(search_params[18])
+      .use_harp(search_params[19]).use_timpani(search_gakki_params[20])
+      .use_drums(search_params[21]).use_percussion(search_gakki_params[22])
   }
   # 仮引数"x"は"0"か"1"である
   # スコープの条件式 : xが"1"以上の場合に対応するカラムを取ってくる
@@ -110,7 +110,8 @@ class Score < ApplicationRecord
   scope :use_b_trumpet, ->(x) { where(b_trumpet >= x) if x >= 1 }
   scope :use_f_horm, ->(x) { where(f_horn >= x) if x >= 1 }
   scope :use_trombone, ->(x) { where(trombone >= x) if x >= 1 }
-  scope :use_baritone, ->(x) { where(baritone >= x) if x >= 1 }
+  scope :use_eb, ->(x) { where(eb >= x) if x >= 1 }
+  scope :use_euphonium, ->(x) { where(euphonium >= x) if x >= 1 }
   scope :use_tuba, ->(x) { where(tuba >= x) if x >= 1 }
   scope :use_string_bass, ->(x) { where(string_bass >= x) if x >= 1 }
   scope :use_piano, ->(x) { where(piano >= x) if x >= 1 }
