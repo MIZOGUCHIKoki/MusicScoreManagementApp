@@ -78,7 +78,7 @@ class UsersController < ApplicationController
       flash[:success] = '変更が完了しました'
       redirect_to @user
     else
-      falsh[:danger] = '変更に失敗しました'
+      flash.now[:danger] = '変更に失敗しました'
       redirect_to edit_user_path, status: :unprocessable_entity
     end
   end
