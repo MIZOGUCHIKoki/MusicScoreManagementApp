@@ -13,6 +13,7 @@ class ScoresController < ApplicationController
   # 新規作成画面を表示：GET
   def new
     redirect_to users_url if current_user.admin
+    @score = Score.new
   end
 
   # 編集画面を表示：GET
@@ -35,7 +36,7 @@ class ScoresController < ApplicationController
     else
       flash.now[:danger] = '登録できませんでした'
       # renderは"再描画"であるためflashが表示されない．
-      redirect_to new_score_path, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
