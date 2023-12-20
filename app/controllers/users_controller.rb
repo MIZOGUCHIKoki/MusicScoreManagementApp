@@ -74,8 +74,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    return unless correct_user_admin
-
     if @user.update(user_params)
       flash[:success] = '変更が完了しました'
       redirect_to @user
