@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[7.1].define(version: 2023_12_14_184842) do
   create_table "scores", force: :cascade do |t|
-    t.text "name"
+    t.text "name", null: false
     t.text "composer"
     t.text "arranger"
     t.text "grade"
