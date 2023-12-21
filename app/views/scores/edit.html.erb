@@ -1,61 +1,62 @@
-<body> 
-<div class="center">
-	<h2>楽曲情報の編集</h2>
-</div>
+<body>
+  <div class="center">
+    <h2>楽曲情報の編集</h2>
+  </div>
 
-<%= form_with(model: @score, url: score_path(@score), method: :patch) do |form| %>
-<div class="left">
-<h3>曲名：<%= @score.name %></h3>
-</div>
+  <%= form_with(model: @score, url: score_path(@score), method: :patch) do |form| %>
+    <form>
+      <div class="left">
+        <h3>曲名：<%= @score.name %></h3>
+      </div>
 
-<div class="flex-field">
-    <div class="box">
-        <%= form.label :composer, "作曲者" %>
-        <%= form.text_field :composer, value: @score.composer %>
-    </div>
+      <div class="flex-field">
+        <div class="box">
+          <%= form.label :composer, "作曲者" %>
+          <%= form.text_field :composer, value: @score.composer %>
+        </div>
 
-    <div class="box">
-        <%= form.label :arranger, "編曲者" %>
-        <%= form.text_field :arranger, value: @score.arranger %>
-    </div>
+        <div class="box">
+          <%= form.label :arranger, "編曲者" %>
+          <%= form.text_field :arranger, value: @score.arranger %>
+        </div>
 
-    <div class="box">
-        <%= form.label :grade, "グレード" %>
-        <%= form.text_field :grade, value: @score.grade %>
-    </div>
+        <div class="box">
+          <%= form.label :grade, "グレード" %>
+          <%= form.text_field :grade, value: @score.grade %>
+        </div>
 
-    <div class="box">
-        <%= form.label :time, "演奏時間" %>
-        <%= form.text_field :time, value: @score.time %>
-    </div>
-</div>
+        <div class="box">
+          <%= form.label :time, "演奏時間" %>
+          <%= form.text_field :time, value: @score.time %>
+        </div>
+      </div>
 
-<input type="checkbox" id="hide">
-<label class="hide-label" for="hide">使用楽器</label>
+      <input type="checkbox" id="hide">
+      <label class="hide-label" for="hide">使用楽器</label>
 
-<div class="hide-and-seek">
-    <% instruments = [
-        "piccolo", "c_flute", "oboe", "english_horn", "e_clarinet", "b_clarinet",
-        "b_bass_clarinet", "bassoon", "e_alto_saxophone", "b_tenor_saxophone",
-        "b_baritone_saxophone", "b_trumpet", "f_horn", "trombone","euphonium","tuba", "string_bass","eb", "piano", "harp", "timpani", "drums", "percussion"
-    ] %>
+      <div class="hide-and-seek">
+        <% instruments = [
+          "piccolo", "c_flute", "oboe", "english_horn", "e_clarinet", "b_clarinet",
+          "b_bass_clarinet", "bassoon", "e_alto_saxophone", "b_tenor_saxophone",
+          "b_baritone_saxophone", "b_trumpet", "f_horn", "trombone","euphonium","tuba", "string_bass","eb", "piano", "harp", "timpani", "drums", "percussion"
+        ] %>
 
-    <% instruments.each do |instrument| %>
-        <% if @score.send(instrument) > 0 %>
+        <% instruments.each do |instrument| %>
+          <% if @score.send(instrument) > 0 %>
             <label><input type="checkbox" name="<%= instrument %>" checked> <%= instrument %></label>
-        <% else %>
+          <% else %>
             <label><input type="checkbox" name="<%= instrument %>"> <%= instrument %></label>
+          <% end %>
         <% end %>
-    <% end %>
-</div>
+      </div>
 
-<div>
-<%= form.submit "更新" %>
-</div>
+      <div>
+        <%= form.submit "更新" %>
+      </div>
 
-<div>
-<%= link_to "戻る", score_path(@score) %>
-</div>
-
-</div> 
+      <div>
+        <%= link_to "戻る", score_path(@score) %>
+      </div>
+    </form>
+  <% end %>
 </body>
