@@ -14,17 +14,17 @@
           <%= form.text_field :email, value: @search_params[:email]%>
         </div>
       </div>
-      <%= button_to "検索", user_path(form)%>
+      <%= button_to "検索", user_path(form), {class: "search-button"} %>
     <% end %>
 
-  <table cellspacing="15">
+  <table cellspacing="15" frame="box">
     <tr>
       <th>ユーザ名</th><th>ユーザID</th>
     </tr>  
     <% @users.each do |user| %>
       <tr>
         <td align="left"><%= link_to user.name, user %></td>
-        <td><%= user.email %></td>
+        <td align="right"><%= user.email %></td>
       </tr>
     <% end %>
   </table>

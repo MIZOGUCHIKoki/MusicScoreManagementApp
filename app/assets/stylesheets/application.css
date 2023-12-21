@@ -21,6 +21,7 @@
     margin-right: auto;
     
     width: 920px;
+    background:radial-gradient(#fff, #00abc5); 
  }
  .center {
     text-align: center;
@@ -39,6 +40,17 @@
  table {
     margin: auto;
     padding: 50px;
+ }
+ .box {
+   margin: 20px;
+ }
+ 
+ /*ボタン関連*/
+ .search-button {
+   height: 60px;
+   width: 120px;
+   border-radius: 20px;
+   background-color: rgb(185, 255, 127);
  }
 
  /*エラーメッセージ表示の際，勝手に新しいクラスが生成され，Viewを壊すようである．
