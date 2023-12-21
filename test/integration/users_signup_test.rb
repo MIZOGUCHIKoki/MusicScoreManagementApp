@@ -26,6 +26,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password_confirmation: 'foofoo' } }
     end
     follow_redirect!
-    assert_template 'users/show'
+    assert_template 'users/home'
   end
 end
