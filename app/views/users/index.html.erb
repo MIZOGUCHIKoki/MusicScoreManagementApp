@@ -1,8 +1,12 @@
+<body>
+<div class = "center">
 <h1>UsersController#index</h1>
 <%= form_with(scope: :user_search, method: :get, local: true) do |form| %>
-  <div>
+  <div class = "box">
     <%= form.label :name, "ユーザ名検索" %>
-    <%= form.text_field :name, value: @search_params[:name] %><br>
+    <%= form.text_field :name, value: @search_params[:name] %>
+  </div>
+  <div class = "box">
     <%= form.label :email, "ユーザID検索" %>
     <%= form.text_field :email, value: @search_params[:email]%>
   </div>
@@ -12,8 +16,17 @@
   <br>
 <% end %>
 
-<ul>
+<table>
+  <tr>
+    <th>ユーザ名</th><th>ユーザID</th>
+  </tr>  
   <% @users.each do |user| %>
-    <%= render user %>
+    <tr>
+      <td><%= link_to user.name, user %></td>
+      <td><%= user.email %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
+
+</div>
+</body>
