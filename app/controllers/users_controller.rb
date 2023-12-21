@@ -46,6 +46,8 @@ class UsersController < ApplicationController
     elsif !params[:use_gakki].nil?
       @search_params = score_search_gakki_params
       @scores = score_search_gakki(@search_params)
+    else
+      @scores = @user.scores.all
     end
   end
 
