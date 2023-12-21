@@ -1,32 +1,33 @@
 <body>
-<div class = "center">
-<h1>UsersController#index</h1>
-<%= form_with(scope: :user_search, method: :get, local: true) do |form| %>
-  <div class = "box">
-    <%= form.label :name, "ユーザ名検索" %>
-    <%= form.text_field :name, value: @search_params[:name] %>
+<div class="center">
+  <div class="left">
+    <h1>UsersController#index</h1>
   </div>
-  <div class = "box">
-    <%= form.label :email, "ユーザID検索" %>
-    <%= form.text_field :email, value: @search_params[:email]%>
-  </div>
-  <%= button_to "検索", user_path(form)%>
-  <%= @search_params %>
-  <h3>両方の条件を満たすものが検索できます．片方が空欄なら片方のみが適用されます．</h3>
-  <br>
-<% end %>
+    <%= form_with(scope: :user_search, method: :get, local: true) do |form| %>
+      <div class="flex-field">
+        <div class="box">
+          <%= form.label :name, "ユーザ名検索" %>
+          <%= form.text_field :name, value: @search_params[:name] %>
+        </div>
+        <div class="box">
+          <%= form.label :email, "ユーザID検索" %>
+          <%= form.text_field :email, value: @search_params[:email]%>
+        </div>
+      </div>
+      <%= button_to "検索", user_path(form)%>
+    <% end %>
 
-<table>
-  <tr>
-    <th>ユーザ名</th><th>ユーザID</th>
-  </tr>  
-  <% @users.each do |user| %>
+  <table cellspacing="15">
     <tr>
-      <td><%= link_to user.name, user %></td>
-      <td><%= user.email %></td>
-    </tr>
-  <% end %>
-</table>
+      <th>ユーザ名</th><th>ユーザID</th>
+    </tr>  
+    <% @users.each do |user| %>
+      <tr>
+        <td align="left"><%= link_to user.name, user %></td>
+        <td><%= user.email %></td>
+      </tr>
+    <% end %>
+  </table>
 
 </div>
 </body>
