@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_14_184842) do
     t.text "composer"
     t.text "arranger"
     t.text "grade"
-    t.integer "time"
+    t.integer "m_time"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

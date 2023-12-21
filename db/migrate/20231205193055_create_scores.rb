@@ -7,7 +7,7 @@ class CreateScores < ActiveRecord::Migration[7.1]
       t.text :composer
       t.text :arranger
       t.text :grade
-      t.integer :time
+      t.integer :m_time
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
