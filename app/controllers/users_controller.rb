@@ -91,7 +91,7 @@ class UsersController < ApplicationController
     else
       User.find(params[:id]).destroy
       flash[:success] = '削除に成功しました'
-      redirect_to users_url, status: :see_other
+      redirect_to signin_path, status: :see_other
     end
   end
 

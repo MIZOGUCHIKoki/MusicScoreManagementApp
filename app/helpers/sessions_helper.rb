@@ -7,7 +7,7 @@ module SessionsHelper
     session[:session_token] = user.session_token
   end
 
-  def remeber(user)
+  def remember(user)
     user.remember # :remember_digest に保存する
     cookies.permanent.encrypted[:user_id] = user.id
     cookies.permanent[:remember_token] = user.remember_token
