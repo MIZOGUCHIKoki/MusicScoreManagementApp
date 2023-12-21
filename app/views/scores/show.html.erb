@@ -17,7 +17,7 @@
         <td><%= @score.composer %></td>
         <td><%= @score.arranger %></td>
         <td><%= @score.grade %></td>
-        <td><%= @score.time %></td>
+        <td><%= @score.m_time %></td>
       </tr>
     </table>
 
@@ -55,12 +55,16 @@
 
     <div>
       <% if !current_user.admin? %>
-      <%= link_to "編集", edit_score_url(@score) %>
+        <%= link_to "編集", edit_score_url(@score) %>
       <% end %>
       <%= link_to "削除", @score, data:{"turbo-method": :delete, turbo_confirm: "本当に削除しますか？"} %>
     </div>
     <div>
-      <%= link_to "戻る", home_path %>
+      <% if !current_user.admin? %>
+        <%= link_to "戻る", home_path(current_user) %>
+      <% else %>
+        <%= link_to "戻る", :back %>
+      <% end %>
     </div>
   </div>
 </body>
