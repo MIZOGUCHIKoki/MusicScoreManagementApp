@@ -51,21 +51,5 @@
         <% end %>
       </table>
     <% end %> 
-
-
-    <!--<h2>楽譜一覧</h2>
-    <% if !current_user.admin? %>
-      <%= link_to "楽譜を登録する", new_score_path %>
-    <% end %>
-    <% if @scores.any? %>
-      <ol>
-        <% @scores.each do |score|%>
-          <li>
-            <%= link_to score.name, score%> | 
-            <%= score.created_at %>
-          </li>
-        <% end %>
-      </ol>
-    <% end %>-->
   </div>
 </body>
