@@ -33,7 +33,7 @@
     <% if !current_user.admin? %>
       <%= link_to "楽譜を登録する", new_score_path %>
     <% end %>
-    <% if @scores.any? %>
+    <% if @scores.present? %>
       <table>
         <tr>
           <th>曲名</th>
