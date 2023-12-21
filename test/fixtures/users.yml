@@ -11,11 +11,8 @@ other:
   email: other@railstutorial.com
   password_digest: <%= User.digest('password') %>
   admin: false
-
-<% 30.times do |n| %>
-user_<%= n %>:
-  name:  <%= "User #{n}" %>
-  email: <%= "user-#{n}@example.com" %>
+other2:
+  name: Other User
+  email: other2@railstutorial.com
   password_digest: <%= User.digest('password') %>
   admin: false
-<% end %>

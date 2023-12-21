@@ -4,8 +4,9 @@ require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
   def setup
-    @user = users(:ex)
+    @admin = users(:ex)
     @other = users(:other)
+    @other2 = users(:other2)
   end
 
   # サインインパスを取得できる
@@ -47,8 +48,28 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   # 正常に自分自身のユーザ削除 できる
   test 'should destroy when signed in correct user' do
     sign_in_as(@other)
-    assert_no_difference 'User.count' do
+    assert_difference 'User.count', -1 do
       delete user_path(@other)
+    end
+    assert_response :see_other
+    assert_redirected_to signin_path
+  end
+
+  # 管理者は他のユーザを削除できる
+  test 'should destroy non-admin users when signed in as admin' do
+    sign_in_as(@admin)
+    assert_difference 'User.count', -1 do
+      delete user_path(@other)
+    end
+    assert_response :see_other
+    assert_redirected_to signin_path
+  end
+
+  # 他のユーザによるユーザ削除はできない
+  test 'should not destroy a user by other user' do
+    sign_in_as(@other)
+    assert_no_difference 'User.count' do
+      delete user_path(@other2)
     end
     assert_response :see_other
     assert_redirected_to signin_path
