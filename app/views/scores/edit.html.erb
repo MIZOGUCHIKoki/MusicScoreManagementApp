@@ -4,11 +4,7 @@
   </div>
 
   <%= form_with(model: @score, url: score_path(@score), method: :patch) do |form| %>
-
-    <div class="left">
-      <h3>曲名：<%= @score.name %></h3>
-    </div>
-
+    
     <div class="flex-field">
       <div class="box">
         <%= form.label :name, "曲名" %>
