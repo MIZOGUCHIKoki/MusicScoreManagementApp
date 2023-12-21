@@ -1,35 +1,34 @@
 <body>
   <div class="center">
     <h1>UsersController#home</h1>
-    # 使用楽器検索
-    # 表示するチェックボックスの位置を後で調整しやすくするよう列挙しました
+    
     <input type="checkbox" id="hide">
     <label class="hide" for="hide">使用楽器</label>
-    #
     <div class="hide-and-seek">
       <%= form_with model: @scores do |form| %>
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>piccolo
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>c_flute
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>oboe
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>english_horn
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>b_clarinet
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>b_bass_clarinet
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>bassoon
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>e_alto_saxophone
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>b_tenor_saxophone
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>b_baritone_saxophone
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>b_trumpet
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>f_horn
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>trombone
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>baritone
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>baritone_treble_clef
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>tuba
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>string_bass
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>piano
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>harp
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>timpani
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>drums
-        <%= form.check_box :use_gakki, {multiple: true}, 1, 0 %>percussion
+        <%= form.check_box :use_gakki, {multiple: true} %>piccolo
+        <%= form.check_box :use_gakki, {multiple: true} %>c_flute
+        <%= form.check_box :use_gakki, {multiple: true} %>oboe
+        <%= form.check_box :use_gakki, {multiple: true} %>english_horn
+        <%= form.check_box :use_gakki, {multiple: true} %>e_clarinet
+        <%= form.check_box :use_gakki, {multiple: true} %>b_clarinet
+        <%= form.check_box :use_gakki, {multiple: true} %>b_bass_clarinet
+        <%= form.check_box :use_gakki, {multiple: true} %>bassoon
+        <%= form.check_box :use_gakki, {multiple: true} %>e_alto_saxophone
+        <%= form.check_box :use_gakki, {multiple: true} %>b_tenor_saxophone
+        <%= form.check_box :use_gakki, {multiple: true} %>b_baritone_saxophone
+        <%= form.check_box :use_gakki, {multiple: true} %>b_trumpet
+        <%= form.check_box :use_gakki, {multiple: true} %>f_horn
+        <%= form.check_box :use_gakki, {multiple: true} %>trombone
+        <%= form.check_box :use_gakki, {multiple: true} %>eb
+        <%= form.check_box :use_gakki, {multiple: true} %>euphonium
+        <%= form.check_box :use_gakki, {multiple: true} %>tuba
+        <%= form.check_box :use_gakki, {multiple: true} %>string_bass
+        <%= form.check_box :use_gakki, {multiple: true} %>piano
+        <%= form.check_box :use_gakki, {multiple: true} %>harp
+        <%= form.check_box :use_gakki, {multiple: true} %>timpani
+        <%= form.check_box :use_gakki, {multiple: true} %>drums
+        <%= form.check_box :use_gakki, {multiple: true} %>percussion
       <% end %>
     </div>
     <h2>楽譜一覧</h2>
