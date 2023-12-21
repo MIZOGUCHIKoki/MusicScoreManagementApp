@@ -1,7 +1,6 @@
 <body>
   <div class="center">
     <h1>UsersController#home</h1>
-    
     <input type="checkbox" id="hide">
     <label class="hide" for="hide">使用楽器</label>
     <div class="hide-and-seek">
@@ -31,25 +30,26 @@
         <%= form.check_box :use_gakki, {multiple: true} %>percussion
       <% end %>
     </div>
-
     <% if !current_user.admin? %>
       <%= link_to "楽譜を登録する", new_score_path %>
     <% end %>
-
-    <% if @scores.present? && @scores.any? %>
+    <% if @scores.any? %>
       <table>
         <tr>
-          <th>曲名</th><th>作曲者名</th><th>編曲者名</th><th>グレード</th>
-        </tr>  
+          <th>曲名</th>
+          <th>作曲者名</th>
+          <th>編曲者名</th>
+          <th>グレード</th>
+        </tr>
         <% @scores.each do |score|%>
           <tr>
-            <td><%= link_to score.name, score%></td> 
+            <td><%= link_to score.name, score%></td>
             <td><%= score.composer %></td>
             <td><%= score.arranger %></td>
             <td><%= score.grade %></td>
           </tr>
         <% end %>
       </table>
-    <% end %> 
+    <% end %>
   </div>
 </body>
