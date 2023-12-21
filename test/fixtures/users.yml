@@ -1,15 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: 1
-  email: MyText
-  name: MyText
-  password: MyText
-  login: 2023-12-15
+ex:
+  name: Example User
+  email: example@railstutorial.com
+  password_digest: <%= User.digest('password') %>
+  admin: true 
 
-two:
-  user_id: 1
-  email: MyText
-  name: MyText
-  password: MyText
-  login: 2023-12-15
+other:
+  name: Other User
+  email: other@railstutorial.com
+  password_digest: <%= User.digest('password') %>
+  admin: false
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name:  <%= "User #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+  admin: false
+<% end %>

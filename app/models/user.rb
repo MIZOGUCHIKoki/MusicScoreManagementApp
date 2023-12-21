@@ -19,6 +19,7 @@ class User < ApplicationRecord
   validates :password, presence: true, # Presence（存在性；空白でない）
                        length: { minimum: 6 }, # 最小長6
                        allow_nil: true # パスワードが空白でも更新できるように
+
   # 渡された文字列のハッシュ値を返す
   def self.digest(string)
     cost = if ActiveModel::SecurePassword.min_cost
