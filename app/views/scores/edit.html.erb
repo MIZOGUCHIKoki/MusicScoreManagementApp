@@ -11,6 +11,11 @@
 
     <div class="flex-field">
       <div class="box">
+        <%= form.label :name, "曲名" %>
+        <%= form.text_field :name, value: @score.name %>
+      </div>
+
+      <div class="box">
         <%= form.label :composer, "作曲者" %>
         <%= form.text_field :composer, value: @score.composer %>
       </div>
