@@ -54,12 +54,21 @@ class UsersController < ApplicationController
     #   @scores = @user.scores.all
     #  end
     @user = User.find(params[:id]) # ユーザ特定
+
     @score_params = score_search_params
+
     # 検索ボックスへの入力があるかどうかを確認
     @scores = if @score_params[:name].present? || @score_params[:composer].present? || @score_params[:arranger].present?
                 @user.scores.score_search(@score_params)
               else
                 # 検索ボックスが空の場合の処理
+                @user.scores.all
+              end
+
+    @score_params = score_search_gakki_params
+    @scores = if @score_params.blank?
+                @user.scores.score_search_gakki(@score_params)
+              else
                 @user.scores.all
               end
   end
@@ -130,7 +139,13 @@ class UsersController < ApplicationController
   end
 
   def score_search_gakki_params
-    params.permit(use_gakki: [])
+    params.fetch(:score_params, {}).permit(:piccolo, :c_flute,
+                                           :oboe, :english_horn, :b_clarinet, :e_clarinet,
+                                           :b_bass_clarinet, :bassoon, :e_alto_saxophone,
+                                           :b_tenor_saxophone, :b_baritone_saxophone,
+                                           :b_trumpet, :f_horn, :trombone, :euphonium,
+                                           :tuba, :string_bass, :eb,
+                                           :piano, :harp, :timpani, :drums, :percussion)
   end
 
   def correct_user_admin

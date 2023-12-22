@@ -39,51 +39,51 @@ class Score < ApplicationRecord
 
   # 実引数:search_params, 仮引数:x
   # 21ブロック以上だと注意されるため，20ブロックに収めました
-  scope :score_search_gakki, lambda { |*search_params|
-    use_piccolo(search_params[0])
-      .use_c_flute(search_params[1])
-      .use_oboe(search_params[2])
-      .use_english_horn(search_params[3])
-      .use_e_clarinet(search_params[4])
-      .use_b_clarinet(search_params[5])
-      .use_b_bass_clarinet(search_params[6])
-      .use_bassoon(search_params[7])
-      .use_e_alto_saxophone(search_params[8])
-      .use_b_tenor_saxophone(search_params[9])
-      .use_b_baritone_saxophone(search_params[10])
-      .use_b_trumpet(search_params[11])
-      .use_f_horm(search_params[12])
-      .use_trombone(search_params[13])
-      .use_eb(search_params[14])
-      .use_euphonium(search_params[15])
-      .use_tuba(search_params[16])
-      .use_string_bass(search_params[17]).use_piano(search_params[18])
-      .use_harp(search_params[19]).use_timpani(search_gakki_params[20])
-      .use_drums(search_params[21]).use_percussion(search_gakki_params[22])
+  scope :score_search_gakki, lambda { |search_params|
+    use_piccolo(search_params[:piccolo])
+      .use_c_flute(search_params[:c_flute])
+      .use_oboe(search_params[:oboe])
+      .use_english_horn(search_params[:english_horn])
+      .use_e_clarinet(search_params[:e_clarinet])
+      .use_b_clarinet(search_params[:b_clarinet])
+      .use_b_bass_clarinet(search_params[:b_bass_clarinet])
+      .use_bassoon(search_params[:bassoon])
+      .use_e_alto_saxophone(search_params[:e_alto_saxophone])
+      .use_b_tenor_saxophone(search_params[:b_tenor_saxophone])
+      .use_b_baritone_saxophone(search_params[:b_baritone_saxophone])
+      .use_b_trumpet(search_params[:b_trumpet])
+      .use_f_horm(search_params[:f_horn])
+      .use_trombone(search_params[:trombone])
+      .use_eb(search_params[:eb])
+      .use_euphonium(search_params[:euphonium])
+      .use_tuba(search_params[:tuba])
+      .use_string_bass(search_params[:string_bass]).use_piano(search_params[:piano])
+      .use_harp(search_params[:harp]).use_timpani(search_params[:timpani])
+      .use_drums(search_params[:drums]).use_percussion(search_params[:percussion])
   }
   # 仮引数"x"は"0"か"1"である
   # スコープの条件式 : xが"1"以上の場合に対応するカラムを取ってくる
-  scope :use_piccolo, ->(x) { where(piccolo >= x) if x >= 1 }
-  scope :use_c_flute, ->(x) { where(c_flute >= x) if x >= 1 }
-  scope :use_oboe, ->(x) { where(oboe => x) if x >= 1 }
-  scope :use_english_horn, ->(x) { where(english_horn => x) if x >= 1 }
-  scope :use_e_clarinet, ->(x) { where(e_clarinet => x) if x >= 1 }
-  scope :use_b_clarinet, ->(x) { where(b_clarinet => x) if x >= 1 }
-  scope :use_b_bass_clarinet, ->(x) { where(b_bass_clarinet => x) if x >= 1 }
-  scope :use_bassoon, ->(x) { where(bassoon => x) if x >= 1 }
-  scope :use_e_alto_saxophone, ->(x) { where(e_alto_saxophone => x) if x >= 1 }
-  scope :use_b_tenor_saxophone, ->(x) { where(b_tenor_saxophone => x) if x >= 1 }
-  scope :use_b_baritone_saxophone, ->(x) { where(b_baritone_saxophone => x) if x >= 1 }
-  scope :use_b_trumpet, ->(x) { where(b_trumpet >= x) if x >= 1 }
-  scope :use_f_horm, ->(x) { where(f_horn >= x) if x >= 1 }
-  scope :use_trombone, ->(x) { where(trombone >= x) if x >= 1 }
-  scope :use_eb, ->(x) { where(eb >= x) if x >= 1 }
-  scope :use_euphonium, ->(x) { where(euphonium >= x) if x >= 1 }
-  scope :use_tuba, ->(x) { where(tuba >= x) if x >= 1 }
-  scope :use_string_bass, ->(x) { where(string_bass >= x) if x >= 1 }
-  scope :use_piano, ->(x) { where(piano >= x) if x >= 1 }
-  scope :use_harp, ->(x) { where(harp >= x) if x >= 1 }
-  scope :use_timpani, ->(x) { where(timpani >= x) if x >= 1 }
-  scope :use_drums, ->(x) { where(drums >= x) if x >= 1 }
-  scope :use_percussion, ->(x) { where(percussion >= x) if x >= 1 }
+  scope :use_piccolo, ->(x) { where(piccolo: x..) }
+  scope :use_c_flute, ->(x) { where(c_flute: x..) }
+  scope :use_oboe, ->(x) { where(oboe: x..) }
+  scope :use_english_horn, ->(x) { where(english_horn: x..) }
+  scope :use_e_clarinet, ->(x) { where(e_clarinet: x..) }
+  scope :use_b_clarinet, ->(x) { where(b_clarinet: x..) }
+  scope :use_b_bass_clarinet, ->(x) { where(b_bass_clarinet: x..) }
+  scope :use_bassoon, ->(x) { where(bassoon: x..) }
+  scope :use_e_alto_saxophone, ->(x) { where(e_alto_saxophone: x..) }
+  scope :use_b_tenor_saxophone, ->(x) { where(b_tenor_saxophone: x..) }
+  scope :use_b_baritone_saxophone, ->(x) { where(b_baritone_saxophone: x..) }
+  scope :use_b_trumpet, ->(x) { where(b_trumpet: x..) }
+  scope :use_f_horm, ->(x) { where(f_horn: x..) }
+  scope :use_trombone, ->(x) { where(trombone: x..) }
+  scope :use_eb, ->(x) { where(eb: x..) }
+  scope :use_euphonium, ->(x) { where(euphonium: x..) }
+  scope :use_tuba, ->(x) { where(tuba: x..) }
+  scope :use_string_bass, ->(x) { where(string_bass: x..) }
+  scope :use_piano, ->(x) { where(piano: x..) }
+  scope :use_harp, ->(x) { where(harp: x..) }
+  scope :use_timpani, ->(x) { where(timpani: x..) }
+  scope :use_drums, ->(x) { where(drums: x..) }
+  scope :use_percussion, ->(x) { where(percussion: x..) }
 end
