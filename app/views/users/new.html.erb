@@ -4,34 +4,35 @@
 <div class="left">
     <h2>ご利用登録</h2>
 </div>
-<div class="flex-field">
+
 <%= form_with model: @user do |form| %>
+<div class="block-field">
     <div class="box"> 
-    <%= form.label :name, "名前（楽団名）" %>
-    <%= form.text_field :name %>
+    
+    <%= form.text_field :name, :placeholder => "名前（楽団名）"  %>
     </div>
 
     <div class="box"> 
-    <%= form.label :email, "Eメールアドレス" %>
-    <%= form.email_field :email %>
+    
+    <%= form.email_field :email, :placeholder => "Eメールアドレス" %>
     </div>
 
     <div class="box"> 
-    <%= form.label :password, "パスワード" %>
-    <%= form.password_field :password %>
+    
+    <%= form.password_field :password, :placeholder => "パスワード" %>
     </div>
 
     <div class="box"> 
-    <%= form.label :password_confirmation, "パスワードの再確認" %>
-    <%= form.password_field :password_confirmation %>
+    
+    <%= form.password_field :password_confirmation, :placeholder => "再確認" %>
     </div>
 
     <div class="box"> 
     <%= form.submit "利用規約に同意して登録" %>
     </div>
-
-<% end %>
 </div>
+<% end %>
+
 
 </div>
 </body>
