@@ -19,9 +19,18 @@
 end
 
 users = User.order(:created_at).take(6)
-50.times do
-  name = Faker::Lorem.sentence(word_count: 1)
-  users.each { |user| user.scores.create!(name:) }
+name = Faker::Lorem.sentence(word_count: 2)
+composer = Faker::Name.name
+arranger = Faker::Name.name
+users.each do |user|
+  user.scores.create!(name:,
+                      composer:,
+                      arranger:,
+                      grade: '1',
+                      m_time: 320,
+                      timpani: 1,
+                      drums: 1,
+                      percussion: 1)
 end
 
 User.create!(name: 'Example User',
