@@ -40,12 +40,12 @@ class UsersController < ApplicationController
                 :all
               end
       @scores = @user.scores.send(order) # ソート結果格納
-    elsif params[:input_value] == :name || params[:input_value] == :composer || params[:input_value] == :arranger
-      @search_params = score_search_params
-      @scores = score_search(@search_params)
+    elsif !params[:input_value].nil?
+      @search_params = score_search_params # score_search_paramsは検索ボックスの入力値取得メソッド
+      @scores = Score.score_search(@search_params)# score_serchによりDBから内容取得
     elsif !params[:use_gakki].nil?
       @search_params = score_search_gakki_params
-      @scores = score_search_gakki(@search_params)
+      @scores = Score.score_search_gakki(@search_params)
     else
       @scores = @user.scores.all
     end
