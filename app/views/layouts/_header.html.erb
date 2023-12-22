@@ -2,15 +2,15 @@
   <% if signed_in? %>
     <% if current_user.admin %>
       <ul>
-        <li class="list-item"><%= link_to "ユーザ一覧", users_path %></li>
-        <li class="list-item"><%= link_to "管理者の情報", user_path(current_user) %>
+        <li class="list-item"><%= link_to "ユーザ一覧", users_path, class: "none-border"%></li>
+        <li class="list-item"><%= link_to "管理者の情報", user_path(current_user), class: "none-border" %></li>
         <% else %>
-          <li class="list-item"><%= link_to "楽譜一覧", home_path(current_user) %></li>
-          <li class="list-item"><%= link_to "ユーザ情報", user_path(current_user) %></li>
+          <li class="list-item"><%= link_to "楽譜一覧", home_path(current_user), class: "none-border" %></li>
+          <li class="list-item"><%= link_to "ユーザ情報", user_path(current_user), class: "none-border" %></li>
         <% end %>
-        <li class="list-item"><%= link_to "ログアウト", signout_path , data:{ "turbo-method": :delete } %>
+        <li class="list-item"><%= link_to "ログアウト", signout_path , data:{ "turbo-method": :delete }, class: "none-border" %></li>
         <% else %>
-          <li class="list-item"><%= link_to "サインイン", signin_path %></li>
+          <li class="list-item"><%= link_to "サインイン", signin_path, class: "none-border" %></li>
         <% end %>
       </ul>
     </div>

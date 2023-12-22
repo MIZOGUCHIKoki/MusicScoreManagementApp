@@ -4,7 +4,7 @@
   </div>
     
   <div class="center">
-
+  <div class="border">
     <table cellspacing="15">
       <tr>
         <th>ユーザ名</th><th>メールアドレス</th>
@@ -27,19 +27,20 @@
 
     <div class="button-field">
       <div class="box">
-        <%= button_to "編集", edit_user_url(@user), class: "edit-button" %>
+        <%= button_to "編集",{controller: "users", action: "edit", params: @user}, {method: :get, class: "edit-button"} %>
       </div>
       <div class="box">
         <%= button_to "アカウント削除", @user, data:{"turbo-method": :delete, turbo_confirm: "本当に削除しますか？"}, class: "delete-button" %>
       </div>
     </div>
 
-    <div>
+    <!-- <div>
       <% if current_user.admin? %>
         <%= link_to "戻る", users_path %>
       <% else %>
         <%= link_to "戻る", home_path %>
-      <% end %>
+      <% end %> -->
     </div>
+  </div>
   </div>
 </body>

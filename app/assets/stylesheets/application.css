@@ -114,11 +114,11 @@
  .footer {
   justify-content: space-around;
   display: flex;
-   width: auto;
-   height: 100px;
-   background-color: rgb(0, 170, 255);
-   align-items: center;
-   border-radius: 10px;
+  width: auto;
+  height: 100px;
+  background-color: rgb(0, 170, 255);
+  align-items: center;
+  border-radius: 10px;
  }
 
  /*header & footer*/
@@ -128,7 +128,10 @@
   border: 2px solid;
   border-color: #bcdfff;
   border-radius: 10px;
-  margin-right: 20px;
+  background-color: #f8f9fa;
+}
+.none-border {
+  text-decoration: none;
 }
 
  /*エラーメッセージ表示の際，勝手に新しいクラスが生成され，Viewを壊すようである．

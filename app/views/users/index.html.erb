@@ -23,7 +23,7 @@
     </tr>  
     <% @users.each do |user| %>
       <tr>
-        <td class="left"><%= link_to user.name, user %></td>
+        <td class="left"><%= link_to user.name, user, class: "none-border" %></td>
         <td class="right"><%= user.email %></td>
       </tr>
     <% end %>
