@@ -1,7 +1,7 @@
 <div class="header">
   <% if signed_in? %>
     <% if current_user.admin %>
-      <ul class="nav">
+      <ul>
         <li class="list-item"><%= link_to "ユーザ一覧", users_path %></li>
         <li class="list-item"><%= link_to "管理者の情報", user_path(current_user) %>
         <% else %>
@@ -14,3 +14,4 @@
         <% end %>
       </ul>
     </div>
+    <hr>

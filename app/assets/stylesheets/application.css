@@ -75,6 +75,7 @@
    width: 120px;
    border-radius: 20px;
    background-color: rgb(185, 255, 127);
+   margin-top: 10px;
    margin-bottom: 10px;
  }
  .signin-button {
@@ -100,6 +101,7 @@
 
  /*header*/
  .header {
+  justify-content: space-around;
    display: flex;
    width: auto;
    height: 100px;
@@ -107,14 +109,27 @@
    align-items: center;
    border-radius: 10px;
  }
- .list-item {
-   list-style: none;
-   display: inline-block;
-   border: 2px solid;
-   border-color: #bcdfff;
+
+ /*footer*/
+ .footer {
+  justify-content: space-around;
+  display: flex;
+   width: auto;
+   height: 100px;
+   background-color: rgb(0, 170, 255);
+   align-items: center;
    border-radius: 10px;
-   margin-right: 20px;
  }
+
+ /*header & footer*/
+ .list-item {
+  list-style: none;
+  display: inline-block;
+  border: 2px solid;
+  border-color: #bcdfff;
+  border-radius: 10px;
+  margin-right: 20px;
+}
 
  /*エラーメッセージ表示の際，勝手に新しいクラスが生成され，Viewを壊すようである．
    以下が生成されるクラスであり，これにCSSを当てておくことで崩壊を回避する．*/
