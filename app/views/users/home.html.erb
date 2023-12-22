@@ -45,6 +45,7 @@
           <th>作曲者名</th>
           <th>編曲者名</th>
           <th>グレード</th>
+          <th>演奏時間</th>
         </tr>
         <% @scores.each do |score|%>
           <tr>
@@ -52,7 +53,7 @@
             <td><%= score.composer %></td>
             <td><%= score.arranger %></td>
             <td><%= score.grade %></td>
-            <td><%= score.m_time %></td>
+            <td><%= m2ms(score.m_time) %></td>
           </tr>
         <% end %>
       </table>
