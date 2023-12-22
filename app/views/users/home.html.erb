@@ -1,7 +1,6 @@
 <body>
   <div class="center">
     <h1>UsersController#home</h1>
-
     <%= form_with model: @score do |form| %>
       <div class="flex-field">
         <div class="box">
@@ -19,41 +18,42 @@
       </div>
       <%= button_to "検索", score_path(form), {class: "search-button"} %>
     <% end %>
-
     <input type="checkbox" id="hide">
-    <label class="hide" for="hide">使用楽器</label>
-    <div class="hide-and-seek">
-      <%= form_with do |form| %>
-        <div class="field">
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.piccolo') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.c_flute') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.oboe') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.english_horn') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.e_clarinet') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.b_clarinet') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.b_bass_clarinet') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.bassoon') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.e_alto_saxophone') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.b_tenor_saxophone') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.b_baritone_saxophone') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.b_trumpet') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.f_horn') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.trombone') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.eb') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.euphonium') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.tuba') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.string_bass') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.piano') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.harp') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.timpani') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.drums') %><br>
-          <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.percussion') %><br>
-          <div class="box">
-            <%= form.submit "使用楽器から検索" %>
+    <% if !current_user.admin? %>
+      <label class="hide" for="hide">使用楽器</label>
+      <div class="hide-and-seek">
+        <%= form_with do |form| %>
+          <div class="field">
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.piccolo') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.c_flute') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.oboe') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.english_horn') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.e_clarinet') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.b_clarinet') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.b_bass_clarinet') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.bassoon') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.e_alto_saxophone') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.b_tenor_saxophone') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.b_baritone_saxophone') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.b_trumpet') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.f_horn') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.trombone') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.eb') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.euphonium') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.tuba') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.string_bass') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.piano') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.harp') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.timpani') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.drums') %><br>
+            <%= form.check_box :use_gakki, { multiple: true } %><%= t('gakki.percussion') %><br>
+            <div class="box">
+              <%= form.submit "使用楽器から検索" %>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+    <% end %>
     <% if !current_user.admin? %>
       <%= link_to "楽譜を登録する", new_score_path %>
     <% end %>
