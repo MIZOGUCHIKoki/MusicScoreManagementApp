@@ -1,37 +1,9 @@
 <body>
-
- <div class="center">
-
-  <div>
-    <h2>マイページ編集</h2>
-  </div>
-
-  <div>
-    <%= form_with(model: @user, url: user_path(@user), method: :patch) do |form| %>
-      <div class="box">
-        <%= form.label :name, "ユーザ名" %>
-        <%= form.text_field :name, value: @user.name %>
-      </div>
-
-      <div class="box">
-        <%= form.label :email, "メールアドレス" %>
-        <%= form.email_field :email, value: @user.email %>
-      </div>
-
-      <div class="box">
-        <%= form.label :password, "パスワード" %>
-        <%= form.password_field :password, value: @user.password %>
-      </div>
-
-      <div>
-        <%= form.submit "更新" %>
-      </div>
-    <% end %>
-
+  <div class="center">
     <div>
-      <%= link_to "戻る", user_path(@user) %>
+      <h2>マイページ編集</h2>
     </div>
-  </div>
-
+    <% provide(:button_text, '変更') %>
+    <%= render 'form' %>
   </div>
 </body>
