@@ -22,6 +22,7 @@
     
     width: 920px;
     background:radial-gradient(#fff, #00abc5); 
+    font-size: 15px;
  }
  .center {
     text-align: center;
@@ -32,14 +33,25 @@
  .flex-field {
     justify-content: space-around;
     display: flex;
+    background-color: #0067C0;
+   border-radius: 10px;
  }
  .block-field {
    justify-content: space-around;
    display: block;
+
+   width: 300px;
+   margin: 0 auto;
+   padding: 20px;
+   background-color: #ffffff;
+   border: 1px solid #ccc;
+   border-radius: 5px;
  }
  table {
     margin: auto;
     padding: 50px;
+    border-color: #930403;
+    border: 3px;
  }
  .box {
    margin: 20px;
@@ -51,6 +63,31 @@
    width: 120px;
    border-radius: 20px;
    background-color: rgb(185, 255, 127);
+   margin-bottom: 10px;
+ }
+ .signin-button {
+   height: 30px;
+   width: 100px;
+   border-radius: 20px;
+   background-color: rgb(127, 200, 255);
+ }
+
+ /*header*/
+ .header {
+   display: flex;
+   width: auto;
+   height: 100px;
+   background-color: red;
+   align-items: center;
+   border-radius: 10px;
+ }
+ .list-item {
+   list-style: none;
+   display: inline-block;
+   border: 2px solid;
+   border-color: #bcdfff;
+   border-radius: 10px;
+   margin-right: 20px;
  }
 
  /*エラーメッセージ表示の際，勝手に新しいクラスが生成され，Viewを壊すようである．

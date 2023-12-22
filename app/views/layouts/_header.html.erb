@@ -1,17 +1,19 @@
 ---start of header---
-<ul>
+<div class="header">
   <% if signed_in? %>
-    サインイン中のユーザ：<%= current_user.name %>，<%= current_user.email %>，管理者[<%= current_user.admin %>]
+    
     <% if current_user.admin %>
-      <li><%= link_to "ユーザ一覧", users_path %></li>
-      <li><%= link_to "管理者の情報", user_path(current_user) %>
+      <ul class="nav">
+        <li class="list-item"><%= link_to "ユーザ一覧", users_path %></li>
+        <li class="list-item"><%= link_to "管理者の情報", user_path(current_user) %>
       <% else %>
-        <li><%= link_to "楽譜一覧", home_path(current_user) %></li>
-        <li><%= link_to "ユーザ情報", user_path(current_user) %></li>
+        <li class="list-item"><%= link_to "楽譜一覧", home_path(current_user) %></li>
+        <li class="list-item"><%= link_to "ユーザ情報", user_path(current_user) %></li>
       <% end %>
-      <li><%= link_to "ログアウト", signout_path , data:{ "turbo-method": :delete } %>
+      <li class="list-item"><%= link_to "ログアウト", signout_path , data:{ "turbo-method": :delete } %>
       <% else %>
-        <li><%= link_to "サインイン", signin_path %></li>
+        <li class="list-item"><%= link_to "サインイン", signin_path %></li>
       <% end %>
     </ul>
-    ---end of header---
+</div>
+---end of header---
