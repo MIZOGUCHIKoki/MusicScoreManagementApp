@@ -49,8 +49,8 @@ class ScoresController < ApplicationController
       # 設計書に間違いあり(index -> user.home)
       redirect_to home_path(current_user)
     else
-      flash[:danger] = '変更に失敗しました'
-      redirect_to edit_score_path, status: :unprocessable_entity
+      flash.now[:danger] = '変更に失敗しました'
+      render :edit, status: :unprocessable_entity
     end
   end
 
