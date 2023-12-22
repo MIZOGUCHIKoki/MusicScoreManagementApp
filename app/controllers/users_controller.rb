@@ -30,10 +30,10 @@ class UsersController < ApplicationController
 
   # ホーム画面を表示：GET
   def home
-    #@user = User.find(params[:id]) # ユーザ特定
-    #@scores = @user.scores.all
+    # @user = User.find(params[:id]) # ユーザ特定
+    # @scores = @user.scores.all
     #  if params.key?(:order)
-       
+
     #    order = if params[:order] == 'asc' # 昇順
     #              :grate_sort_asc
     #            elsif params[:order] == 'desc' # 降順
@@ -43,10 +43,9 @@ class UsersController < ApplicationController
     #            end
     #    @scores = @user.scores.send(order) # ソート結果格納
     #  elsif params.key?(:name) || params.key?(:composer) || params.key?(:arranger)
-  
-    #@score_params = score_search_params # score_search_paramsは検索ボックスの入力値取得メソッド
-    #@scores = Score.score_search(@score_params) # score_serchによりDBから内容取得
-    
+
+    # @score_params = score_search_params # score_search_paramsは検索ボックスの入力値取得メソッド
+    # @scores = Score.score_search(@score_params) # score_serchによりDBから内容取得
 
     #  elsif !params[:use_gakki].nil?
     #    @score_params = score_search_gakki_params
@@ -56,13 +55,13 @@ class UsersController < ApplicationController
     #  end
     @user = User.find(params[:id]) # ユーザ特定
     @score_params = score_search_params
-    if !@score_params[:name].blank? || !@score_params[:composer].blank? || !@score_params[:arranger].blank? # 検索ボックスへの入力があるかどうかを確認
-      @scores = @user.scores.score_search(@score_params)
-    else
-      # 検索ボックスが空の場合の処理
-      @scores = @user.scores.all
-    end
-
+    # 検索ボックスへの入力があるかどうかを確認
+    @scores = if @score_params[:name].present? || @score_params[:composer].present? || @score_params[:arranger].present?
+                @user.scores.score_search(@score_params)
+              else
+                # 検索ボックスが空の場合の処理
+                @user.scores.all
+              end
   end
 
   # def search_box_has_input?

@@ -30,7 +30,7 @@
         <%= button_to "編集",{controller: "users", action: "edit", params: @user}, {method: :get, class: "edit-button"} %>
       </div>
       <div class="box">
-        <%= button_to "アカウント削除", @user, data:{"turbo-method": :delete, turbo_confirm: "本当に削除しますか？"}, class: "delete-button" %>
+        <%= button_to "アカウント削除", @user, method: :delete, data:{turbo_confirm: "本当に削除しますか？"}, class: "delete-button" %>
       </div>
     </div>
 
