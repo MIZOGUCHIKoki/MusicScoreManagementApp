@@ -19,8 +19,8 @@
     </table>
 
     <div>
-      <% if current_user.admin? %>
-        <%= link_to "楽譜一覧へ", home_path %>
+      <% if current_user.admin? && current_user.id != @user.id %>
+          <%= link_to "楽譜一覧へ", home_path %>
       <% end %>
     </div>
     <div>
