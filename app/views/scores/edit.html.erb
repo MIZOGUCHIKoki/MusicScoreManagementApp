@@ -27,8 +27,8 @@
       </div>
 
       <div class="box">
-        <%= form.label :time, "演奏時間" %>
-        <%= form.text_field :time, value: @score.time %>
+        <%= form.label :m_time, "演奏時間" %>
+        <%= form.text_field :m_time, value: @score.m_time %>
       </div>
 
       <div class = "box">
@@ -148,7 +148,7 @@
 
     <div>
       <%= form.submit "更新" %>
-    </div>
+     </div>
 
     <div>
      <%= link_to "戻る", score_path(@score) %>
