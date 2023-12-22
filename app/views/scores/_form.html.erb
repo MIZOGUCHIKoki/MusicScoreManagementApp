@@ -22,103 +22,123 @@
         <%= form.label :m_time, "演奏時間" %>
         <%= form.text_field :m_time, value: @score.m_time %>
       </div>
-      <div class = "box">
-        <%= form.label :piccolo, t('gakki.piccoro') %>
-        <%= form.text_field :piccolo %>
+
+      <div class="edit-field">
+        <div class = "box">
+          <%= form.label :piccolo, t('gakki.piccoro') %>
+          <%= form.text_field :piccolo, :size=>"2" %>
+        </div>
+        <div class = "box">
+          <%= form.label :c_flute, t('gakki.c_flute') %>
+          <%= form.text_field :c_flute, :size=>"2" %>
+        </div>
+        <div class = "box">
+          <%= form.label :oboe, t('gakki.oboe') %>
+          <%= form.text_field :oboe, :size=>"2" %>
+        </div>
+        <div class = "box">
+          <%= form.label :english_horn, t('gakki.english_horn') %>
+          <%= form.text_field :english_horn, :size=>"2" %>
+        </div>
       </div>
-      <div class = "box">
-        <%= form.label :c_flute, t('gakki.c_flute') %>
-        <%= form.text_field :c_flute %>
+      
+      <div class="edit-field">
+        <div class = "box">
+          <%= form.label :e_clarinet, t('gakki.e_clarinet') %>
+          <%= form.text_field :e_clarinet, :size=>"2" %>
+        </div>
+        <div class = "box">
+          <%= form.label :b_clarinet, t('gakki.b_clarinet') %>
+          <%= form.text_field :b_clarinet, :size=>"2" %>
+        </div>
+        <div class = "box">
+          <%= form.label :b_bass_clarinet, t('b_bass_clarinet') %>
+          <%= form.text_field :b_bass_clarinet, :size=>"2" %>
+        </div>
+        <div class = "box">
+          <%= form.label :bassoon, t('gakki.bassoon')  %>
+          <%= form.text_field :bassoon, :size=>"2" %>
+        </div>
       </div>
-      <div class = "box">
-        <%= form.label :oboe, t('gakki.oboe') %>
-        <%= form.text_field :oboe %>
+
+      <div class="edit-field">
+        <div class = "box">
+          <%= form.label :e_alto_saxophone, t('gakki.e_alto_saxophone') %>
+          <%= form.text_field :e_alto_saxophone, :size=>"2" %>
+        </div>
+        <div class = "box">
+          <%= form.label :b_tenor_saxophone, t('gakki.b_tenor_saxophone') %>
+          <%= form.text_field :b_tenor_saxophone, :size=>"2" %>
+        </div>
+        <div class = "box">
+          <%= form.label :b_baritone_saxophone, t('gakki.b_baritone_saxophone') %>
+          <%= form.text_field :b_baritone_saxophone, :size=>"2" %>
+        </div>
+        <div class = "box">
+          <%= form.label :b_trumpet, t('gakki.b_trumpet') %>
+          <%= form.text_field :b_trumpet, :size=>"2" %>
+        </div>
       </div>
-      <div class = "box">
-        <%= form.label :english_horn, t('gakki.english_horn') %>
-        <%= form.text_field :english_horn %>
+
+      <div class="edit-field">
+        <div class = "box">
+          <%= form.label :f_horn, t('gakki.f_horn') %>
+          <%= form.text_field :f_horn, :size=>"2" %>
+        </div>
+        <div class = "box">
+          <%= form.label :trombone, t('gakki.trombone') %>
+          <%= form.text_field :trombone, :size=>"2" %>
+        </div>
+        <div class = "box">
+          <%= form.label :euphonium, t('gakki.euphonium') %>
+          <%= form.text_field :euphonium, :size=>"2" %>
+        </div>
+        <div class = "box">
+          <%= form.label :tuba, t('gakki.tuba') %>
+          <%= form.text_field :tuba, :size=>"2" %>
+        </div>
       </div>
-      <div class = "box">
-        <%= form.label :e_clarinet, t('gakki.e_clarinet') %>
-        <%= form.text_field :e_clarinet %>
+
+      <div class="edit-field">
+        <div class = "box">
+          <%= form.label :eb, t('gakki.eb') %>
+          <%= form.text_field :eb, :size=>"2" %>
+        </div>
+        <div class = "box">
+          <%= form.label :string_bass, t('gakki.string_bass') %>
+          <%= form.text_field :string_bass, :size=>"2" %>
+        </div>
+        <div class = "box">
+          <%= form.label :piano, t('gakki.piano') %>
+          <%= form.text_field :piano, :size=>"2" %>
+        </div>
+        <div class = "box">
+          <%= form.label :harp, t('gakki.harp') %>
+          <%= form.text_field :harp, :size=>"2" %>
+        </div>
       </div>
-      <div class = "box">
-        <%= form.label :b_clarinet, t('gakki.b_clarinet') %>
-        <%= form.text_field :b_clarinet %>
-      </div>
-      <div class = "box">
-        <%= form.label :b_bass_clarinet, t('b_bass_clarinet') %>
-        <%= form.text_field :b_bass_clarinet %>
-      </div>
-      <div class = "box">
-        <%= form.label :bassoon, t('gakki.bassoon')  %>
-        <%= form.text_field :bassoon %>
-      </div>
-      <div class = "box">
-        <%= form.label :e_alto_saxophone, t('gakki.e_alto_saxophone') %>
-        <%= form.text_field :e_alto_saxophone %>
-      </div>
-      <div class = "box">
-        <%= form.label :b_tenor_saxophone, t('gakki.b_tenor_saxophone') %>
-        <%= form.text_field :b_tenor_saxophone %>
-      </div>
-      <div class = "box">
-        <%= form.label :b_baritone_saxophone, t('gakki.b_baritone_saxophone') %>
-        <%= form.text_field :b_baritone_saxophone %>
-      </div>
-      <div class = "box">
-        <%= form.label :b_trumpet, t('gakki.b_trumpet') %>
-        <%= form.text_field :b_trumpet %>
-      </div>
-      <div class = "box">
-        <%= form.label :f_horn, t('gakki.f_horn') %>
-        <%= form.text_field :f_horn %>
-      </div>
-      <div class = "box">
-        <%= form.label :trombone, t('gakki.trombone') %>
-        <%= form.text_field :trombone %>
-      </div>
-      <div class = "box">
-        <%= form.label :euphonium, t('gakki.euphonium') %>
-        <%= form.text_field :euphonium %>
-      </div>
-      <div class = "box">
-        <%= form.label :tuba, t('gakki.tuba') %>
-        <%= form.text_field :tuba %>
-      </div>
-      <div class = "box">
-        <%= form.label :eb, t('gakki.eb') %>
-        <%= form.text_field :eb %>
-      </div>
-      <div class = "box">
-        <%= form.label :string_bass, t('gakki.string_bass') %>
-        <%= form.text_field :string_bass %>
-      </div>
-      <div class = "box">
-        <%= form.label :piano, t('gakki.piano') %>
-        <%= form.text_field :piano %>
-      </div>
-      <div class = "box">
-        <%= form.label :harp, t('gakki.harp') %>
-        <%= form.text_field :harp %>
-      </div>
-      <div class = "box">
-        <%= form.label :timpani, t('gakki.timpani') %>
-        <%= form.text_field :timpani %>
-      </div>
-      <div class = "box">
-        <%= form.label :drums, t('gakki.drums') %>
-        <%= form.text_field :drums %>
-      </div>
-      <div class = "box">
-        <%= form.label :percussion, t('gakki.percussion') %>
-        <%= form.text_field :percussion %>
+
+      <div class="edit-field">
+        <div class = "box">
+          <%= form.label :timpani, t('gakki.timpani') %>
+          <%= form.text_field :timpani, :size=>"2" %>
+        </div>
+        <div class = "box">
+          <%= form.label :drums, t('gakki.drums') %>
+          <%= form.text_field :drums, :size=>"2" %>
+        </div>
+        <div class = "box">
+          <%= form.label :percussion, t('gakki.percussion') %>
+          <%= form.text_field :percussion, :size=>"2" %>
+        </div>
       </div>
       <div>
-        <%= form.submit yield(:button_text) %>
+        <%= form.submit yield(:button_text), class: yield(:button_class) %>
       </div>
+      <!--
       <div>
         <%= link_to "戻る", :back %>
       </div>
+      -->
     <% end %>
   </div>

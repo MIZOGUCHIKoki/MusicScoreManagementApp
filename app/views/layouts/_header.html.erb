@@ -1,17 +1,15 @@
 <div class="header">
   <% if signed_in? %>
     <% if current_user.admin %>
-      <ul>
-        <li class="list-item"><%= link_to "ユーザ一覧", users_path, class: "none-border"%></li>
-        <li class="list-item"><%= link_to "管理者の情報", user_path(current_user), class: "none-border" %></li>
+        <div class="item"><%= link_to "ユーザ一覧", users_path, class: "none-border"%></div>
+        <div class="item"><%= link_to "管理者の情報", user_path(current_user), class: "none-border" %></div>
         <% else %>
-          <li class="list-item"><%= link_to "楽譜一覧", home_path(current_user), class: "none-border" %></li>
-          <li class="list-item"><%= link_to "ユーザ情報", user_path(current_user), class: "none-border" %></li>
+          <div class="item"><%= link_to "楽譜一覧", home_path(current_user), class: "none-border" %></div>
+          <div class="item"><%= link_to "ユーザ情報", user_path(current_user), class: "none-border" %></div>
         <% end %>
-        <li class="list-item"><%= link_to "ログアウト", signout_path , data:{ "turbo-method": :delete }, class: "none-border" %></li>
+        <div class="item"><%= link_to "ログアウト", signout_path , data:{ "turbo-method": :delete }, class: "none-border" %></div>
         <% else %>
-          <li class="list-item"><%= link_to "サインイン", signin_path, class: "none-border" %></li>
+          <div class="item"><%= link_to "サインイン", signin_path, class: "none-border" %></div>
         <% end %>
-      </ul>
     </div>
     <hr>
