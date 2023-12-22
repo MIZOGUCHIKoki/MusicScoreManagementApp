@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
 
+  get 'help' => 'static_pages#help'
+  get 'release_note' => 'static_pages#release_note'
   get 'signup' => 'users#new'
   get 'signin' => 'sessions#new'
   post 'signin' => 'sessions#create'
@@ -18,7 +20,6 @@ Rails.application.routes.draw do
   resources :scores
 
   get 'home/:id' => 'users#home', as: 'home'
-  get 'home' => 'users#home', as: 'homeb'
 
   root 'sessions#new'
 end
