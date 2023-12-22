@@ -10,35 +10,42 @@ class Score < ApplicationRecord
                                     length: { maximum: 50 }
   validates :composer,              length: { maximum: 255 }
   validates :arranger,              length: { maximum: 255 }
+  # 最長でなく、数値の最大が5
   validates :grade,                 length: { maximum: 5 }
-  # validates :time,                  numericality: {
-  #   only_integer: true,
-  #   greater_than_or_equal_to: 0,
-  #   less_than_or_equal_to: 1800
-  # }
-  validates :piccolo,               inclusion: { in: [0, 1] }
-  validates :c_flute,               inclusion: { in: [0, 1] }
-  validates :oboe,                  inclusion: { in: [0, 1] }
-  validates :english_horn,          inclusion: { in: [0, 1] }
-  validates :b_clarinet,            inclusion: { in: [0, 1] }
-  validates :e_clarinet,            inclusion: { in: [0, 1] }
-  validates :b_bass_clarinet,       inclusion: { in: [0, 1] }
-  validates :bassoon,               inclusion: { in: [0, 1] }
-  validates :e_alto_saxophone,      inclusion: { in: [0, 1] }
-  validates :b_tenor_saxophone,     inclusion: { in: [0, 1] }
-  validates :b_baritone_saxophone,  inclusion: { in: [0, 1] }
-  validates :b_trumpet,             inclusion: { in: [0, 1] }
-  validates :f_horn,                inclusion: { in: [0, 1] }
-  validates :trombone,              inclusion: { in: [0, 1] }
-  validates :euphonium,             inclusion: { in: [0, 1] }
-  validates :tuba,                  inclusion: { in: [0, 1] }
-  validates :string_bass,           inclusion: { in: [0, 1] }
-  validates :eb,                    inclusion: { in: [0, 1] }
-  validates :piano,                 inclusion: { in: [0, 1] }
-  validates :harp,                  inclusion: { in: [0, 1] }
-  validates :timpani,               inclusion: { in: [0, 1] }
-  validates :drums,                 inclusion: { in: [0, 1] }
-  validates :percussion,            inclusion: { in: [0, 1] }
+  validates :m_time,                numericality: {
+    only_integer: true,
+    greater_than_or_equal_to: 0,
+    less_than_or_equal_to: 1800
+  }
+  # 0，1でなく、0から10までの数値を受け取る
+  validates :piccolo, :c_flute, :oboe, :english_horn, :b_clarinet, :e_clarinet,
+            :b_bass_clarinet, :bassoon, :e_alto_saxophone, :b_tenor_saxophone,
+            :b_baritone_saxophone, :b_trumpet, :f_horn, :trombone, :euphonium,
+            :tuba, :string_bass, :eb, :piano, :harp, :timpani, :drums, :percussion,
+            inclusion: { in: 0..10 }
+  # validates :piccolo,               inclusion: { in: [0, 1] }
+  # validates :c_flute,               inclusion: { in: [0, 1] }
+  # validates :oboe,                  inclusion: { in: [0, 1] }
+  # validates :english_horn,          inclusion: { in: [0, 1] }
+  # validates :b_clarinet,            inclusion: { in: [0, 1] }
+  # validates :e_clarinet,            inclusion: { in: [0, 1] }
+  # validates :b_bass_clarinet,       inclusion: { in: [0, 1] }
+  # validates :bassoon,               inclusion: { in: [0, 1] }
+  # validates :e_alto_saxophone,      inclusion: { in: [0, 1] }
+  # validates :b_tenor_saxophone,     inclusion: { in: [0, 1] }
+  # validates :b_baritone_saxophone,  inclusion: { in: [0, 1] }
+  # validates :b_trumpet,             inclusion: { in: [0, 1] }
+  # validates :f_horn,                inclusion: { in: [0, 1] }
+  # validates :trombone,              inclusion: { in: [0, 1] }
+  # validates :euphonium,             inclusion: { in: [0, 1] }
+  # validates :tuba,                  inclusion: { in: [0, 1] }
+  # validates :string_bass,           inclusion: { in: [0, 1] }
+  # validates :eb,                    inclusion: { in: [0, 1] }
+  # validates :piano,                 inclusion: { in: [0, 1] }
+  # validates :harp,                  inclusion: { in: [0, 1] }
+  # validates :timpani,               inclusion: { in: [0, 1] }
+  # validates :drums,                 inclusion: { in: [0, 1] }
+  # validates :percussion,            inclusion: { in: [0, 1] }
 
   scope :grade_sort_no, ->    { order(created_at: :desc) }
   scope :grade_sort_desc, ->  { order('CAST(grade AS float) DESC') }
@@ -58,17 +65,6 @@ class Score < ApplicationRecord
   scope :arranger_like, ->(arranger) { where('arranger LIKE ?', "%#{arranger}%") if arranger.present? }
   scope :grade_like, ->(grade) { where('grade LIKE ?', "#{grade}%") if grade.present? }
   # if ~.present?:~の文字列が空か存在しない場合に処理をスキップする
-
-  # 以下を実装することで、validatesを各楽器ごとに同じ条件を記述する必要がなくなると思われる
-  # private
-  # def validate_numeric_range
-  #   [各楽器のカラム].each do |column|
-  #     value = send(column)
-  #     unless (value.is_a?(Integer) && value >= 0 && value <= 5)
-  #       errors.add(column, '数値型で0から5までのみ受け付けています')
-  #     end
-  #   end
-  # end
 
   # 実引数:search_params, 仮引数:x
   # 21ブロック以上だと注意されるため，20ブロックに収めました
@@ -119,4 +115,6 @@ class Score < ApplicationRecord
   scope :use_timpani, ->(x) { where(timpani >= x) if x >= 1 }
   scope :use_drums, ->(x) { where(drums >= x) if x >= 1 }
   scope :use_percussion, ->(x) { where(percussion >= x) if x >= 1 }
+
+  # 以下を実装することで、validatesを各楽器ごとに同じ条件を記述する必要がなくなると思われる
 end
