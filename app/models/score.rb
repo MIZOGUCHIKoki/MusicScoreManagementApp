@@ -7,15 +7,10 @@ class Score < ApplicationRecord
   validates :composer,  length: { maximum: 255 }
   validates :arranger,  length: { maximum: 255 }
   # 最長でなく、数値の最大が5
-  validates :grade, numericality: {
-    greater_than_or_equal_to: 0,
-    less_than_or_equal_to: 5
-  }
-  validates :m_time, numericality: {
-    only_integer: true,
-    greater_than_or_equal_to: 0,
-    less_than_or_equal_to: 1800
-  }
+  validates :grade, allow_nil: true,
+                    numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
+  validates :m_time, allow_nil: true,
+                     numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 1800 }
   # 0，1でなく、0から10までの数値を受け取る
   validates :piccolo, :c_flute, :oboe, :english_horn, :b_clarinet, :e_clarinet,
             :b_bass_clarinet, :bassoon, :e_alto_saxophone, :b_tenor_saxophone,
