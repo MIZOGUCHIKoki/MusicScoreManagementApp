@@ -1,9 +1,12 @@
 <body>
-  <div class="left">
+
+ <div class="center">
+
+  <div>
     <h2>マイページ編集</h2>
   </div>
 
-  <div class="center">
+  <div>
     <%= form_with(model: @user, url: user_path(@user), method: :patch) do |form| %>
       <div class="box">
         <%= form.label :name, "ユーザ名" %>
@@ -28,5 +31,7 @@
     <div>
       <%= link_to "戻る", user_path(@user) %>
     </div>
+  </div>
+
   </div>
 </body>
