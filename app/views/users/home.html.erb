@@ -2,7 +2,6 @@
   <div class="center">
     <h1>UsersController#home</h1>
 
-    <h1>hello</h1>
     <%= form_with model: @score do |form| %>
       <div class="flex-field">
         <div class="box">
@@ -73,7 +72,7 @@
             <td><%= score.composer %></td>
             <td><%= score.arranger %></td>
             <td><%= score.grade %></td>
-            <td><%= score.m_time %></td>
+            <td><%= m2ms(score.m_time) %></td>
           </tr>
         <% end %>
       </table>

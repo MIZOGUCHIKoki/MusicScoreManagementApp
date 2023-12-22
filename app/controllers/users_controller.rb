@@ -42,7 +42,7 @@ class UsersController < ApplicationController
       @scores = @user.scores.send(order) # ソート結果格納
     elsif !params[:input_value].nil?
       @search_params = score_search_params # score_search_paramsは検索ボックスの入力値取得メソッド
-      @scores = Score.score_search(@search_params)# score_serchによりDBから内容取得
+      @scores = Score.score_search(@search_params) # score_serchによりDBから内容取得
     elsif !params[:use_gakki].nil?
       @search_params = score_search_gakki_params
       @scores = Score.score_search_gakki(@search_params)
