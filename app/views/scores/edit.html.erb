@@ -5,7 +5,7 @@
 
   <%= form_with(model: @score, url: score_path(@score), method: :patch) do |form| %>
 
-    <div class="flex-field">
+    <div class="block-field">
       <div class="box">
         <%= form.label :name, "曲名" %>
         <%= form.text_field :name, value: @score.name %>
