@@ -23,8 +23,8 @@
     </tr>  
     <% @users.each do |user| %>
       <tr>
-        <td align="left"><%= link_to user.name, user %></td>
-        <td align="right"><%= user.email %></td>
+        <td class="left"><%= link_to user.name, user %></td>
+        <td class="right"><%= user.email %></td>
       </tr>
     <% end %>
   </table>
