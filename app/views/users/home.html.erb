@@ -4,42 +4,40 @@
     <input type="checkbox" id="hide">
     <label class="hide" for="hide">使用楽器</label>
     <div class="hide-and-seek">
-    <%= form_with do |form| %>
-      <div class="field">
-        <%= form.check_box :use_gakki, {multiple: true} %>Piccolo<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>c_flute<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>oboe<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>english_horn<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>e_clarinet<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>b_clarinet<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>b_bass_clarinet<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>bassoon<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>e_alto_saxophone<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>b_tenor_saxophone<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>b_baritone_saxophone<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>b_trumpet<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>f_horn<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>trombone<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>eb<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>euphonium<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>tuba<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>string_bass<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>piano<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>harp<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>timpani<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>drums<br>
-        <%= form.check_box :use_gakki, {multiple: true} %>percussion<br>
-
-        <div class="box">
-        <%= form.submit "使用楽器から検索" %>
+      <%= form_with do |form| %>
+        <div class="field">
+          <%= form.check_box :use_gakki, {multiple: true} %>Piccolo<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>c_flute<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>oboe<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>english_horn<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>e_clarinet<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>b_clarinet<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>b_bass_clarinet<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>bassoon<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>e_alto_saxophone<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>b_tenor_saxophone<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>b_baritone_saxophone<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>b_trumpet<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>f_horn<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>trombone<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>eb<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>euphonium<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>tuba<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>string_bass<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>piano<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>harp<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>timpani<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>drums<br>
+          <%= form.check_box :use_gakki, {multiple: true} %>percussion<br>
+          <div class="box">
+            <%= form.submit "使用楽器から検索" %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
     </div>
     <% if !current_user.admin? %>
       <%= link_to "楽譜を登録する", new_score_path %>
     <% end %>
-
     <% if @scores.present? %>
       <table>
         <tr>
@@ -54,6 +52,7 @@
             <td><%= score.composer %></td>
             <td><%= score.arranger %></td>
             <td><%= score.grade %></td>
+            <td><%= score.m_time %></td>
           </tr>
         <% end %>
       </table>
