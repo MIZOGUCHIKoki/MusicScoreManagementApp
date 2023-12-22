@@ -65,7 +65,7 @@ class ScoresController < ApplicationController
 
   def score_params
     params.require(:score).permit(:name, :composer, :arranger,
-                                  :grade, :piccolo, :c_flute,
+                                  :grade, :m_time, :piccolo, :c_flute,
                                   :oboe, :english_horn, :b_clarinet, :e_clarinet,
                                   :b_bass_clarinet, :bassoon, :e_alto_saxophone,
                                   :b_tenor_saxophone, :b_baritone_saxophone,
