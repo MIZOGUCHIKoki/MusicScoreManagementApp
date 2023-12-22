@@ -16,7 +16,7 @@ class Score < ApplicationRecord
             :b_bass_clarinet, :bassoon, :e_alto_saxophone, :b_tenor_saxophone,
             :b_baritone_saxophone, :b_trumpet, :f_horn, :trombone, :euphonium,
             :tuba, :string_bass, :eb, :piano, :harp, :timpani, :drums, :percussion,
-            inclusion: { in: 0..10 }
+            numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 10 }
 
   scope :grade_sort_no, ->    { order(created_at: :desc) }
   scope :grade_sort_desc, ->  { order(grade: :desc) }
