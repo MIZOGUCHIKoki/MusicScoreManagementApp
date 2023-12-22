@@ -24,7 +24,6 @@
       <% end %>
     </div>
     <div>
-      <%= link_to "ログアウト", signout_path, data:{ "turbo-method": :delete } %>
       <%= link_to "アカウント削除", @user, data:{"turbo-method": :delete, turbo_confirm: "本当に削除しますか？"} %>
     </div>
     <div>
