@@ -1,5 +1,6 @@
 <body>
-  <div class="center">
+<div class="center">
+  <div>
     <h2>楽曲情報の編集</h2>
   </div>
 
@@ -146,13 +147,14 @@
           <%= form.text_field :percussion %>
       </div>
 
-    <div>
-      <%= form.submit "更新" %>
-     </div>
+        <div>
+        <%= form.submit "更新" %>
+        </div>
 
-    <div>
-     <%= link_to "戻る", score_path(@score) %>
-   </div>
-
-  <% end %>
+        <div>
+        <%= link_to "戻る", score_path(@score) %>
+        </div>
+        <% end %>
+        
+    </div>
 </body>
