@@ -1,5 +1,6 @@
 <div>
   <%= form_with model: @score do |form| %>
+    <%= render 'shared/error_messages', object: form.object %>
     <div class="block-field">
       <div class="box">
         <%= form.label :name, "曲名" %>
