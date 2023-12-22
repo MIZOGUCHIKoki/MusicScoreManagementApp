@@ -1,10 +1,11 @@
 <body>
-<div class="center">
+ <div class="center">
+
   <div>
     <h2>楽曲情報の編集</h2>
   </div>
 
-  <%= form_with(model: @score, url: score_path(@score), method: :patch) do |form| %>
+ <%= form_with(model: @score, url: score_path(@score), method: :patch) do |form| %>
 
     <div class="block-field">
       <div class="box">
@@ -154,7 +155,7 @@
         <div>
         <%= link_to "戻る", score_path(@score) %>
         </div>
+
         <% end %>
-        
     </div>
 </body>
