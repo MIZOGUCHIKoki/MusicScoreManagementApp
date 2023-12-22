@@ -54,7 +54,7 @@ class Score < ApplicationRecord
       .grade_like(search_params[:grade])
   }
   scope :name_like, ->(name) { where('name LIKE ?', "%#{name}%") if name.present? }
-  scope :composer_like, ->(composer) { where('composr LIKE ?', "%#{composer}%") if composer.present? }
+  scope :composer_like, ->(composer) { where('composer LIKE ?', "%#{composer}%") if composer.present? }
   scope :arranger_like, ->(arranger) { where('arranger LIKE ?', "%#{arranger}%") if arranger.present? }
   scope :grade_like, ->(grade) { where('grade LIKE ?', "#{grade}%") if grade.present? }
   # if ~.present?:~の文字列が空か存在しない場合に処理をスキップする

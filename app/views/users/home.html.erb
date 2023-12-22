@@ -1,24 +1,31 @@
 <body>
   <div class="center">
     <div class="left"><h2>トップページ</h2></div>
-    <%= form_with model: @score do |form| %>
+    
+    <h1>UsersController#home</h1>
+
+    <%= form_with(scope: :score_search, method: :get, local: true, model: @score)  do |form| %>
       <div class="flex-field">
         <div class="box">
-          <%= form.label :name, "曲名名検索" %>
-          <%= form.text_field :name %>
+          <%= form.label :name, "曲名検索" %>
+          <%= form.text_field :name , value: @score_params[:name] %>
         </div>
         <div class="box">
           <%= form.label :composer, "作曲者検索" %>
-          <%= form.text_field :composer%>
+          <%= form.text_field :composer, value: @score_params[:composer] %>
         </div>
         <div class="box">
           <%= form.label :arranger, "編曲者検索" %>
-          <%= form.text_field :arranger%>
+          <%= form.text_field :arranger, value: @score_params[:arranger] %>
         </div>
+      </div>
+        <%= button_to "検索", score_path(form), {class: "search-button"} %>
+    
+
         <div class="box">
           <input type="checkbox" id="hide">
             <% if !current_user.admin? %>
-              <label class="hide" for="hide">使用楽器</label>
+              <label class="hide" for="hide">使用楽器から検索</label>
               <div class="hide-and-seek">
                 <%= form_with do |form| %>
                   <div class="field">
@@ -52,11 +59,10 @@
                 <% end %>
               </div>
             </div>
-        </div>
-      <%= button_to "検索", score_path(form), {class: "search-button"} %>
-    <% end %>
-          </div>
-    <% end %>
+          
+        <% end %>
+      <% end %>    
+    
     
     <% if @scores.present? %>
       <table cellspacing="15">
