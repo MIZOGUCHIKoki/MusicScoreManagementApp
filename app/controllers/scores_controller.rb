@@ -2,12 +2,13 @@
 
 class ScoresController < ApplicationController
   before_action :signed_in_user, only: %i[index show new edit create update destroy]
+  before_action :private_url, only: %i[show edit] # url直接入力における閲覧・編集の禁止
   # 一覧を表示：GET
   def index; end
 
   # 個々のデータを表示：GET
   def show
-    @score = Score.find(params[:id])
+    # @score = Score.find(params[:id])
   end
 
   # 新規作成画面を表示：GET
@@ -19,7 +20,7 @@ class ScoresController < ApplicationController
   # 編集画面を表示：GET
   def edit
     redirect_to users_url if current_user.admin
-    @score = Score.find(params[:id])
+    # @score = Score.find(params[:id])
   end
 
   # 作成を実行：POST
@@ -72,5 +73,12 @@ class ScoresController < ApplicationController
                                   :b_trumpet, :f_horn, :trombone, :euphonium,
                                   :tuba, :string_bass, :eb,
                                   :piano, :harp, :timpani, :drums, :percussion)
+  end
+
+  def private_url
+    @score = Score.find(params[:id])
+    return unless !current_user.admin? && @score.user_id != current_user.id
+
+    redirect_to home_path(current_user)
   end
 end
