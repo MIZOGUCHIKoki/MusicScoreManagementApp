@@ -62,7 +62,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       delete user_path(@other)
     end
     assert_response :see_other
-    assert_redirected_to signin_path
+    assert_redirected_to users_path
   end
 
   # 他のユーザによるユーザ削除はできない

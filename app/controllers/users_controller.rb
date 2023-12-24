@@ -120,7 +120,7 @@ class UsersController < ApplicationController
     elsif current_user.admin?
       User.find(params[:id]).destroy
       flash[:success] = '削除に成功しました'
-      redirect_to action: :index
+      redirect_to action: :index, status: :see_other
     else
       User.find(params[:id]).destroy
       flash[:success] = '削除に成功しました'
