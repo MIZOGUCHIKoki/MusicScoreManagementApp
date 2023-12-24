@@ -123,7 +123,7 @@ class UsersController < ApplicationController
       redirect_to action: :index
     else
       User.find(params[:id]).destroy
-      flash[:success] = '削除に成功しました' 
+      flash[:success] = '削除に成功しました'
       redirect_to signin_path, status: :see_other
     end
   end
