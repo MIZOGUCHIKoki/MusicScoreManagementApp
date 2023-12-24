@@ -117,9 +117,13 @@ class UsersController < ApplicationController
     if User.find(params[:id]).admin?
       flash[:danger] = '管理者は削除できません'
       redirect_to user_path(current_user)
-    else
+    elsif current_user.admin?
       User.find(params[:id]).destroy
       flash[:success] = '削除に成功しました'
+      redirect_to action: :index
+    else
+      User.find(params[:id]).destroy
+      flash[:success] = '削除に成功しました' 
       redirect_to signin_path, status: :see_other
     end
   end

@@ -59,7 +59,11 @@ class ScoresController < ApplicationController
   def destroy
     Score.find(params[:id]).destroy
     flash[:success] = '削除に成功しました'
-    redirect_to home_path(current_user), status: :see_other
+    if current_user.admin?
+      redirect_to controller: :users, action: :index, status: :see_other
+    else
+      redirect_to home_path(current_user), status: :see_other
+    end
   end
 
   private
