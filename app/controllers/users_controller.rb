@@ -29,48 +29,52 @@ class UsersController < ApplicationController
   end
 
   # ホーム画面を表示：GET
+  # @user = User.find(params[:id]) # ユーザ特定
+  # @scores = @user.scores.all
+  #  if params.key?(:order)
+
+  #    order = if params[:order] == 'asc' # 昇順
+  #              :grate_sort_asc
+  #            elsif params[:order] == 'desc' # 降順
+  #              :grate_sort_desc
+  #            else
+  #              :all
+  #            end
+  #    @scores = @user.scores.send(order) # ソート結果格納
+  #  elsif params.key?(:name) || params.key?(:composer) || params.key?(:arranger)
+
+  # @score_params = score_search_params # score_search_paramsは検索ボックスの入力値取得メソッド
+  # @scores = Score.score_search(@score_params) # score_serchによりDBから内容取得
+
+  #  elsif !params[:use_gakki].nil?
+  #    @score_params = score_search_gakki_params
+  #    @scores = User.score_search_gakki(@score_params)
+  #  else
+  #   @scores = @user.scores.all
+  #  end
   def home
-    # @user = User.find(params[:id]) # ユーザ特定
-    # @scores = @user.scores.all
-    #  if params.key?(:order)
-
-    #    order = if params[:order] == 'asc' # 昇順
-    #              :grate_sort_asc
-    #            elsif params[:order] == 'desc' # 降順
-    #              :grate_sort_desc
-    #            else
-    #              :all
-    #            end
-    #    @scores = @user.scores.send(order) # ソート結果格納
-    #  elsif params.key?(:name) || params.key?(:composer) || params.key?(:arranger)
-
-    # @score_params = score_search_params # score_search_paramsは検索ボックスの入力値取得メソッド
-    # @scores = Score.score_search(@score_params) # score_serchによりDBから内容取得
-
-    #  elsif !params[:use_gakki].nil?
-    #    @score_params = score_search_gakki_params
-    #    @scores = User.score_search_gakki(@score_params)
-    #  else
-    #   @scores = @user.scores.all
-    #  end
     @user = User.find(params[:id]) # ユーザ特定
 
     @score_params = score_search_params
 
+    case params[:order]
+    when 'asc'
+      return @scores = @user.scores.grade_sort_asc
+    when 'desc'
+      return @scores = @user.scores.grade_sort_desc
+    when '通常'
+      return @scores = @user.scores.grade_sort_no
+    end
     # 検索ボックスへの入力があるかどうかを確認
-    @scores = if @score_params[:name].present? || @score_params[:composer].present? || @score_params[:arranger].present?
-                @user.scores.score_search(@score_params)
-              else
-                # 検索ボックスが空の場合の処理
-                @user.scores.all
-              end
+    if @score_params[:name].present? || @score_params[:composer].present? || @score_params[:arranger].present?
+
+      return @scores = @user.scores.score_search(@score_params)
+    end
 
     @score_params = score_search_gakki_params
-    @scores = if @score_params.blank?
-                @user.scores.score_search_gakki(@score_params)
-              else
-                @user.scores.all
-              end
+    return @scores = @user.scores.score_search_gakki(@score_params) if @score_params.blank?
+
+    @scores = @user.scores.all
   end
 
   # def search_box_has_input?

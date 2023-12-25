@@ -20,6 +20,13 @@
         </div>
       </div>
       <%= button_to "検索", score_path(form), {class: "search-button"} %>
+      
+      <%= link_to "ソート desc", {controller: 'users', action: 'home', order: 'desc' } %>
+      
+      <%= link_to "ソート asc",  {controller: 'users', action: 'home', order: 'asc' } %>  
+      
+      <%= link_to "ソート normal", {controller: 'users', action: 'home', order: 'normal' } %>
+
     <% end %>
     <%= form_with(scope: :score_search_gakki, method: :get, local: true, model: @score)  do |form| %>
         <div class="box">
