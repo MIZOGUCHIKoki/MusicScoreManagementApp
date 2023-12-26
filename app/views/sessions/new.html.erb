@@ -1,0 +1,15 @@
+<h1>SessionsController#new</h1>
+<div>
+  <%= form_with(url: signin_path, scope: :session) do |f| %>
+    <%= f.label :email, "Eメールアドレス" %>
+    <%= f.email_field :email %>
+    <%= f.label :password, "パスワード" %>
+    <%= f.password_field :password %>
+    <%= f.label :remember_me do %>
+      <%= f.check_box :remember_me %>
+      <span> サインイン情報を記録する </span>
+    <% end %>
+    <%= f.submit "サインイン" %>
+  <% end %>
+</div>
+<p>アカウト作成は<%= link_to "こちらから", signup_path %></p>
