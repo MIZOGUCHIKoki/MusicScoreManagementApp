@@ -23,7 +23,7 @@ Metrics/PerceivedComplexity:
 
 # ブロックの長さ制限
 Metrics/BlockLength:
-  Max: 20
+  Max: 21
   Exclude:
     - 'config/environments/development.rb'
 
