@@ -54,6 +54,7 @@
     padding: 50px;
     border: solid 3px;
     border-color: #930403;
+    background-color: #e4e4ec66;
     
  }
  .box {
@@ -67,6 +68,9 @@
   justify-content: space-around;
   display: flex;
   border-radius: 10px;
+ }
+ .hide {
+  white-space: nowrap;
  }
  
  
