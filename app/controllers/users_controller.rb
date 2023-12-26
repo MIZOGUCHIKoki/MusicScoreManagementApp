@@ -71,8 +71,9 @@ class UsersController < ApplicationController
       return @scores = @user.scores.score_search(@score_params)
     end
 
-    @score_params = score_search_gakki_params
-    return @scores = @user.scores.score_search_gakki(@score_params) if @score_params.blank?
+    # @score_params = score_search_gakki_params
+    @score_params = params[:score_search_gakki]
+    return @scores = @user.scores.score_search_gakki(@score_params) if @score_params.present?
 
     @scores = @user.scores.all
   end

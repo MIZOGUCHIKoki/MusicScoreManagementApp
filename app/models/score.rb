@@ -22,7 +22,7 @@ class Score < ApplicationRecord
   scope :grade_sort_desc, ->  { order(grade: :desc) }
   scope :grade_sort_asc, ->   { order(grade: :asc) }
   scope :score_search, lambda { |search_params|
-    return if search_params.blank?
+  return if search_params.blank?
 
     # search_paramsが存在しないもしくは中身がないときの判定
 
@@ -40,6 +40,7 @@ class Score < ApplicationRecord
   # 実引数:search_params, 仮引数:x
   # 21ブロック以上だと注意されるため，20ブロックに収めました
   scope :score_search_gakki, lambda { |search_params|
+    return if search_params.blank?
     use_piccolo(search_params[:piccolo])
       .use_c_flute(search_params[:c_flute])
       .use_oboe(search_params[:oboe])
@@ -62,7 +63,7 @@ class Score < ApplicationRecord
       .use_drums(search_params[:drums]).use_percussion(search_params[:percussion])
   }
   # 仮引数"x"は"0"か"1"である
-  # スコープの条件式 : xが"1"以上の場合に対応するカラムを取ってくる
+  # スコープの条件式 : x以上の対応するカラムを取ってくる
   scope :use_piccolo, ->(x) { where(piccolo: x..) }
   scope :use_c_flute, ->(x) { where(c_flute: x..) }
   scope :use_oboe, ->(x) { where(oboe: x..) }
