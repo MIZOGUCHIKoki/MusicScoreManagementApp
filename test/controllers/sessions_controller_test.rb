@@ -3,7 +3,9 @@
 require 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  # 'signin_path' でページを取得できるか
+  test 'should get new' do
+    get signin_path
+    assert_response :success
+  end
 end

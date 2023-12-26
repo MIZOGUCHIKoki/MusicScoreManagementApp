@@ -28,4 +28,27 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  gakki:
+    piccolo: Piccolo
+    c_flute: C Flute
+    oboe: Oboe
+    english_horn: English Horn
+    b_clarinet: B♭ Clarinet
+    e_clarinet: E♭ Clarinet
+    b_bass_clarinet: B♭ Bass Clarinet
+    bassoon: Bassoon
+    e_alto_saxophone: E♭ Alto Saxophone
+    b_tenor_saxophone: B♭ Tenor Saxophone
+    b_baritone_saxophone: B♭ Baritone Saxophone
+    b_trumpet: B♭ Trumpet'
+    f_horn: F Horn
+    trombone: Trombone
+    euphonium: Euphonium
+    tuba: Tuba
+    string_bass: String Bass
+    eb: Electric Bass
+    piano: Piano
+    harp: Harp
+    timpani: Timpani
+    drums: Drums
+    percussion: Percussion
