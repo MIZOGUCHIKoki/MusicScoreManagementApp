@@ -80,5 +80,5 @@ group :ci do
   gem 'rubocop', '1.59.0', require: false
   gem 'rubocop-performance', '1.20.1', require: false
   gem 'rubocop-rails', '2.23.1', require: false
-  gem 'rubocop-rspec', '2.25.0', require: false
+  gem 'rubocop-rspec', '2.26.0', require: false
 end
