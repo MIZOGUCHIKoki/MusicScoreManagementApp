@@ -54,27 +54,32 @@ class UsersController < ApplicationController
   #  end
   def home
     @user = User.find(params[:id]) # ユーザ特定
-
     @score_params = score_search_params
+    @score_gakki_params = score_search_gakki_params
 
     case params[:order]
     when 'asc'
-      return @scores = @user.scores.grade_sort_asc
+      searched_score_ids = session[:search_results]
+      @scores = Score.where(id: searched_score_ids)
+      return @scores = @scores.grade_sort_asc
     when 'desc'
-      return @scores = @user.scores.grade_sort_desc
-    when '通常'
-      return @scores = @user.scores.grade_sort_no
+      searched_score_ids = session[:search_results]
+      @scores = Score.where(id: searched_score_ids)
+      return @scores = @scores.grade_sort_desc
     end
+    
     # 検索ボックスへの入力があるかどうかを確認
     if @score_params[:name].present? || @score_params[:composer].present? || @score_params[:arranger].present?
-
-      return @scores = @user.scores.score_search(@score_params)
+      @scores = @user.scores.score_search(@score_params)
+      session[:search_results] = @scores.ids
+    elsif @score_gakki_params.present?
+      @scores = @user.scores.score_search_gakki(@score_gakki_params)
+      session[:search_results] = @scores.ids
+    else
+      @scores = @user.scores.all
+      session[:search_results] = @scores.ids
+      flash[:success] = '確認制御'
     end
-
-    @score_params = score_search_gakki_params
-    return @scores = @user.scores.score_search_gakki(@score_params) if @score_params.present?
-
-    @scores = @user.scores.all
   end
 
   # def search_box_has_input?
@@ -147,12 +152,10 @@ class UsersController < ApplicationController
   end
 
   def score_search_gakki_params
-    params.fetch(:score_search_gakki, {}).permit(:piccolo, :c_flute,
-                                                 :oboe, :english_horn, :b_clarinet, :e_clarinet,
-                                                 :b_bass_clarinet, :bassoon, :e_alto_saxophone,
-                                                 :b_tenor_saxophone, :b_baritone_saxophone,
-                                                 :b_trumpet, :f_horn, :trombone, :euphonium,
-                                                 :tuba, :string_bass, :eb,
+    params.fetch(:score_search_gakki, {}).permit(:piccolo, :c_flute, :oboe, :english_horn, :b_clarinet,
+                                                 :e_clarinet, :b_bass_clarinet, :bassoon, :e_alto_saxophone,
+                                                 :b_tenor_saxophone, :b_baritone_saxophone, :b_trumpet,
+                                                 :f_horn, :trombone, :euphonium, :tuba, :string_bass, :eb,
                                                  :piano, :harp, :timpani, :drums, :percussion)
   end
 
