@@ -28,30 +28,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # ホーム画面を表示：GET
-  # @user = User.find(params[:id]) # ユーザ特定
-  # @scores = @user.scores.all
-  #  if params.key?(:order)
-
-  #    order = if params[:order] == 'asc' # 昇順
-  #              :grate_sort_asc
-  #            elsif params[:order] == 'desc' # 降順
-  #              :grate_sort_desc
-  #            else
-  #              :all
-  #            end
-  #    @scores = @user.scores.send(order) # ソート結果格納
-  #  elsif params.key?(:name) || params.key?(:composer) || params.key?(:arranger)
-
-  # @score_params = score_search_params # score_search_paramsは検索ボックスの入力値取得メソッド
-  # @scores = Score.score_search(@score_params) # score_serchによりDBから内容取得
-
-  #  elsif !params[:use_gakki].nil?
-  #    @score_params = score_search_gakki_params
-  #    @scores = User.score_search_gakki(@score_params)
-  #  else
-  #   @scores = @user.scores.all
-  #  end
   def home
     @user = User.find(params[:id]) # ユーザ特定
     @score_params = score_search_params
@@ -67,7 +43,7 @@ class UsersController < ApplicationController
       @scores = Score.where(id: searched_score_ids)
       return @scores = @scores.grade_sort_desc
     end
-    
+
     # 検索ボックスへの入力があるかどうかを確認
     if @score_params[:name].present? || @score_params[:composer].present? || @score_params[:arranger].present?
       @scores = @user.scores.score_search(@score_params)
@@ -81,11 +57,6 @@ class UsersController < ApplicationController
       flash[:success] = '確認制御'
     end
   end
-
-  # def search_box_has_input?
-  #   # 検索ボックスに入力があるかどうかを確認するメソッド
-  #   !@score_params[:name].blank?
-  # end
 
   # 編集画面を表示：GET
   def edit
