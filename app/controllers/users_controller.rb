@@ -45,17 +45,16 @@ class UsersController < ApplicationController
     end
 
     # 検索ボックスへの入力があるかどうかを確認
-    if @score_params[:name].present? || @score_params[:composer].present? || @score_params[:arranger].present?
-      @scores = @user.scores.score_search(@score_params)
-      session[:search_results] = @scores.ids
-    elsif @score_gakki_params.present?
-      @scores = @user.scores.score_search_gakki(@score_gakki_params)
-      session[:search_results] = @scores.ids
-    else
-      @scores = @user.scores.all
-      session[:search_results] = @scores.ids
-      flash[:success] = '確認制御'
-    end
+    @scores = if @score_params[:name].present? || @score_params[:composer].present? || @score_params[:arranger].present?
+                @user.scores.score_search(@score_params)
+              elsif @score_gakki_params.present?
+                @user.scores.score_search_gakki(@score_gakki_params)
+
+              else
+                @user.scores.all
+
+              end
+    session[:search_results] = @scores.ids
   end
 
   # 編集画面を表示：GET
