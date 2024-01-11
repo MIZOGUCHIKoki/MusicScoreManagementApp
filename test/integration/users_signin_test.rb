@@ -57,7 +57,7 @@ class ValidSigninTest < UsersSignin
     assert_template 'users/home'
     assert_select 'a[href=?]', signin_path, count: 0
     assert_select 'a[href=?]', signout_path, count: 1
-    assert_select 'a[href=?]', home_path(@other), count: 1
+    assert_select 'a[href=?]', home_path(@other), count: 2
     delete signout_path
     assert_not signed_in?
     assert_response :see_other # 303レスポンス
