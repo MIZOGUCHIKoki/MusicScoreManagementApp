@@ -19,10 +19,9 @@
         <%= form.text_field :grade, value: @score.grade %>
       </div>
       <div class="box">
-        <%= form.label :m_time, "演奏時間" %>
+        <%= form.label :m_time, "演奏時間（秒）" %>
         <%= form.text_field :m_time, value: @score.m_time %>
       </div>
-
       <div class="edit-field">
         <div class = "box">
           <%= form.label :piccolo, t('gakki.piccoro') %>
@@ -41,7 +40,6 @@
           <%= form.text_field :english_horn, :size=>"2" %>
         </div>
       </div>
-      
       <div class="edit-field">
         <div class = "box">
           <%= form.label :e_clarinet, t('gakki.e_clarinet') %>
@@ -60,7 +58,6 @@
           <%= form.text_field :bassoon, :size=>"2" %>
         </div>
       </div>
-
       <div class="edit-field">
         <div class = "box">
           <%= form.label :e_alto_saxophone, t('gakki.e_alto_saxophone') %>
@@ -79,7 +76,6 @@
           <%= form.text_field :b_trumpet, :size=>"2" %>
         </div>
       </div>
-
       <div class="edit-field">
         <div class = "box">
           <%= form.label :f_horn, t('gakki.f_horn') %>
@@ -98,7 +94,6 @@
           <%= form.text_field :tuba, :size=>"2" %>
         </div>
       </div>
-
       <div class="edit-field">
         <div class = "box">
           <%= form.label :eb, t('gakki.eb') %>
@@ -117,7 +112,6 @@
           <%= form.text_field :harp, :size=>"2" %>
         </div>
       </div>
-
       <div class="edit-field">
         <div class = "box">
           <%= form.label :timpani, t('gakki.timpani') %>
