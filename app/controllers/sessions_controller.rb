@@ -5,7 +5,11 @@ class SessionsController < ApplicationController
   def new
     return unless signed_in?
 
-    redirect_to current_user
+    if current_user.admin?
+      redirect_to users_path
+    else
+      redirect_to home_path(current_user)
+    end
   end
 
   # 作成を実行：POST（サインイン）
