@@ -1,0 +1,16 @@
+\documentclass{reviewSheet}
+\dateTime{2024/11/14}
+\room{online}
+\groupName{dir-en-gray}
+\author{溝口 洸熙}
+\object{ソースコードレビュー}
+\member{1250297,1250352,1250341,1250372,1250373,1250382,1250385}
+\input{member.tex}
+\begin{document}
+\begin{rev}
+	1&R &- &\texttt{views/users/show.html.erb}の戻るボタンを削除しても問題ない & &&\naka & \texttt{views/users/show.html.erb}の戻るボタンを削除 & 2024/1/13&\naka & 2024/1/13\bk
+	2&C &- &使用楽器について入力フォームおよびチェックボックスの配置がレイアウト外となっている &&& \mika & 気になる場合は配置の修正をする & 2024/1/13 & \yamat & 2024/1/13\bk
+	3&C &- &before\_action に記載されているメソッドを再定義しているが，これは必要か？ &&& \mizo & 不要な条件分岐は削除する方向で & 2024/1/13	&\mizo &2024/1/13\bk
+	4&C &- &障害の通番8と32の対処法が同様で障害処理票の内容が同じなので1つでよいのではないか？ &&& \tana & 対処の部分に障害処理票で同様のものを参照する旨を記載して，1つのみにする． & 2024/1/13 & \tana &2024/1/13\bk
+\end{rev}
+\end{document}
