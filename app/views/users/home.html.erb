@@ -40,7 +40,7 @@
                     <%= form.check_box :e_clarinet %><%= t('gakki.e_clarinet') %>
                     <%= form.check_box :b_clarinet %><%= t('gakki.b_clarinet') %>
                     <%= form.check_box :b_bass_clarinet %><%= t('gakki.b_bass_clarinet') %>
-                    <%= form.check_box :bassoon %><%= t('gakki.bassoon') %>
+                    <%= form.check_box :bassoon %><%= t('gakki.bassoon') %><br>
                     <%= form.check_box :e_alto_saxophone %><%= t('gakki.e_alto_saxophone') %>
                     <%= form.check_box :b_tenor_saxophone %><%= t('gakki.b_tenor_saxophone') %>
                     <%= form.check_box :b_baritone_saxophone %><%= t('gakki.b_baritone_saxophone') %>
@@ -55,8 +55,10 @@
                     <%= form.check_box :harp %><%= t('gakki.harp') %>
                     <%= form.check_box :timpani %><%= t('gakki.timpani') %>
                     <%= form.check_box :drums %><%= t('gakki.drums') %>
-                    <%= form.check_box :percussion %><%= t('gakki.percussion') %>
+                    <%= form.check_box :percussion %><%= t('gakki.percussion') %><br>
+                    <div class="center">
                     <%= button_to "使用楽器から検索", score_path(form), {class: "search-button"} %>
+                    </div>
                   </div>
                   </div>
               </div>
