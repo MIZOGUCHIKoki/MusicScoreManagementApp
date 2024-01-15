@@ -8,18 +8,5 @@ Rails.application.routes.draw do
   get 'up' => 'rails/health#show', as: :rails_health_check
 
   # Defines the root path route ("/")
-
-  get 'help' => 'static_pages#help'
-  get 'release_note' => 'static_pages#release_note'
-  get 'signup' => 'users#new'
-  get 'signin' => 'sessions#new'
-  post 'signin' => 'sessions#create'
-  delete 'signout' => 'sessions#destroy'
-
-  resources :users
-  resources :scores
-
-  get 'home/:id' => 'users#home', as: 'home'
-  get 'home' => 'users#home', as: 'homeb'
-  root 'sessions#new'
+  # root "posts#index"
 end
