@@ -50,7 +50,7 @@ gem 'sassc-rails'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem 'faker', '3.2.2'
+gem 'faker', '3.2.3'
 gem 'whenever', '1.0.0'
 gem 'will_paginate', '3.3.1'
 group :development, :test do
