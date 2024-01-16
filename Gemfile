@@ -52,7 +52,7 @@ gem 'sassc-rails'
 
 gem 'faker', '3.2.3'
 gem 'whenever', '1.0.0'
-gem 'will_paginate', '3.3.1'
+gem 'will_paginate', '4.0.0'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'bootstrap-will_paginate', '1.0.0'
