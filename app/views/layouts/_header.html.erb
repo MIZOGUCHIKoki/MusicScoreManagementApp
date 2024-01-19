@@ -1,4 +1,19 @@
 <div class="header">
+<!--広告-->
+<div class="adsence-field">
+  <div class="flex-field">
+    <div class="img-field">
+      <img src="/assets/example.jpg" class="img-item">
+    </div>
+    <div class="img-field">
+      <img src="/assets/example.jpg" class="img-item">
+    </div>
+    <div class="img-field">
+      <img src="/assets/example.jpg" class="img-item">
+    </div>
+  </div>
+
+  <div class="header-field">
   <% if signed_in? %>
     <% if current_user.admin %>
         <div class="item"><%= link_to "ユーザ一覧", users_path, class: "none-border"%></div>
@@ -13,3 +28,5 @@
         <% end %>
     </div>
     <hr>
+  </div>
+</div>

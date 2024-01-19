@@ -120,7 +120,7 @@
  }
 
  /*header*/
- .header {
+ .header-field {
   justify-content: space-around;
    display: flex;
    width: auto;
@@ -129,6 +129,20 @@
    align-items: center;
    border-radius: 10px;
  }
+ .adsence-field {
+  justify-content: space-around;
+  display: block;
+  margin: 0 auto;
+  padding: 20px;
+}
+.img-field {
+  width: 33%;
+}
+.img-item {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
 
  /*footer*/
  .footer {
