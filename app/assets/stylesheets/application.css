@@ -194,3 +194,12 @@
  #hide:checked+label+.hide-and-seek {
     display: block;
  }
+
+ /* styles.css（または適切なファイルに） */
+.scrollable-container {
+  max-height: 200px; /* 適切な高さに調整 */
+  overflow-y: auto;
+  border: 1px solid #ccc; /* スクロールバーが表示されるようにボーダーを追加 */
+  padding: 10px; /* 適切な余白を設定 */
+}
+
