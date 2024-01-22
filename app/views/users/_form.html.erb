@@ -15,10 +15,6 @@
         <%= form.password_field :password_confirmation, placeholder: "再確認", class: "text-field" %>
       </div>
       <div class="box">
-        <%= form.check_box :accept_terms %>
-        <%= form.label :accept_terms, "利用規約に同意する" %>
-      </div>
-      <div class="box">
         <%= form.submit yield(:button_text), class: yield(:button_class) %>
       </div>
     </div>
