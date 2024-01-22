@@ -1,31 +1,30 @@
 <div class="header">
-<!--広告-->
-<div class="adsence-field">
-  <div class="flex-field">
-    <div class="img-field">
-      <img src="/assets/example.jpg" class="img-item">
+  <!--広告-->
+  <div class="adsence-field">
+    <div class="flex-field">
+      <div class="img-field">
+        <img src="../../assets/example.jpg" class="img-item">
+      </div>
+      <div class="img-field">
+        <img src="../../assets/example.jpg" class="img-item">
+      </div>
+      <div class="img-field">
+        <img src="../../assets/example.jpg" class="img-item">
+      </div>
     </div>
-    <div class="img-field">
-      <img src="/assets/example.jpg" class="img-item">
-    </div>
-    <div class="img-field">
-      <img src="/assets/example.jpg" class="img-item">
-    </div>
-  </div>
-
-  <div class="header-field">
-  <% if signed_in? %>
-    <% if current_user.admin %>
-        <div class="item"><%= link_to "ユーザ一覧", users_path, class: "none-border"%></div>
-        <div class="item"><%= link_to "管理者の情報", user_path(current_user), class: "none-border" %></div>
+    <div class="header-field">
+      <% if signed_in? %>
+        <% if current_user.admin %>
+          <div class="item"><%= link_to "ユーザ一覧", users_path, class: "none-border"%></div>
+          <div class="item"><%= link_to "管理者の情報", user_path(current_user), class: "none-border" %></div>
         <% else %>
           <div class="item"><%= link_to "楽譜一覧", home_path(current_user), class: "none-border" %></div>
           <div class="item"><%= link_to "ユーザ情報", user_path(current_user), class: "none-border" %></div>
         <% end %>
         <div class="item"><%= link_to "ログアウト", signout_path , data:{ "turbo-method": :delete }, class: "none-border" %></div>
-        <% else %>
-          <div class="item"><%= link_to "サインイン", signin_path, class: "none-border" %></div>
-        <% end %>
+      <% else %>
+        <div class="item"><%= link_to "サインイン", signin_path, class: "none-border" %></div>
+      <% end %>
     </div>
     <hr>
   </div>
