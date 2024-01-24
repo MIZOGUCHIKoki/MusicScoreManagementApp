@@ -37,4 +37,3 @@ users.each do |user|
                       drums: 1,
                       percussion: 1)
 end
-
