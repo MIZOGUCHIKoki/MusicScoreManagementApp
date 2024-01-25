@@ -1,9 +1,8 @@
 [![Ruby on Rails CI](https://github.com/MIZOGUCHIKoki/MusicScoreManagementApp/actions/workflows/rubyonrails.yml/badge.svg)](https://github.com/MIZOGUCHIKoki/MusicScoreManagementApp/actions/workflows/rubyonrails.yml)
 [![TextLint](https://github.com/MIZOGUCHIKoki/MusicScoreManagementApp/actions/workflows/textlint.yml/badge.svg)](https://github.com/MIZOGUCHIKoki/MusicScoreManagementApp/actions/workflows/textlint.yml)
 
-# Software Engineering 2023 Group4! ([Development documents](https://www.notion.so/kut-se-group4/dir-en-gray-789a9c3b505e4ac3994a1478477590f0?pvs=4))
-We are **dir-en-gray** in Kochi University of Technology.
-Our documents are 
+# Software Engineering 2023 Group4! ([documents](https://www.notion.so/kut-se-group4/dir-en-gray-789a9c3b505e4ac3994a1478477590f0?pvs=4))
+We are **dir-en-gray** in Kochi University of Technology. 
 
 ## 👤Contributors
 - [OKUHIRA Shunri](https://github.com/OkuhiraShunri)
